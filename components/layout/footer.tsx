@@ -11,12 +11,12 @@ import {
 } from "lucide-react"
 
 const serviceLinks = [
-  { label: "Performance Upgrades", href: "/services" },
-  { label: "Computer Diagnostics", href: "/services" },
-  { label: "Brake Service", href: "/services" },
-  { label: "AC Service", href: "/services" },
-  { label: "Lube, Oil & Filters", href: "/services" },
-  { label: "Engine Diagnostics", href: "/services" },
+  { label: "Performance Upgrades ($500+)", href: "/services" },
+  { label: "Computer Diagnostics ($100+)", href: "/services" },
+  { label: "Brake Service ($150+)", href: "/services" },
+  { label: "AC Service ($120+)", href: "/services" },
+  { label: "Lube, Oil & Filters ($60+)", href: "/services" },
+  { label: "Engine Diagnostics ($150+)", href: "/services" },
 ]
 
 const quickLinks = [

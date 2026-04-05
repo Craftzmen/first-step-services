@@ -110,7 +110,7 @@ export function Navbar() {
             height={40}
             className={cn(
               "h-10 w-auto transition-all duration-300 md:h-14",
-              scrolled && "brightness-100 invert grayscale-100"
+              scrolled && "brightness-100 invert grayscale-100 dark:invert dark:grayscale-0 dark:brightness-[unset]"
             )}
             priority
           />

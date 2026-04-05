@@ -10,36 +10,42 @@ const services = [
     title: "Performance Upgrades",
     desc: "Unlock your vehicle's full potential with expert performance tuning, engine modifications, and power upgrades designed to boost speed and efficiency.",
     image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=600",
+    price: "$500 - $5,000+",
   },
   {
     icon: CpuIcon,
     title: "Computer Diagnostics",
     desc: "State-of-the-art OBD-II diagnostics and electronic system analysis to pinpoint issues with unmatched accuracy. Fast, reliable, and thorough.",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=600",
+    price: "$100 - $250",
   },
   {
     icon: ShieldCheckIcon,
     title: "Anti-Lock Brake Service",
     desc: "Comprehensive brake system inspection, pad replacement, rotor resurfacing, and ABS module diagnostics to keep you safe on every road.",
     image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=600",
+    price: "$150 - $450",
   },
   {
     icon: WindIcon,
     title: "Air Conditioning Evac & Recharge",
     desc: "Complete AC system evacuation, leak detection, refrigerant recharge, and climate control repair for year-round cabin comfort.",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=600",
+    price: "$120 - $350",
   },
   {
     icon: DropletIcon,
     title: "Lube, Oil & Filters",
     desc: "Routine oil changes, filter replacements, and lubrication services using premium products to maximize engine longevity and performance.",
     image: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&q=80&w=600",
+    price: "$60 - $120",
   },
   {
     icon: WrenchIcon,
     title: "Engine Diagnostics",
     desc: "Deep engine analysis — from compression tests to timing checks. Our certified mechanics identify and resolve complex engine issues.",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=600",
+    price: "$150 - $400",
   },
 ]
 
@@ -81,12 +87,17 @@ export function ServicesGrid() {
                 </div>
               </div>
               <div className="flex-1 px-6 pt-8">
-                <h3 className="mb-3 text-xl font-bold text-foreground">{svc.title}</h3>
-                <p className="text-base text-muted-foreground">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-xl font-bold text-foreground">{svc.title}</h3>
+                </div>
+                <p className="text-base text-muted-foreground mb-4">
                   {svc.desc}
                 </p>
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-amber/10 px-3 py-1 font-bold text-amber">
+                  Price: {svc.price}
+                </div>
               </div>
-              <div className="px-6 mt-6">
+              <div className="px-6 mt-6 border-t border-border pt-6">
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-sm font-bold text-navy dark:text-white uppercase tracking-wider group-hover:text-amber transition-colors"

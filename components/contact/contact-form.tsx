@@ -62,12 +62,12 @@ export function ContactForm() {
               </SelectTrigger>
               <SelectContent className="rounded-none border-border">
                 <SelectGroup>
-                  <SelectItem value="diagnostics">Engine Diagnostics</SelectItem>
-                  <SelectItem value="oil">Lube, Oil & Filters</SelectItem>
-                  <SelectItem value="ac">Air Conditioning</SelectItem>
-                  <SelectItem value="brakes">Brake Service</SelectItem>
-                  <SelectItem value="performance">Performance Upgrades</SelectItem>
-                  <SelectItem value="computer">Computer Diagnostics</SelectItem>
+                  <SelectItem value="diagnostics">Engine Diagnostics ($150 - $400)</SelectItem>
+                  <SelectItem value="oil">Lube, Oil & Filters ($60 - $120)</SelectItem>
+                  <SelectItem value="ac">Air Conditioning ($120 - $350)</SelectItem>
+                  <SelectItem value="brakes">Brake Service ($150 - $450)</SelectItem>
+                  <SelectItem value="performance">Performance Upgrades ($500 - $5,000+)</SelectItem>
+                  <SelectItem value="computer">Computer Diagnostics ($100 - $250)</SelectItem>
                   <SelectItem value="other">Other</SelectItem>
                 </SelectGroup>
               </SelectContent>
