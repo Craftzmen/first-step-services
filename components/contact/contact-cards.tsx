@@ -13,9 +13,9 @@ const contactCards = [
   {
     icon: PhoneIcon,
     title: "Call Us",
-    primary: "(888) 396-8739",
+    primary: "(888) 286-8307",
     secondary: "24/7 Available",
-    href: "tel:+18883968739",
+    href: "tel:+18882868307",
   },
   {
     icon: MailIcon,

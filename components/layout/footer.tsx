@@ -135,11 +135,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="tel:+18883968739"
+                  href="tel:+18882868307"
                   className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-amber"
                 >
                   <PhoneIcon className="size-4 shrink-0 text-amber" />
-                  (888) 396-8739
+                  (888) 286-8307
                 </Link>
               </li>
               <li>

@@ -35,7 +35,7 @@ export function AboutCta() {
                 size="lg"
                 className="rounded-none border-2 border-white bg-transparent px-8 py-6 text-base text-white hover:bg-white hover:text-navy"
               >
-                <Link href="tel:+18883968739">Call Us Now</Link>
+                <Link href="tel:+18882868307">Call Us Now</Link>
               </Button>
             </div>
           </div>

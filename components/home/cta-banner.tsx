@@ -30,9 +30,9 @@ export function CtaBanner() {
               size="lg"
               className="rounded-none bg-amber px-10 py-7 text-lg text-navy font-bold hover:bg-amber-light w-full sm:w-auto"
             >
-              <Link href="tel:+18883968739">
+              <Link href="tel:+18882868307">
                 <PhoneIcon className="mr-3 size-5" />
-                (888) 396-8739
+                (888) 286-8307
               </Link>
             </Button>
             <Button

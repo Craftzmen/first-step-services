@@ -69,10 +69,10 @@ export function FinancePopup() {
 
             <div className="space-y-4">
               <a
-                href="tel:8883968739"
+                href="tel:8882868307"
                 className="group relative flex items-center justify-between bg-amber px-8 py-5 text-white hover:text-navy font-black text-xl transition-all duration-300 hover:bg-white hover:pl-10"
               >
-                <span className="uppercase tracking-tighter">(888) 396-8739</span>
+                <span className="uppercase tracking-tighter">(888) 286-8307</span>
                 <Phone size={24} className="group-hover:rotate-12 transition-transform" />
               </a>
 
