@@ -37,6 +37,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { FinancePopup } from "@/components/finance/finance-popup"
+
 export default function FinancePage() {
   return (
     <>
@@ -53,6 +55,7 @@ export default function FinancePage() {
       <FinanceBenefits />
       <FinanceTestimonials />
       <FinanceCta />
+      <FinancePopup />
     </>
   )
 }
