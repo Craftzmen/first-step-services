@@ -73,30 +73,30 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "border-b border-white/10 transition-all duration-300 overflow-hidden bg-navy dark:bg-navy/95",
+          "border-b border-white/10 transition-all duration-300 overflow-hidden bg-primary dark:bg-primary/95",
           "max-h-40 md:max-h-12 opacity-100"
         )}
       >
         <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-2 px-5 py-2 text-[10px] sm:text-xs md:flex-row md:justify-between md:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white/80 md:justify-start md:gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white md:justify-start md:gap-5">
             <Link
               href="tel:+18883968739"
               title="Call (888) 396-8739"
-              className="flex items-center gap-1.5 transition-colors hover:text-amber"
+              className="flex items-center gap-1.5 transition-colors hover:text-white/80 text-sm md:text-xs font-bold md:font-medium"
             >
-              <PhoneIcon className="size-3" />
+              <PhoneIcon className="size-4 md:size-3" />
               Call (888) 396-8739
             </Link>
-            <span className="hidden text-white/30 sm:inline">|</span>
+            <span className="hidden text-white/30 md:inline">|</span>
             <Link
               href="mailto:query@primeautodeals.tech"
-              className="flex items-center gap-1.5 transition-colors hover:text-amber"
+              className="hidden md:flex items-center gap-1.5 transition-colors hover:text-white/80"
             >
               <MailIcon className="size-3" />
               query@primeautodeals.tech
             </Link>
           </div>
-          <span className="text-white/60 text-center md:text-right font-medium">
+          <span className="hidden md:block text-white/90 text-center md:text-right font-medium">
             Monday to Saturday: 8:00 AM – 6:00 PM
           </span>
         </div>
@@ -182,6 +182,22 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Button
             asChild
+            variant="ghost"
+            size="icon"
+            className={cn(
+              "lg:hidden rounded-full border-2 transition-all duration-300",
+              scrolled
+                ? "border-primary text-primary hover:bg-primary/10"
+                : "border-white text-white hover:bg-white/10"
+            )}
+          >
+            <Link href="tel:+18883968739" title="Call (888) 396-8739">
+              <PhoneIcon className="size-5" />
+            </Link>
+          </Button>
+
+          <Button
+            asChild
             size={'lg'}
             className="hidden bg-amber text-white font-semibold hover:bg-amber-light sm:inline-flex"
           >
@@ -192,10 +208,12 @@ export function Navbar() {
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
-                size="icon-sm"
+                size="icon"
                 className={cn(
-                  "lg:hidden",
-                  scrolled ? "text-foreground" : "text-white"
+                  "lg:hidden rounded-full border-2 transition-all duration-300",
+                  scrolled
+                    ? "border-primary text-primary hover:bg-primary/10"
+                    : "border-white text-white hover:bg-white/10"
                 )}
               >
                 <MenuIcon className="size-5" />
