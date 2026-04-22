@@ -81,10 +81,11 @@ export function Navbar() {
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white/70 md:justify-start md:gap-5">
             <Link
               href="tel:+18883968739"
+              title="Call (888) 396-8739"
               className="flex items-center gap-1.5 transition-colors hover:text-amber"
             >
               <PhoneIcon className="size-3" />
-              (888) 396-8739
+              Call (888) 396-8739
             </Link>
             <span className="hidden text-white/30 sm:inline">|</span>
             <Link
@@ -184,7 +185,7 @@ export function Navbar() {
             size={'lg'}
             className="hidden bg-amber text-white font-semibold hover:bg-amber-light sm:inline-flex"
           >
-            <Link href="tel:+18883968739">Get a Quote</Link>
+            <Link href="tel:+18883968739" title="Call (888) 396-8739">Get a Quote</Link>
           </Button>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -253,9 +254,9 @@ export function Navbar() {
                     asChild
                     className="w-full rounded-full bg-amber text-navy font-semibold hover:bg-amber-light"
                   >
-                    <Link href="tel:+18883968739">
+                    <Link href="tel:+18883968739" title="Call (888) 396-8739">
                       <PhoneIcon className="size-4" />
-                      (888) 396-8739
+                      Call (888) 396-8739
                     </Link>
                   </Button>
                 </div>

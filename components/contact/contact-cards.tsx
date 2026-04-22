@@ -13,9 +13,10 @@ const contactCards = [
   {
     icon: PhoneIcon,
     title: "Call Us",
-    primary: "(888) 396-8739",
+    primary: "Call (888) 396-8739",
     secondary: "24/7 Available",
     href: "tel:+18883968739",
+    titleAttr: "Call (888) 396-8739",
   },
   {
     icon: MailIcon,
@@ -23,6 +24,7 @@ const contactCards = [
     primary: "query@primeautodeals.tech",
     secondary: "We reply within 24 hours",
     href: "mailto:query@primeautodeals.tech",
+    titleAttr: "Email us at query@primeautodeals.tech",
   },
 ]
 
@@ -40,6 +42,7 @@ export function ContactCards() {
               {card.href ? (
                 <Link
                   href={card.href}
+                  title={card.titleAttr}
                   className="text-lg font-bold text-amber transition-colors hover:text-amber-dark"
                 >
                   {card.primary}

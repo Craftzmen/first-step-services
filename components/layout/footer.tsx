@@ -136,10 +136,11 @@ export function Footer() {
               <li>
                 <Link
                   href="tel:+18883968739"
+                  title="Call (888) 396-8739"
                   className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-amber"
                 >
                   <PhoneIcon className="size-4 shrink-0 text-amber" />
-                  (888) 396-8739
+                  Call (888) 396-8739
                 </Link>
               </li>
               <li>

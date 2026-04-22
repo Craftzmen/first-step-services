@@ -24,7 +24,7 @@ export function FinanceCta() {
                 size="lg"
                 className="rounded-none bg-amber px-8 py-6 text-base text-navy font-bold hover:bg-amber-light"
               >
-                <Link href="tel:+18883968739">
+                <Link href="tel:+18883968739" title="Call (888) 396-8739">
                   <PhoneIcon className="mr-2 size-5" />
                   Speak to an Advisor
                 </Link>

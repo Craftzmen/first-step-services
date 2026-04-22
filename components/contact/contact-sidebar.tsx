@@ -75,7 +75,7 @@ export function ContactSidebar() {
               asChild
               className="w-full h-14 rounded-none bg-amber text-base text-navy font-bold hover:bg-amber-light"
             >
-              <Link href="tel:+18883968739">(888) 396-8739</Link>
+              <Link href="tel:+18883968739" title="Call (888) 396-8739">Call (888) 396-8739</Link>
             </Button>
           </div>
         </div>
