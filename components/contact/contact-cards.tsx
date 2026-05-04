@@ -31,35 +31,27 @@ const contactCards = [
 export function ContactCards() {
   return (
     <SectionWrapper id="contact-hubs" className="relative overflow-hidden">
-      {/* Decorative Watermark */}
-      <div className="absolute -left-20 top-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none select-none">
-        <span className="text-[15rem] font-black tracking-tighter leading-none uppercase">Direct</span>
+      <div className="pointer-events-none absolute -left-10 top-0 select-none opacity-[0.04] dark:opacity-[0.06]">
+        <span className="text-7xl font-bold uppercase leading-none tracking-tighter md:text-9xl">Direct</span>
       </div>
 
-      <div className="grid gap-10 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3">
         {contactCards.map((card, i) => (
           <ScrollReveal key={card.title} delay={i * 100} direction="up">
-            <div className="group relative h-full overflow-hidden rounded-[3rem] bg-white p-12 dark:bg-navy-light shadow-xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-4 md:hover:shadow-2xl">
-              <div className="mb-10 flex size-20 items-center justify-center rounded-[2rem] bg-navy text-white transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:rotate-6">
-                <card.icon className="size-8" />
+            <div className="relative h-full overflow-hidden rounded-2xl border border-navy/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-navy-light md:p-8">
+              <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-navy text-white">
+                <card.icon className="size-7" />
               </div>
-              <h3 className="mb-6 text-2xl font-black uppercase tracking-tight text-navy/40 dark:text-white/40">{card.title}</h3>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{card.title}</h3>
               {card.href ? (
-                <Link
-                  href={card.href}
-                  title={card.titleAttr}
-                  className="text-2xl font-black text-navy dark:text-white transition-colors hover:text-amber"
-                >
+                <Link href={card.href} title={card.titleAttr} className="text-lg font-bold text-navy hover:text-amber dark:text-white dark:hover:text-amber">
                   {card.primary}
                 </Link>
               ) : (
-                <p className="text-2xl font-black text-navy dark:text-white">{card.primary}</p>
+                <p className="text-lg font-bold text-navy dark:text-white">{card.primary}</p>
               )}
-              <p className="mt-4 text-base text-muted-foreground font-medium">
-                {card.secondary}
-              </p>
-              {/* Decorative Accent */}
-              <div className="absolute bottom-10 right-10 text-6xl font-black text-navy/[0.02] dark:text-white/[0.03] select-none pointer-events-none">
+              <p className="mt-3 text-sm text-muted-foreground">{card.secondary}</p>
+              <div className="pointer-events-none absolute bottom-6 right-6 select-none text-3xl font-bold text-navy/[0.04] dark:text-white/[0.06]">
                 0{i + 1}
               </div>
             </div>

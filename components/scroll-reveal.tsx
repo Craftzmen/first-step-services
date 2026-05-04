@@ -1,37 +1,29 @@
-import type { ReactNode } from "react"
+import type { ComponentPropsWithoutRef, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-interface ScrollRevealProps {
+type ScrollRevealProps = ComponentPropsWithoutRef<"div"> & {
   children: ReactNode
+  /** @deprecated No-op; animations removed */
   direction?: "up" | "left" | "right" | "fade" | "scale"
+  /** @deprecated No-op; animations removed */
   delay?: number
-  className?: string
+  /** @deprecated No-op; animations removed */
   threshold?: number
 }
 
 export function ScrollReveal({
   children,
-  direction = "up",
-  delay = 0,
-  className = "",
+  className,
+  direction: _direction,
+  delay: _delay,
+  threshold: _threshold,
+  ...rest
 }: ScrollRevealProps) {
-  const animationClass = {
-    up: "animate-fade-in-up",
-    left: "animate-fade-in-left",
-    right: "animate-fade-in-right",
-    fade: "animate-fade-in",
-    scale: "animate-scale-in",
-  }[direction]
-
+  void _direction
+  void _delay
+  void _threshold
   return (
-    <div
-      className={cn(
-        className,
-        animationClass,
-        "motion-reduce:animate-none motion-reduce:opacity-100 max-md:animate-none max-md:opacity-100"
-      )}
-      style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
-    >
+    <div className={cn(className)} {...rest}>
       {children}
     </div>
   )

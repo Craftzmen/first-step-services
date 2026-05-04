@@ -15,26 +15,23 @@ const hours = [
 
 export function ContactSidebar() {
   return (
-    <div className="space-y-10 lg:col-span-2">
-      {/* Working hours card */}
+    <div className="space-y-8 lg:col-span-2">
       <ScrollReveal direction="right">
-        <div className="rounded-[3rem] bg-white p-10 dark:bg-navy-light shadow-xl">
-          <div className="mb-10 flex items-center gap-4">
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-navy text-white shadow-xl">
-              <ClockIcon className="size-6" />
+        <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-navy-light md:p-8">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex size-12 items-center justify-center rounded-xl bg-navy text-white">
+              <ClockIcon className="size-5" />
             </div>
-            <h3 className="text-2xl font-black tracking-tight text-navy dark:text-white">Active Windows</h3>
+            <h3 className="text-lg font-bold tracking-tight text-navy dark:text-white">Active Windows</h3>
           </div>
-          <ul className="space-y-4">
+          <ul className="space-y-3">
             {hours.map((h) => (
               <li
                 key={h.day}
-                className="flex items-center justify-between border-b border-navy/5 dark:border-white/5 pb-4 last:border-0 last:pb-0"
+                className="flex items-center justify-between border-b border-navy/10 pb-3 last:border-0 last:pb-0 dark:border-white/10"
               >
-                <span className="text-sm font-black uppercase tracking-widest text-navy/40 dark:text-white/40">{h.day}</span>
-                <span
-                  className={`text-sm font-black uppercase tracking-widest ${h.time === "Closed" ? "text-rose-500" : "text-amber"}`}
-                >
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{h.day}</span>
+                <span className={`text-xs font-semibold uppercase tracking-wide ${h.time === "Closed" ? "text-rose-500" : "text-amber"}`}>
                   {h.time}
                 </span>
               </li>
@@ -43,11 +40,10 @@ export function ContactSidebar() {
         </div>
       </ScrollReveal>
 
-      {/* Social links card */}
       <ScrollReveal direction="right" delay={150}>
-        <div className="rounded-[3rem] bg-white p-10 dark:bg-navy-light shadow-xl">
-          <h3 className="mb-10 text-2xl font-black tracking-tight text-navy dark:text-white">Connection Nodes</h3>
-          <div className="flex flex-wrap gap-4">
+        <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-navy-light md:p-8">
+          <h3 className="mb-6 text-lg font-bold tracking-tight text-navy dark:text-white">Connection Nodes</h3>
+          <div className="flex flex-wrap gap-3">
             {[
               { icon: GlobeIcon, label: "Facebook" },
               { icon: MessageCircleIcon, label: "Twitter" },
@@ -57,33 +53,24 @@ export function ContactSidebar() {
                 key={label}
                 href="#"
                 aria-label={label}
-                className="group flex size-20 items-center justify-center rounded-[1.5rem] bg-navy text-white transition-all duration-500 hover:bg-amber hover:text-navy hover:-rotate-6 hover:scale-110"
+                className="flex size-14 items-center justify-center rounded-xl bg-navy text-white hover:bg-amber hover:text-navy"
               >
-                <Icon className="size-8" />
+                <Icon className="size-6" />
               </Link>
             ))}
           </div>
         </div>
       </ScrollReveal>
 
-      {/* Emergency card */}
       <ScrollReveal direction="right" delay={250}>
-        <div className="group relative overflow-hidden rounded-[3rem] bg-amber p-10 shadow-2xl transition-all duration-700 hover:rotate-1">
-          {/* Decorative pattern */}
-          <div className="absolute -right-10 -top-10 size-40 rounded-full bg-navy/5 blur-[40px]" />
-          
-          <div className="relative z-10 text-center">
-            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-[1.5rem] bg-navy text-white shadow-2xl transition-transform duration-500 group-hover:rotate-12">
-              <PhoneIcon className="size-8" />
+        <div className="rounded-2xl border border-navy/20 bg-amber p-6 shadow-md md:p-8">
+          <div className="text-center">
+            <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-xl bg-navy text-white">
+              <PhoneIcon className="size-7" />
             </div>
-            <h3 className="mb-3 text-3xl font-black tracking-tight text-navy leading-none">Emergency?</h3>
-            <p className="mb-8 text-lg text-navy/60 font-medium">
-              Immediate Technical Deployment.
-            </p>
-            <Button
-              asChild
-              className="h-16 w-full rounded-2xl bg-navy text-lg text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl"
-            >
+            <h3 className="mb-2 text-2xl font-bold tracking-tight text-navy">Emergency?</h3>
+            <p className="mb-6 text-sm text-navy/70">Immediate Technical Deployment.</p>
+            <Button asChild className="h-12 w-full rounded-xl bg-navy text-sm font-semibold text-white hover:bg-white hover:text-navy">
               <Link href="tel:+18883968739">(888) 396-8739</Link>
             </Button>
           </div>

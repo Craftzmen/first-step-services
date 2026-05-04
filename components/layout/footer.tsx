@@ -1,14 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  PhoneIcon,
-  MailIcon,
-  MapPinIcon,
-  ClockIcon,
-  GlobeIcon,
-  MessageCircleIcon,
-  LinkIcon,
-} from "lucide-react"
+import { GlobeIcon, MessageCircleIcon, LinkIcon } from "lucide-react"
 import Logo from '@/app/assets/images/logo.svg'
 
 const serviceLinks = [
@@ -33,33 +25,24 @@ const policyLinks = [
   { label: "Refund Policy", href: "/policies/refund-policy" },
 ]
 
-const hours = [
-  { day: "Monday – Saturday", time: "8:00 AM – 6:00 PM" },
-  { day: "Sunday", time: "Closed" },
-]
-
 export function Footer() {
   return (
-    <footer className="relative bg-navy text-white overflow-hidden border-t border-white/5">
-      {/* ── Background Elements ── */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-amber/[0.02] to-transparent pointer-events-none" />
-      <div className="pointer-events-none absolute -bottom-24 -left-24 hidden size-96 rounded-full bg-amber/5 blur-3xl md:block md:blur-[120px]" />
-
-      <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-8">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-navy text-white">
+      <div className="relative mx-auto max-w-[1200px] px-4 py-14 md:px-6 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
 
           {/* ── Brand & Identity ── */}
           <div className="lg:col-span-5 space-y-8">
-            <Link href="/" className="inline-block transition-transform hover:scale-105 duration-300">
+            <Link href="/" className="inline-block">
               <Image
                 src={Logo}
                 alt="First Step Services"
-                width={200}
-                height={50}
-                className="h-20 w-auto brightness-0 invert md:h-28"
+                width={220}
+                height={62}
+                className="h-[4.25rem] w-auto brightness-0 invert md:h-[5rem]"
               />
             </Link>
-            <p className="text-xl text-white/40 leading-relaxed max-w-md font-medium">
+            <p className="max-w-md text-sm leading-relaxed text-white/55">
               Redefining automotive care through transparency, technology, and a commitment to absolute precision.
             </p>
             <div className="flex gap-4">
@@ -72,9 +55,9 @@ export function Footer() {
                   key={i}
                   href="#"
                   aria-label={social.label}
-                  className="group relative flex size-12 items-center justify-center rounded-2xl bg-white/5 transition-all duration-300 hover:bg-amber hover:-translate-y-1"
+                  className="group flex size-11 items-center justify-center rounded-xl bg-white/10 hover:bg-amber"
                 >
-                  <social.icon className="size-5 text-white/40 group-hover:text-navy transition-colors" />
+                  <social.icon className="size-4 text-white/50 group-hover:text-navy" />
                 </Link>
               ))}
             </div>
@@ -90,7 +73,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
+                      className="inline-block text-sm font-medium text-white/50 hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -107,7 +90,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
+                      className="inline-block text-sm font-medium text-white/50 hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -141,7 +124,7 @@ export function Footer() {
         </div>
 
         {/* ── Bottom Bar ── */}
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-6 md:flex-row md:gap-8">
           <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">
             &copy; {new Date().getFullYear()} First Step Services — Precision Automotive Solutions
           </p>

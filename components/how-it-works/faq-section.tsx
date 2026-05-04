@@ -30,30 +30,30 @@ export function FaqSection() {
   return (
     <SectionWrapper background="muted" className="relative overflow-hidden">
       <ScrollReveal>
-        <div className="text-center mb-24">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber/10 px-5 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+        <div className="mb-12 text-center md:mb-14">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
             The Knowledge Base
           </div>
-          <h2 className="text-5xl font-black tracking-tighter md:text-7xl text-navy dark:text-white leading-[0.9]">
+          <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">
             Common <span className="text-amber">Queries.</span>
           </h2>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="mx-auto max-w-4xl space-y-4">
+        <div className="mx-auto max-w-3xl space-y-3">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
-              <AccordionItem 
-                key={i} 
-                value={`faq-${i}`} 
-                className="mb-6 rounded-[2rem] border border-navy/5 bg-white px-8 py-2 dark:bg-navy-light dark:border-white/5 transition-all duration-300 hover:shadow-xl"
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="mb-3 rounded-2xl border border-navy/10 bg-white px-5 py-1 dark:border-white/10 dark:bg-navy-light md:px-6"
               >
-                <AccordionTrigger className="text-left text-xl font-black tracking-tight text-navy dark:text-white py-8 hover:no-underline hover:text-amber transition-colors">
+                <AccordionTrigger className="py-5 text-left text-sm font-semibold tracking-tight text-navy hover:text-amber hover:no-underline dark:text-white md:text-base">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-8">
-                  <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{faq.a}</p>
+                <AccordionContent className="pb-5">
+                  <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">{faq.a}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}

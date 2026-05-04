@@ -1,4 +1,4 @@
-import { MailIcon, SendIcon } from "lucide-react"
+import { SendIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -15,59 +15,48 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 export function ContactForm() {
   return (
     <ScrollReveal direction="left">
-      <div className="relative overflow-hidden rounded-[3.5rem] bg-navy p-12 md:p-20 text-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
-        {/* Decorative pattern */}
-        <div className="absolute -right-20 -top-20 size-96 rounded-full bg-amber/5 blur-[100px]" />
-        
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy p-8 text-white shadow-lg md:p-10">
         <div className="relative z-10">
-          <div className="mb-10">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+          <div className="mb-8">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
               Communications Protocol
             </div>
-            <h2 className="text-4xl font-black tracking-tight md:text-5xl text-white">
-              Initialize <br /><span className="text-amber">Uplink.</span>
+            <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+              Initialize <span className="text-amber">Uplink.</span>
             </h2>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2">
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                Technical Point of Contact
-              </label>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="space-y-2">
+              <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Technical Point of Contact</label>
               <Input
                 placeholder="Full Name"
-                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+                className="h-11 rounded-xl border-white/15 bg-white/10 text-sm text-white focus-visible:border-amber focus-visible:ring-0"
               />
             </div>
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                Communication Uplink
-              </label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Communication Uplink</label>
               <Input
                 type="email"
                 placeholder="Email Address"
-                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+                className="h-11 rounded-xl border-white/15 bg-white/10 text-sm text-white focus-visible:border-amber focus-visible:ring-0"
               />
             </div>
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                Direct Response Line
-              </label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Direct Response Line</label>
               <Input
                 type="tel"
                 placeholder="(888) 000-0000"
-                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+                className="h-11 rounded-xl border-white/15 bg-white/10 text-sm text-white focus-visible:border-amber focus-visible:ring-0"
               />
             </div>
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                Intervention Protocol
-              </label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Intervention Protocol</label>
               <Select>
-                <SelectTrigger className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus:ring-0 focus:border-amber">
+                <SelectTrigger className="h-11 rounded-xl border-white/15 bg-white/10 text-sm text-white focus:border-amber focus:ring-0">
                   <SelectValue placeholder="Select Service" />
                 </SelectTrigger>
-                <SelectContent className="rounded-2xl border-white/10 bg-navy text-white">
+                <SelectContent className="border-white/10 bg-navy text-white">
                   <SelectGroup>
                     <SelectItem value="diagnostics">Expert Diagnostics</SelectItem>
                     <SelectItem value="oil">Lube & Filters</SelectItem>
@@ -78,19 +67,17 @@ export function ContactForm() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="sm:col-span-2 space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                Briefing
-              </label>
+            <div className="space-y-2 sm:col-span-2">
+              <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Briefing</label>
               <Textarea
                 placeholder="Details of your vehicle requirements..."
-                className="min-h-[180px] rounded-3xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all resize-none p-6"
+                className="min-h-[140px] resize-none rounded-xl border-white/15 bg-white/10 p-4 text-sm text-white focus-visible:border-amber focus-visible:ring-0"
               />
             </div>
           </div>
 
-          <Button className="mt-12 h-20 w-full rounded-[2rem] bg-amber text-xl font-black uppercase tracking-tighter text-navy hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl shadow-amber/20 group">
-            <SendIcon className="mr-3 size-6 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2" />
+          <Button className="mt-8 h-12 w-full rounded-xl bg-amber text-sm font-semibold uppercase tracking-wide text-navy hover:bg-white hover:text-navy">
+            <SendIcon className="mr-2 size-5" />
             Send Message
           </Button>
         </div>

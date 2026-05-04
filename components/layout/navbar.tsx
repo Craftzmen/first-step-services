@@ -87,36 +87,32 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 flex justify-center transition-[padding] duration-300 motion-reduce:transition-none max-md:duration-0",
+        "fixed left-0 right-0 top-0 z-50 flex justify-center max-md:transition-none",
         scrolled ? "pt-4" : "pt-0"
       )}
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[1400px] transition-[padding] duration-300 motion-reduce:transition-none max-md:duration-0",
+          "mx-auto w-full max-w-[1200px]",
           scrolled ? "px-5 md:px-8" : "px-0"
         )}
       >
         <nav
           className={cn(
-            "flex items-center justify-between px-6 transition-[background,box-shadow,border-radius] duration-300 motion-reduce:transition-none max-md:duration-0",
+            "flex items-center justify-between px-4 md:px-6",
             scrolled
               ? "rounded-full border border-white/10 bg-white shadow-xl shadow-navy/20"
               : "bg-transparent"
           )}
         >
           {/* Logo Area */}
-          <Link href="/" className="group relative z-10 flex items-center gap-2">
-            <div className="absolute -inset-2 rounded-full bg-amber/0 transition-colors duration-300 group-hover:bg-amber/5 motion-reduce:transition-none" />
+          <Link href="/" className="relative z-10 flex items-center gap-2">
             <Image
               src={Logo}
               alt="First Step Services"
-              width={160}
-              height={45}
-              className={cn(
-                "h-16 w-auto transition-[filter] duration-300 motion-reduce:transition-none md:h-28",
-                !scrolled && "brightness-0 invert"
-              )}
+              width={200}
+              height={56}
+              className={cn("h-16 w-auto md:h-[4.75rem] lg:h-[5.25rem]", !scrolled && "brightness-0 invert")}
             />
           </Link>
 
@@ -127,21 +123,18 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "group relative px-4 py-2 text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none",
+                  "relative px-3 py-2 text-sm font-semibold md:px-4 md:text-base",
                   isActive(link.href)
                     ? "text-amber"
                     : scrolled
                       ? "text-foreground/60 hover:text-amber"
-                      : "text-white/70 hover:text-white"
+                      : "text-white/75 hover:text-white"
                 )}
               >
                 {link.label}
-                <span
-                  className={cn(
-                    "absolute bottom-0 left-4 right-4 h-0.5 origin-left scale-x-0 bg-amber transition-transform duration-300 motion-reduce:transition-none group-hover:scale-x-100",
-                    isActive(link.href) && "scale-x-100"
-                  )}
-                />
+                {isActive(link.href) ? (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-amber md:left-4 md:right-4" />
+                ) : null}
               </Link>
             ))}
 
@@ -151,7 +144,7 @@ export function Navbar() {
                 type="button"
                 onClick={() => setPolicyOpen(!policyOpen)}
                 className={cn(
-                  "group flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none",
+                  "flex items-center gap-1.5 px-3 py-2 text-sm font-semibold md:px-4 md:text-base",
                   pathname.startsWith("/policies")
                     ? "text-amber"
                     : scrolled
@@ -160,22 +153,17 @@ export function Navbar() {
                 )}
               >
                 Policies
-                <ChevronDownIcon
-                  className={cn(
-                    "size-4 transition-transform duration-300 motion-reduce:transition-none",
-                    policyOpen && "rotate-180"
-                  )}
-                />
+                <ChevronDownIcon className={cn("size-4", policyOpen && "rotate-180")} />
               </button>
               {policyOpen && (
-                <div className="absolute right-0 top-[calc(100%+12px)] z-10 w-56 origin-top-right rounded-3xl border border-white/10 bg-navy p-2 shadow-2xl md:bg-navy/95 md:backdrop-blur-2xl">
+                <div className="absolute right-0 top-[calc(100%+12px)] z-10 w-56 rounded-2xl border border-white/10 bg-navy p-2 shadow-lg">
                   {policyLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setPolicyOpen(false)}
                       className={cn(
-                        "block rounded-2xl px-4 py-3 text-sm transition-colors duration-200 motion-reduce:transition-none",
+                        "block rounded-xl px-4 py-2.5 text-sm",
                         isActive(link.href)
                           ? "bg-amber font-bold text-navy"
                           : "text-white/60 hover:bg-white/5 hover:text-white"
@@ -193,8 +181,8 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <Link
               href="tel:+18883968739"
-              className={cn(
-                "mr-4 hidden items-center gap-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 motion-reduce:transition-none xl:flex",
+                className={cn(
+                  "mr-3 hidden items-center gap-2 text-xs font-semibold uppercase tracking-wide xl:flex",
                 scrolled ? "text-foreground/40 hover:text-amber" : "text-white/40 hover:text-white"
               )}
             >
@@ -204,12 +192,10 @@ export function Navbar() {
 
             <Link
               href="/contact"
-              className={cn(
-                "hidden rounded-full px-8 py-2.5 text-sm font-black uppercase tracking-tighter transition-colors duration-300 motion-reduce:transition-none sm:inline-flex sm:items-center sm:justify-center",
-                scrolled
-                  ? "bg-navy text-white hover:bg-navy-light"
-                  : "bg-amber text-navy shadow-xl shadow-amber/20 hover:bg-amber-light px-10 py-3"
-              )}
+                className={cn(
+                  "hidden rounded-full px-7 py-2.5 text-sm font-semibold uppercase tracking-wide sm:inline-flex sm:items-center sm:justify-center",
+                  scrolled ? "bg-navy text-white hover:bg-navy-light" : "bg-amber text-navy hover:bg-amber-light"
+                )}
             >
               Book Now
             </Link>
@@ -222,7 +208,7 @@ export function Navbar() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               onClick={() => setMobileOpen((o) => !o)}
               className={cn(
-                "inline-flex size-10 items-center justify-center rounded-full transition-colors duration-300 motion-reduce:transition-none lg:hidden",
+                "inline-flex size-9 items-center justify-center rounded-full lg:hidden",
                 scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
               )}
             >
@@ -252,7 +238,7 @@ export function Navbar() {
             className="absolute right-0 top-0 flex h-full w-full max-w-[400px] flex-col bg-navy shadow-2xl"
           >
             <div className="flex items-center justify-between border-b border-white/5 p-6">
-              <Image src={Logo} alt="First Step Services" width={160} height={45} className="h-14 w-auto" />
+              <Image src={Logo} alt="First Step Services" width={180} height={50} className="h-14 w-auto md:h-16" />
               <button
                 type="button"
                 className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
@@ -270,10 +256,8 @@ export function Navbar() {
                   href={link.href}
                   onClick={closeMobile}
                   className={cn(
-                    "block py-3 text-lg font-bold tracking-tighter transition-transform motion-reduce:transition-none",
-                    isActive(link.href)
-                      ? "translate-x-2 text-amber"
-                      : "text-white/40 hover:translate-x-2 hover:text-white"
+                    "block py-2.5 text-base font-semibold tracking-tight",
+                    isActive(link.href) ? "text-amber" : "text-white/50 hover:text-white"
                   )}
                 >
                   {link.label}
@@ -288,8 +272,8 @@ export function Navbar() {
                     href={link.href}
                     onClick={closeMobile}
                     className={cn(
-                      "block py-2 text-lg font-bold",
-                      isActive(link.href) ? "text-amber" : "text-white/40 hover:text-white"
+                      "block py-2 text-base font-semibold",
+                      isActive(link.href) ? "text-amber" : "text-white/50 hover:text-white"
                     )}
                   >
                     {link.label}
@@ -302,7 +286,7 @@ export function Navbar() {
               <Link
                 href="tel:+18883968739"
                 onClick={closeMobile}
-                className="flex h-16 w-full items-center justify-center rounded-2xl bg-amber text-lg font-bold text-navy"
+                className="flex h-12 w-full items-center justify-center rounded-xl bg-amber text-sm font-semibold text-navy"
               >
                 <PhoneIcon className="mr-2 size-5" />
                 (888) 396-8739

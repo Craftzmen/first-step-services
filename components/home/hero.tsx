@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRightIcon, SparklesIcon } from "lucide-react"
+import { UNSPLASH } from "@/lib/remote-images"
 
 const heroStats = [
   { value: 20, suffix: "y+", label: "Strategic Technical Experience" },
@@ -10,68 +11,61 @@ const heroStats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-navy text-foreground">
-      {/* Background image with overlay */}
+    <section className="relative min-h-[85vh] overflow-hidden bg-navy text-foreground md:min-h-screen">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=50&w=480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={`${UNSPLASH.workshop}&w=1600`}
           alt="Premium European Car Workshop"
           fill
           sizes="100vw"
-          quality={35}
-          className="object-cover opacity-40"
+          quality={45}
+          className="object-cover opacity-50"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy" />
+        <div className="absolute inset-0 bg-navy/55" />
       </div>
 
-      {/* Background gradient orbs — large blur filters are very costly on mobile GPUs */}
-      <div className="absolute top-1/4 -right-32 z-0 hidden h-[500px] w-[500px] rounded-full bg-amber/8 blur-3xl md:block md:blur-[150px]" />
-      <div className="absolute -bottom-24 -left-24 z-0 hidden h-[400px] w-[400px] rounded-full bg-amber/5 blur-3xl md:block md:blur-[120px]" />
-
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] items-center justify-center px-5 pt-32 pb-20 text-center md:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-[1200px] items-center justify-center px-4 pt-28 pb-16 text-center md:min-h-screen md:px-6 md:pt-32 md:pb-20">
         <div className="flex w-full flex-col items-center">
-          {/* Centered content area */}
-          <div className="max-w-5xl">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber/20 bg-amber/10 px-6 py-2.5 text-sm font-semibold text-amber backdrop-blur-none md:bg-amber/5 md:backdrop-blur-sm">
-              <SparklesIcon className="size-4" aria-hidden />
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber/25 bg-amber/10 px-4 py-2 text-sm font-semibold text-amber">
+              <SparklesIcon className="size-3.5" aria-hidden />
               Engineering Absolute Excellence.
             </div>
 
-            <h1 className="text-5xl font-black leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[5.5rem]">
+            <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
               Defining The New <br />
-              <span className="block gradient-text">Apex Of Automotive Care.</span>
+              <span className="block text-amber">Apex Of Automotive Care.</span>
             </h1>
 
-            <p className="mx-auto mt-8 max-w-2xl text-xl font-medium leading-relaxed text-white/80">
+            <p className="mx-auto mt-6 max-w-xl text-base font-normal leading-relaxed text-white/85 md:text-lg">
               We apply rigorous industrial standards and advanced telemetry to ensure your vehicle performs at its maximum theoretical limit.
             </p>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-amber px-8 text-base font-bold text-navy shadow-xl shadow-amber/25 transition-colors duration-300 hover:bg-amber-light hover:shadow-amber/40 motion-reduce:transition-none"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-amber px-8 text-base font-semibold text-navy shadow-sm hover:bg-amber-light"
               >
                 Book Appointment
-                <ArrowRightIcon className="size-5" aria-hidden />
+                <ArrowRightIcon className="size-4" aria-hidden />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 text-base font-medium text-white backdrop-blur-none transition-colors duration-300 hover:border-white/25 hover:bg-white/10 motion-reduce:transition-none md:bg-white/5 md:backdrop-blur-sm"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 text-base font-medium text-white hover:border-white/30 hover:bg-white/15"
               >
                 Our Services
               </Link>
             </div>
 
-            {/* Stats — server-rendered (avoids client hydration + rAF / IntersectionObserver on mobile) */}
-            <div className="mt-16 grid w-full grid-cols-3 gap-4 border-t border-white/10 pt-8 md:gap-6">
+            <div className="mt-12 grid w-full grid-cols-3 gap-3 border-t border-white/10 pt-6 md:gap-4 md:pt-8">
               {heroStats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-3xl font-black text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  <div className="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
                     {stat.value}
                     {stat.suffix}
                   </div>
-                  <div className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-amber md:text-xs">{stat.label}</div>
+                  <div className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-amber md:text-xs">{stat.label}</div>
                 </div>
               ))}
             </div>

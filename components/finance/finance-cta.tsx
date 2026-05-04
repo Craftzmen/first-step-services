@@ -1,4 +1,4 @@
-import { PhoneIcon, ArrowRightIcon, DollarSignIcon } from "lucide-react"
+import { DollarSignIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
@@ -8,38 +8,28 @@ export function FinanceCta() {
   return (
     <SectionWrapper padding="sm">
       <ScrollReveal>
-        <div className="relative overflow-hidden rounded-[4rem] bg-navy p-12 text-center md:p-32 text-white shadow-2xl">
-          {/* Dynamic Accents */}
-          <div className="absolute -top-20 -right-20 hidden size-96 rounded-full bg-amber/10 blur-[120px] md:block" />
-          <div className="absolute -bottom-20 -left-20 hidden size-96 rounded-full bg-amber/5 blur-[100px] md:block" />
-
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <div className="mb-10 flex justify-center">
-              <div className="flex size-20 items-center justify-center rounded-3xl bg-amber text-navy shadow-2xl shadow-amber/20 md:animate-bounce-slow">
-                <DollarSignIcon className="size-10" />
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy p-10 text-center text-white shadow-lg md:p-14">
+          <div className="relative z-10 mx-auto max-w-2xl">
+            <div className="mb-6 flex justify-center">
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-amber text-navy shadow-md md:size-16">
+                <DollarSignIcon className="size-8" />
               </div>
             </div>
-            <h2 className="text-5xl font-black tracking-tighter md:text-8xl mb-10 leading-[0.85]">
-              Deploy Strategic <br /><span className="text-amber">Capital.</span>
+            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
+              Deploy Strategic <span className="text-amber">Capital.</span>
             </h2>
-            <p className="mx-auto max-w-xl text-xl text-white/50 mb-12 font-medium leading-relaxed">
+            <p className="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
               Unlock elite financing today. Our engineers are standing by to calibrate a package that optimizes your mechanical and financial performance.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Button
-                asChild
-                size="lg"
-                className="h-20 rounded-[2.5rem] bg-amber px-12 text-xl text-navy font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl shadow-amber/20"
-              >
-                <Link href="tel:+18883968739">
-                  Speak to Advisor
-                </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="h-11 rounded-xl bg-amber px-8 text-sm font-semibold uppercase tracking-wide text-navy hover:bg-white hover:text-navy">
+                <Link href="tel:+18883968739">Speak to Advisor</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-20 rounded-[2.5rem] border-white/20 bg-white/5 backdrop-blur-xl px-12 text-xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500"
+                className="h-11 rounded-xl border-white/25 bg-white/10 px-8 text-sm font-semibold uppercase tracking-wide text-white hover:bg-white hover:text-navy"
               >
                 <Link href="/contact">Apply Online</Link>
               </Button>
