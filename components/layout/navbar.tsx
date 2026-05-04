@@ -173,7 +173,7 @@ export function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      onClick={() => setPolicyOpen(false)
+                      onClick={() => setPolicyOpen(false)}
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-sm transition-colors duration-200 motion-reduce:transition-none",
                         isActive(link.href)
