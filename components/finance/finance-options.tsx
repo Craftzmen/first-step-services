@@ -59,7 +59,7 @@ export function FinanceOptions() {
       <div className="grid gap-12 lg:grid-cols-3">
         {financeOptions.map((option, i) => (
           <ScrollReveal key={option.title} delay={i * 100} direction="up">
-            <div className="group relative flex flex-col h-full rounded-[3rem] bg-white overflow-hidden dark:bg-navy-light shadow-xl transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:border-amber/20 border border-transparent">
+            <div className="group relative flex flex-col h-full rounded-[3rem] bg-white overflow-hidden dark:bg-navy-light shadow-xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-4 md:hover:shadow-2xl md:hover:border-amber/20 border border-transparent">
               {/* Card Image */}
               <div className="relative h-48 w-full overflow-hidden">
                 <Image
@@ -67,11 +67,12 @@ export function FinanceOptions() {
                   alt={option.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  quality={55}
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  quality={38}
+                  loading="lazy"
+                  className="object-cover transition-transform duration-700 max-md:transition-none md:group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-navy-light to-transparent" />
-                <div className="absolute top-8 left-8 flex size-14 items-center justify-center rounded-2xl bg-navy text-white shadow-xl transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:rotate-12">
+                <div className="absolute top-8 left-8 flex size-14 items-center justify-center rounded-2xl bg-navy text-white shadow-xl transition-all duration-500 max-md:transition-none md:group-hover:bg-amber md:group-hover:text-navy md:group-hover:rotate-12\">
                   <option.icon className="size-6" />
                 </div>
               </div>

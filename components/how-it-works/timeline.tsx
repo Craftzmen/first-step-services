@@ -76,7 +76,7 @@ export function Timeline() {
 
                   {/* Content */}
                   <div className={`w-full md:w-1/2 ${isEven ? "md:pl-20" : "md:pr-20"} pl-20`}>
-                    <div className="group relative rounded-[2.5rem] bg-white p-10 dark:bg-navy-light shadow-xl transition-all duration-500 hover:-translate-y-2">
+                    <div className="group relative rounded-[2.5rem] bg-white p-10 dark:bg-navy-light shadow-xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-2">
                       <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-amber/10 text-amber transition-colors group-hover:bg-amber group-hover:text-navy">
                         <step.icon className="size-6" />
                       </div>

@@ -361,3 +361,25 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* ── Performance Optimizations ── */
+/* CSS Containment: Isolate layout/style/paint recalculations to improve performance */
+section {
+    contain: layout style paint;
+}
+
+/* Prevent expensive layout recalculations for scrolling sections */
+main {
+    contain: layout;
+}
+
+/* Optimize backdrop blur on lower-end mobile devices */
+@media (max-width: 768px) {
+    .backdrop-blur-sm,
+    .backdrop-blur,
+    .backdrop-blur-xl,
+    .backdrop-blur-2xl {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}

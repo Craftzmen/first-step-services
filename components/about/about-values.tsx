@@ -42,8 +42,8 @@ export function AboutValues() {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {values.map((v, i) => (
           <ScrollReveal key={v.title} delay={i * 100} direction="up">
-            <div className="group relative h-full rounded-[2.5rem] bg-white p-10 dark:bg-navy-light shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
-              <div className="mb-8 flex size-16 items-center justify-center rounded-3xl bg-navy text-white transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:-rotate-6">
+            <div className="group relative h-full rounded-[2.5rem] bg-white p-10 dark:bg-navy-light shadow-xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-3 md:hover:shadow-2xl">
+              <div className="mb-8 flex size-16 items-center justify-center rounded-3xl bg-navy text-white transition-all duration-500 max-md:transition-none md:group-hover:bg-amber md:group-hover:text-navy md:group-hover:-rotate-6">
                 <v.icon className="size-8" />
               </div>
               <h3 className="mb-4 text-2xl font-black tracking-tight text-navy dark:text-white">{v.title}</h3>

@@ -35,18 +35,19 @@ export function AboutIntro() {
         <ScrollReveal direction="right" className="order-1 lg:order-2">
           <div className="relative group">
             {/* Offset Image Mask */}
-            <div className="relative z-10 aspect-square w-full overflow-hidden rounded-[4rem] shadow-2xl transition-transform duration-700 group-hover:-translate-y-4 group-hover:rotate-2">
+            <div className="relative z-10 aspect-square w-full overflow-hidden rounded-[4rem] shadow-2xl transition-transform duration-700 max-md:transition-none md:group-hover:-translate-y-4 md:group-hover:rotate-2">
               <Image 
-                src="https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=80&w=1200"
+                src="https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=65&w=1200"
                 alt="Automotive Technical Facility"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={60}
+                quality={40}
+                loading="lazy"
                 className="object-cover"
               />
             </div>
             {/* Decorative Background Frame */}
-            <div className="absolute -bottom-6 -right-6 h-full w-full rounded-[4rem] border-4 border-amber/20 -z-10 transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4" />
+            <div className="absolute -bottom-6 -right-6 h-full w-full rounded-[4rem] border-4 border-amber/20 -z-10 transition-transform duration-700 max-md:transition-none md:group-hover:translate-x-4 md:group-hover:translate-y-4" />
           </div>
         </ScrollReveal>
       </div>

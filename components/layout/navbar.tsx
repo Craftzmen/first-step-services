@@ -28,12 +28,31 @@ export function Navbar() {
   const [policyOpen, setPolicyOpen] = React.useState(false)
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const dropdownRef = React.useRef<HTMLDivElement>(null)
+  const scrollTimeoutRef = React.useRef<number | null>(null)
+  const lastScrollYRef = React.useRef(0)
   const closeMobile = React.useCallback(() => setMobileOpen(false), [])
 
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      const currentScrollY = window.scrollY
+      const scrollThreshold = 20
+      const wasScrolled = lastScrollYRef.current > scrollThreshold
+      const isScrolled = currentScrollY > scrollThreshold
+      
+      if (wasScrolled !== isScrolled) {
+        lastScrollYRef.current = currentScrollY
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+        scrollTimeoutRef.current = window.setTimeout(() => {
+          setScrolled(isScrolled)
+        }, 0)
+      }
+    }
+    
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+    }
   }, [])
 
   React.useEffect(() => {
@@ -68,19 +87,19 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 flex justify-center transition-[padding] duration-300 motion-reduce:transition-none",
+        "fixed left-0 right-0 top-0 z-50 flex justify-center transition-[padding] duration-300 motion-reduce:transition-none max-md:duration-0",
         scrolled ? "pt-4" : "pt-0"
       )}
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[1400px] transition-[padding] duration-300 motion-reduce:transition-none",
+          "mx-auto w-full max-w-[1400px] transition-[padding] duration-300 motion-reduce:transition-none max-md:duration-0",
           scrolled ? "px-5 md:px-8" : "px-0"
         )}
       >
         <nav
           className={cn(
-            "flex items-center justify-between px-6 transition-[background,box-shadow,border-radius] duration-300 motion-reduce:transition-none",
+            "flex items-center justify-between px-6 transition-[background,box-shadow,border-radius] duration-300 motion-reduce:transition-none max-md:duration-0",
             scrolled
               ? "rounded-full border border-white/10 bg-white shadow-xl shadow-navy/20"
               : "bg-transparent"
@@ -107,7 +126,6 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                prefetch={false}
                 className={cn(
                   "group relative px-4 py-2 text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none",
                   isActive(link.href)
@@ -155,8 +173,7 @@ export function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      prefetch={false}
-                      onClick={() => setPolicyOpen(false)}
+                      onClick={() => setPolicyOpen(false)
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-sm transition-colors duration-200 motion-reduce:transition-none",
                         isActive(link.href)
@@ -187,7 +204,6 @@ export function Navbar() {
 
             <Link
               href="/contact"
-              prefetch={false}
               className={cn(
                 "hidden rounded-full px-8 py-2.5 text-sm font-black uppercase tracking-tighter transition-colors duration-300 motion-reduce:transition-none sm:inline-flex sm:items-center sm:justify-center",
                 scrolled
@@ -252,7 +268,6 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  prefetch={false}
                   onClick={closeMobile}
                   className={cn(
                     "block py-3 text-lg font-bold tracking-tighter transition-transform motion-reduce:transition-none",
@@ -271,7 +286,6 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    prefetch={false}
                     onClick={closeMobile}
                     className={cn(
                       "block py-2 text-lg font-bold",

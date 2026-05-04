@@ -12,11 +12,12 @@ export function AboutSnapshot() {
           {/* Creative Image Layout */}
           <div className="relative z-10 aspect-[4/5] w-full overflow-hidden rounded-[3rem] shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=75&w=640&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=60&w=640&auto=format&fit=crop"
               alt="Master Technician"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={50}
+              quality={36}
+              loading="lazy"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-navy/10" />
@@ -68,7 +69,6 @@ export function AboutSnapshot() {
             <div className="pt-6">
               <Link
                 href="/about"
-                prefetch={false}
                 className="inline-flex h-16 items-center rounded-full bg-navy px-10 font-black uppercase tracking-widest text-white shadow-2xl transition-colors duration-500 hover:bg-amber hover:text-navy motion-reduce:transition-none"
               >
                 Discover Our Story

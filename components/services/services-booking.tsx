@@ -38,7 +38,7 @@ export function ServicesBooking() {
                 "Absolute Structural Guarantee",
               ].map((item, i) => (
                 <li key={i} className="group flex items-center gap-6 rounded-[2rem] border border-white bg-white/40 p-6 shadow-xl transition-all duration-500 hover:bg-white dark:bg-navy-light dark:border-white/5 dark:hover:bg-navy transition-all">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-amber text-navy font-black text-xs transition-transform duration-500 group-hover:rotate-12">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-amber text-navy font-black text-xs transition-transform duration-500 max-md:transition-none md:group-hover:rotate-12">
                     0{i + 1}
                   </div>
                   <span className="text-sm font-black uppercase tracking-widest text-navy/70 dark:text-white/70 group-hover:text-navy dark:group-hover:text-white">{item}</span>

@@ -26,7 +26,7 @@ export function PageHeader({ title, description, breadcrumbs, className }: PageH
         <div className="absolute -bottom-[20%] -left-[5%] w-[500px] h-[500px] bg-amber/3 rounded-full blur-[100px]" />
 
         {/* Typographic Watermark */}
-        <div className="absolute -bottom-12 -right-12 select-none opacity-[0.02] transition-transform duration-1000 group-hover:scale-110">
+        <div className="absolute -bottom-12 -right-12 select-none opacity-[0.02] transition-transform duration-1000 max-md:transition-none md:group-hover:scale-110">
           <span className="text-[12rem] font-black uppercase tracking-tighter text-white whitespace-nowrap md:text-[20rem]">
             {title.split(" ")[0]}
           </span>

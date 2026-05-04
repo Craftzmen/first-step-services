@@ -43,12 +43,12 @@ export function ProcessSection() {
           <ScrollReveal key={step.num} delay={i * 150} direction="up">
             <div className="relative group">
               {/* Massive Background Number */}
-              <div className="absolute -top-12 -left-4 text-9xl font-black text-navy/[0.03] dark:text-white/[0.05] pointer-events-none transition-all duration-500 group-hover:-translate-y-4 group-hover:text-amber/[0.08]">
+              <div className="absolute -top-12 -left-4 text-9xl font-black text-navy/[0.03] dark:text-white/[0.05] pointer-events-none transition-all duration-500 max-md:transition-none md:group-hover:-translate-y-4 md:group-hover:text-amber/[0.08]">
                 {step.num}
               </div>
               
               <div className="relative space-y-6 pt-12">
-                <div className="flex size-20 items-center justify-center rounded-3xl bg-navy text-white shadow-xl transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:-rotate-6 group-hover:scale-110">
+                <div className="flex size-20 items-center justify-center rounded-3xl bg-navy text-white shadow-xl transition-all duration-500 max-md:transition-none md:group-hover:bg-amber md:group-hover:text-navy md:group-hover:-rotate-6 md:group-hover:scale-110">
                   <span className="text-2xl font-black">{step.num}</span>
                 </div>
                 <h3 className="text-3xl font-black tracking-tight text-foreground">{step.title}</h3>
@@ -67,7 +67,7 @@ export function ProcessSection() {
           className="group inline-flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] text-navy dark:text-white hover:text-amber dark:hover:text-amber transition-all"
         >
           View Full Methodology
-          <div className="flex size-10 items-center justify-center rounded-full border border-navy/10 dark:border-white/10 group-hover:border-amber transition-all group-hover:translate-x-2">
+          <div className="flex size-10 items-center justify-center rounded-full border border-navy/10 dark:border-white/10 transition-all max-md:transition-none md:group-hover:border-amber md:group-hover:translate-x-2">
             <ArrowRightIcon className="size-4" />
           </div>
         </Link>

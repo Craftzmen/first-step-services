@@ -28,13 +28,14 @@ export function FinanceIntro() {
         </ScrollReveal>
 
         <ScrollReveal direction="right" className="relative group">
-          <div className="relative z-10 aspect-video w-full overflow-hidden rounded-[3rem] shadow-2xl transition-all duration-700 group-hover:-translate-y-4">
+          <div className="relative z-10 aspect-video w-full overflow-hidden rounded-[3rem] shadow-2xl transition-all duration-700 max-md:transition-none md:group-hover:-translate-y-4">
             <Image
-              src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=75&w=960&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=60&w=960&auto=format&fit=crop"
               alt="Kia EV6 Performance"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={50}
+              quality={36}
+              loading="lazy"
               className="object-cover"
             />
           </div>

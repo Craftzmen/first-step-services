@@ -9,11 +9,11 @@ export function CtaBanner() {
       {/* Dynamic Background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&q=75&w=960"
+          src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&q=50&w=960"
           alt="Premium Garage"
           fill
           sizes="100vw"
-          quality={45}
+          quality={30}
           className="object-cover opacity-20 max-md:scale-100 md:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/60 to-navy" />
@@ -45,7 +45,6 @@ export function CtaBanner() {
             </Link>
             <Link
               href="/contact"
-              prefetch={false}
               className="inline-flex h-20 w-full items-center justify-center rounded-3xl border border-white/20 bg-white/10 px-12 text-xl font-black uppercase tracking-tighter text-white backdrop-blur-none transition-colors duration-300 hover:bg-white hover:text-navy sm:w-auto md:bg-white/5 md:backdrop-blur-xl md:hover:-translate-y-2 md:transition-transform md:duration-500"
             >
               Send Message

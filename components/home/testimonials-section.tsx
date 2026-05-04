@@ -39,7 +39,7 @@ export function TestimonialsSection() {
       <div className="grid gap-12 md:grid-cols-2 lg:mx-auto lg:max-w-6xl">
         {testimonials.map((t, i) => (
           <ScrollReveal key={t.author} delay={i * 150} direction={i % 2 === 0 ? "left" : "right"}>
-            <div className="group relative flex flex-col justify-between h-full rounded-[2.5rem] bg-white p-12 dark:bg-navy-light shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div className="group relative flex flex-col justify-between h-full rounded-[2.5rem] bg-white p-12 dark:bg-navy-light shadow-2xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-2">
               <div className="relative">
                 <QuoteIcon className="absolute -left-4 -top-4 size-12 text-amber opacity-20" />
                 <p className="mb-10 text-2xl font-black leading-tight tracking-tight text-navy dark:text-white italic">
@@ -47,7 +47,7 @@ export function TestimonialsSection() {
                 </p>
               </div>
               <div className="flex items-center gap-5 pt-8 border-t border-navy/5 dark:border-white/5">
-                <div className="flex size-14 items-center justify-center rounded-2xl bg-amber text-xl font-black text-navy shadow-lg shadow-amber/20 group-hover:rotate-6 transition-transform duration-500">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-amber text-xl font-black text-navy shadow-lg shadow-amber/20 transition-transform duration-500 max-md:transition-none md:group-hover:rotate-6">
                   {t.author.charAt(0)}
                 </div>
                 <div>

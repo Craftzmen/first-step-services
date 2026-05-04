@@ -32,7 +32,7 @@ export function FinanceBenefits() {
         {benefits.map((item, i) => (
           <ScrollReveal key={item.label} delay={i * 80} direction="up">
             <div className="group relative flex items-center gap-6 rounded-3xl border border-navy/5 bg-white p-8 transition-all duration-500 hover:border-amber/40 hover:shadow-2xl dark:bg-navy-light dark:border-white/5">
-              <div className="flex size-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-navy text-white transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:-rotate-6 group-hover:scale-110">
+              <div className="flex size-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-navy text-white transition-all duration-500 max-md:transition-none md:group-hover:bg-amber md:group-hover:text-navy md:group-hover:-rotate-6 md:group-hover:scale-110">
                 <item.icon className="size-7" />
               </div>
               <span className="text-sm font-black uppercase tracking-widest text-navy dark:text-white/80">{item.label}</span>

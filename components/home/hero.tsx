@@ -14,11 +14,11 @@ export function Hero() {
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=75&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=50&w=480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Premium European Car Workshop"
           fill
           sizes="100vw"
-          quality={48}
+          quality={35}
           className="object-cover opacity-40"
           priority
         />
@@ -50,7 +50,6 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                prefetch={false}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-amber px-8 text-base font-bold text-navy shadow-xl shadow-amber/25 transition-colors duration-300 hover:bg-amber-light hover:shadow-amber/40 motion-reduce:transition-none"
               >
                 Book Appointment
@@ -58,7 +57,6 @@ export function Hero() {
               </Link>
               <Link
                 href="/services"
-                prefetch={false}
                 className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 text-base font-medium text-white backdrop-blur-none transition-colors duration-300 hover:border-white/25 hover:bg-white/10 motion-reduce:transition-none md:bg-white/5 md:backdrop-blur-sm"
               >
                 Our Services

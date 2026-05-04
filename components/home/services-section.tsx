@@ -83,14 +83,15 @@ export function HomeServices() {
                 alt={svc.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={48}
+                quality={32}
+                loading="lazy"
                 className="object-cover opacity-60 md:transition-all md:duration-700 md:group-hover:scale-110 md:group-hover:rotate-1 md:group-hover:opacity-40"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-10">
-                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-amber text-navy md:transition-transform md:duration-500 md:group-hover:scale-110 md:group-hover:rotate-6">
+                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-amber text-navy max-md:transition-none md:transition-transform md:duration-500 md:group-hover:scale-110 md:group-hover:rotate-6">
                   <svc.icon className="size-6" />
                 </div>
                 <h3 className="mb-3 text-3xl font-black tracking-tight text-white">{svc.title}</h3>

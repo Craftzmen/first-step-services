@@ -72,7 +72,7 @@ export function ServicesGrid() {
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((svc, i) => (
           <ScrollReveal key={svc.title} delay={i * 80} direction="up">
-            <div className="group relative flex h-[600px] flex-col overflow-hidden rounded-[3rem] bg-navy transition-all duration-700 hover:-translate-y-3 hover:shadow-2xl hover:shadow-amber/10">
+            <div className="group relative flex h-[600px] flex-col overflow-hidden rounded-[3rem] bg-navy transition-all duration-700 max-md:transition-none md:hover:-translate-y-3 md:hover:shadow-2xl md:hover:shadow-amber/10">
               {/* Background Image with Dynamic Overlay */}
               <Image
                 src={svc.image}
@@ -80,13 +80,13 @@ export function ServicesGrid() {
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 quality={55}
-                className="object-cover opacity-40 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-20"
+                className="object-cover opacity-40 transition-all duration-1000 max-md:transition-none md:group-hover:scale-110 md:group-hover:opacity-20"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
               
               {/* Top Accent */}
               <div className="absolute top-10 left-10">
-                <div className="flex size-16 items-center justify-center rounded-2xl bg-amber text-navy shadow-xl transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                <div className="flex size-16 items-center justify-center rounded-2xl bg-amber text-navy shadow-xl transition-transform duration-500 max-md:transition-none md:group-hover:rotate-12 md:group-hover:scale-110">
                   <svc.icon className="size-8" />
                 </div>
               </div>
@@ -101,7 +101,6 @@ export function ServicesGrid() {
                   <span className="text-2xl font-black text-amber">{svc.price}</span>
                   <Link
                     href="/contact"
-                    prefetch={false}
                     className="flex size-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-xl border border-white/20 transition-all hover:bg-amber hover:text-navy hover:border-amber group-hover:translate-x-2"
                   >
                     <ArrowRightIcon className="size-6" />

@@ -9,11 +9,11 @@ export function ServicesEmergencyCta() {
     <section className="relative overflow-hidden bg-navy py-24 md:py-32 text-white">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=2000"
+          src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=65&w=2000"
           alt="Technical Support"
           fill
           sizes="100vw"
-          quality={50}
+          quality={30}
           className="object-cover opacity-10 grayscale scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />
@@ -41,7 +41,7 @@ export function ServicesEmergencyCta() {
                 <Button
                   asChild
                   size="lg"
-                  className="h-24 rounded-[2rem] bg-navy px-16 text-2xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl group-hover:scale-105"
+                  className="h-24 rounded-[2rem] bg-navy px-16 text-2xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl max-md:transition-none md:group-hover:scale-105"
                 >
                   <Link href="tel:+18883968739">
                     <PhoneIcon className="mr-4 size-8" />

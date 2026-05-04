@@ -39,7 +39,7 @@ export function ContactCards() {
       <div className="grid gap-10 md:grid-cols-3">
         {contactCards.map((card, i) => (
           <ScrollReveal key={card.title} delay={i * 100} direction="up">
-            <div className="group relative h-full overflow-hidden rounded-[3rem] bg-white p-12 dark:bg-navy-light shadow-xl transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
+            <div className="group relative h-full overflow-hidden rounded-[3rem] bg-white p-12 dark:bg-navy-light shadow-xl transition-all duration-500 max-md:transition-none md:hover:-translate-y-4 md:hover:shadow-2xl">
               <div className="mb-10 flex size-20 items-center justify-center rounded-[2rem] bg-navy text-white transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:rotate-6">
                 <card.icon className="size-8" />
               </div>
