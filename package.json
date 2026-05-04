@@ -1,5 +1,5 @@
 {
-  "name": "prime-auto-deals",
+  "name": "first-step-services",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -28,16 +28,17 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.1.7",
-    "postcss": "^8",
+    "postcss": "^8.5.13",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3"
   }
 }

@@ -13,83 +13,87 @@ import {
 
 export function ServicesBooking() {
   return (
-    <SectionWrapper background="muted">
-      <div className="grid items-center gap-16 lg:grid-cols-2">
+    <SectionWrapper background="muted" className="relative overflow-hidden">
+      <div className="grid items-center gap-24 lg:grid-cols-2">
         <ScrollReveal direction="left">
-          <div className="mb-4 inline-flex items-center gap-2 border border-border bg-white px-3 py-1 text-xs font-semibold tracking-widest text-foreground uppercase dark:bg-black">
-            <PhoneIcon className="size-3.5 text-amber" />
-            Book Now
+          <div className="space-y-10">
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/50 dark:bg-white/5 border border-amber/20 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+                Next Steps
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter md:text-7xl text-navy dark:text-white leading-[0.9]">
+                Schedule Your <br /><span className="text-amber">Elite Session.</span>
+              </h2>
+            </div>
+            
+            <p className="text-xl text-muted-foreground font-medium leading-relaxed max-w-xl">
+              Precision requires planning. Select your vehicle profile and service requirements to initiate our engineering workflow.
+            </p>
+
+            <ul className="space-y-6">
+              {[
+                "Structural Telemetry Assessment",
+                "Binary Fault Extraction",
+                "Master Engineering Deployment",
+                "Absolute Structural Guarantee",
+              ].map((item, i) => (
+                <li key={i} className="group flex items-center gap-6 rounded-[2rem] border border-white bg-white/40 p-6 shadow-xl transition-all duration-500 hover:bg-white dark:bg-navy-light dark:border-white/5 dark:hover:bg-navy transition-all">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-amber text-navy font-black text-xs transition-transform duration-500 group-hover:rotate-12">
+                    0{i + 1}
+                  </div>
+                  <span className="text-sm font-black uppercase tracking-widest text-navy/70 dark:text-white/70 group-hover:text-navy dark:group-hover:text-white">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-navy dark:text-white mb-6">
-            Schedule Your <span className="text-amber">Service</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Select your vehicle brand and the service you need, and we&apos;ll
-            take care of the rest. Quick, easy, no-hassle booking.
-          </p>
-          <ul className="space-y-4">
-            {[
-              "Free initial inspection",
-              "Transparent cost estimates before work begins",
-              "Certified mechanics with years of experience",
-              "Satisfaction guaranteed on every service",
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-4 border border-border p-3 bg-white dark:bg-card">
-                <div className="size-2 shrink-0 bg-amber" />
-                <span className="font-semibold text-foreground/90">{item}</span>
-              </li>
-            ))}
-          </ul>
         </ScrollReveal>
 
         <ScrollReveal direction="right">
-          <div className="border border-border bg-white p-10 dark:bg-card">
-            <h3 className="mb-8 text-2xl font-bold uppercase tracking-wide text-navy dark:text-white border-b-2 border-amber inline-block pb-2">
-              Booking Form
+          <div className="relative rounded-[3.5rem] bg-navy p-12 md:p-20 text-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+            <h3 className="mb-10 text-4xl font-black tracking-tight text-white">
+              Initialize <br /><span className="text-amber">Workflow</span>
             </h3>
-            <div className="space-y-6">
-              <div>
-                <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
                   Vehicle Brand
                 </label>
                 <Select>
-                  <SelectTrigger className="h-12 rounded-none border border-border focus:ring-0 focus:border-amber bg-white dark:bg-black">
-                    <SelectValue placeholder="Select brand" />
+                  <SelectTrigger className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus:ring-0 focus:border-amber">
+                    <SelectValue placeholder="Select Brand" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border-border">
+                  <SelectContent className="rounded-2xl border-white/10 bg-navy text-white">
                     <SelectGroup>
                       <SelectItem value="bmw">BMW</SelectItem>
-                      <SelectItem value="toyota">Toyota</SelectItem>
-                      <SelectItem value="honda">Honda</SelectItem>
-                      <SelectItem value="ford">Ford</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="mercedes">Mercedes-Benz</SelectItem>
+                      <SelectItem value="audi">Audi</SelectItem>
+                      <SelectItem value="porsche">Porsche</SelectItem>
+                      <SelectItem value="other">Other Premium</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
-              <div>
-                <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-                  Service Type
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                  Required Service
                 </label>
                 <Select>
-                  <SelectTrigger className="h-12 rounded-none border border-border focus:ring-0 focus:border-amber bg-white dark:bg-black">
-                    <SelectValue placeholder="Select service" />
+                  <SelectTrigger className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus:ring-0 focus:border-amber">
+                    <SelectValue placeholder="Select Service" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border-border">
+                  <SelectContent className="rounded-2xl border-white/10 bg-navy text-white">
                     <SelectGroup>
-                      <SelectItem value="diagnostics">Engine Diagnostics ($150 - $400)</SelectItem>
-                      <SelectItem value="oil">Lube, Oil & Filters ($60 - $120)</SelectItem>
-                      <SelectItem value="ac">Air Conditioning Evac ($120 - $350)</SelectItem>
-                      <SelectItem value="brakes">Brake Service ($150 - $450)</SelectItem>
-                      <SelectItem value="performance">Performance Upgrades ($500 - $5,000+)</SelectItem>
-                      <SelectItem value="computer">Computer Diagnostics ($100 - $250)</SelectItem>
+                      <SelectItem value="performance">Performance Tuning</SelectItem>
+                      <SelectItem value="diagnostics">Expert Diagnostics</SelectItem>
+                      <SelectItem value="brakes">Brake Systems</SelectItem>
+                      <SelectItem value="maintenance">Elite Maintenance</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
-              <Button className="mt-4 w-full rounded-none bg-amber px-8 py-6 text-base font-bold text-navy hover:bg-amber-light">
+              <Button className="h-20 w-full rounded-[2rem] bg-amber text-xl font-black uppercase tracking-tighter text-navy hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl shadow-amber/20">
                 Request Appointment
-                <ArrowRightIcon className="ml-2 size-5" />
+                <ArrowRightIcon className="ml-3 size-6" />
               </Button>
             </div>
           </div>

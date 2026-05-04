@@ -1,26 +1,27 @@
-import { Inter } from "next/font/google"
+import { Outfit } from "next/font/google"
 import type { Metadata } from "next"
 
+// @ts-expect-error Next.js treats global CSS imports as a runtime side effect.
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { cn } from "@/lib/utils"
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: 'Prime Auto Deals | Expert Auto Repair & Financing in Brooklyn, NY',
+  title: 'First Step Services | Expert Auto Repair & Financing in Stevens Point, WI',
   description:
-    'Quality auto repair, maintenance, and financing services in Brooklyn, NY. Expert mechanics, transparent pricing, and convenient doorstep service. Trusted by 500+ car owners.',
+    'Quality auto repair, maintenance, and financing services in Stevens Point, WI. Expert mechanics, transparent pricing, and convenient doorstep service. Trusted by 500+ car owners.',
   keywords: [
-    'auto repair Brooklyn',
-    'car maintenance NY',
-    'car financing Brooklyn',
+    'auto repair Stevens Point',
+    'car maintenance WI',
+    'car financing Stevens Point',
     'expert mechanics',
     'auto diagnostic tools',
     'car repair service',
@@ -28,14 +29,14 @@ export const metadata: Metadata = {
     'professional car care',
   ],
   openGraph: {
-    title: 'Prime Auto Deals - Expert Auto Repair & Financing in Brooklyn',
+    title: 'First Step Services - Expert Auto Repair & Financing in Stevens Point',
     description:
       'Quality auto repair, maintenance, and financing. Step into the future of automotive care where technology meets expertise.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'Prime Auto Deals - Expert Auto Care',
+    title: 'First Step Services - Expert Auto Care',
     description:
       'Step into the future of automotive care with expert repair and financing technology.',
   },
@@ -55,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("antialiased", inter.variable, "font-sans")}>
+    <html lang="en" suppressHydrationWarning className={cn("antialiased", outfit.variable, "font-sans")}>
       <body>
         <ThemeProvider>
           <Navbar />

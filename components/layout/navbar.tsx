@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import Logo from '@/app/assets/images/logo.svg'
 import {
   Sheet,
   SheetContent,
@@ -18,6 +19,7 @@ import {
   PhoneIcon,
   MailIcon,
   ChevronDownIcon,
+  XIcon,
 } from "lucide-react"
 
 const navLinks = [
@@ -65,224 +67,206 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white shadow-sm dark:bg-navy/90"
-          : "bg-transparent"
+        "fixed left-0 right-0 top-0 z-50 transition-all duration-500 flex justify-center",
+        scrolled ? "pt-4" : "pt-0"
       )}
     >
       <div
         className={cn(
-          "border-b border-white/10 transition-all duration-300 overflow-hidden bg-primary dark:bg-primary/95",
-          "max-h-40 md:max-h-12 opacity-100"
+          "transition-all duration-500 mx-auto w-full max-w-[1400px]",
+          scrolled ? "px-5 md:px-8" : "px-0"
         )}
       >
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-2 px-5 py-2 text-[10px] sm:text-xs md:flex-row md:justify-between md:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white md:justify-start md:gap-5">
-            <Link
-              href="tel:+18883968739"
-              title="Call (888) 396-8739"
-              className="flex items-center gap-1.5 transition-colors hover:text-white/80 text-sm md:text-xs font-bold md:font-medium"
-            >
-              <PhoneIcon className="size-4 md:size-3" />
-              Call (888) 396-8739
-            </Link>
-            <span className="hidden text-white/30 md:inline">|</span>
-            <Link
-              href="mailto:query@primeautodeals.tech"
-              className="hidden md:flex items-center gap-1.5 transition-colors hover:text-white/80"
-            >
-              <MailIcon className="size-3" />
-              query@primeautodeals.tech
-            </Link>
-          </div>
-          <span className="hidden md:block text-white/90 text-center md:text-right font-medium">
-            Monday to Saturday: 8:00 AM – 6:00 PM
-          </span>
-        </div>
-      </div>
-
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3 md:px-8 md:py-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image
-            src="/logo.png"
-            alt="Prime Auto Deals"
-            width={150}
-            height={40}
-            className={cn(
-              "h-10 w-auto transition-all duration-300 md:h-14",
-              scrolled && "brightness-100 invert grayscale-100 dark:invert dark:grayscale-0 dark:brightness-[unset]"
-            )}
-            priority
-          />
-        </Link>
-
-        <div className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
+        <nav
+          className={cn(
+            "flex items-center justify-between transition-all duration-500 px-6",
+            scrolled
+              ? "bg-white rounded-full border border-white/10 shadow-2xl shadow-navy/20"
+              : "bg-transparent"
+          )}
+        >
+          {/* Logo Area */}
+          <Link href="/" className="relative z-10 flex items-center gap-2 group">
+            <div className="absolute -inset-2 rounded-full bg-amber/0 transition-all group-hover:bg-amber/5" />
+            <Image
+              src={Logo}
+              alt="First Step Services"
+              width={160}
+              height={45}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
-                isActive(link.href)
-                  ? scrolled
+                "h-28 w-auto transition-all duration-300",
+                !scrolled && "brightness-0 invert"
+              )}
+              priority
+            />
+          </Link>
+
+          {/* Navigation Links - Desktop */}
+          <div className="hidden items-center gap-1 lg:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative group px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  isActive(link.href)
                     ? "text-amber"
-                    : "text-amber"
-                  : scrolled
-                    ? "text-foreground/70 hover:text-amber"
-                    : "text-white/80 hover:text-white"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setPolicyOpen(!policyOpen)}
-              className={cn(
-                "cursor-pointer flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
-                pathname.startsWith("/policies")
-                  ? "text-amber"
-                  : scrolled
-                    ? "text-foreground/70 hover:text-amber"
-                    : "text-white/80 hover:text-white"
-              )}
-            >
-              Policies
-              <ChevronDownIcon
-                className={cn(
-                  "size-3.5 transition-transform duration-200",
-                  policyOpen && "rotate-180"
-                )}
-              />
-            </button>
-            {policyOpen && (
-              <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border bg-white p-1.5 shadow-lg dark:bg-card">
-                {policyLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setPolicyOpen(false)}
-                    className={cn(
-                      "block rounded-lg px-3 py-2 text-sm transition-colors",
-                      isActive(link.href)
-                        ? "bg-amber/10 font-medium text-amber"
-                        : "text-foreground/70 hover:bg-muted hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Button
-            asChild
-            variant="ghost"
-            size="icon"
-            className={cn(
-              "lg:hidden rounded-full border-2 transition-all duration-300",
-              scrolled
-                ? "border-primary text-primary hover:bg-primary/10"
-                : "border-white text-white hover:bg-white/10"
-            )}
-          >
-            <Link href="tel:+18883968739" title="Call (888) 396-8739">
-              <PhoneIcon className="size-5" />
-            </Link>
-          </Button>
-
-          <Button
-            asChild
-            size={'lg'}
-            className="hidden bg-amber text-white font-semibold hover:bg-amber-light sm:inline-flex"
-          >
-            <Link href="tel:+18883968739" title="Call (888) 396-8739">Get a Quote</Link>
-          </Button>
-
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className={cn(
-                  "lg:hidden rounded-full border-2 transition-all duration-300",
-                  scrolled
-                    ? "border-primary text-primary hover:bg-primary/10"
-                    : "border-white text-white hover:bg-white/10"
+                    : scrolled
+                      ? "text-foreground/60 hover:text-amber"
+                      : "text-white/70 hover:text-white"
                 )}
               >
-                <MenuIcon className="size-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] p-0">
-              <SheetHeader className="border-b p-5">
-                <SheetTitle className="flex items-center gap-2">
-                  <Image
-                    src="/logo.png"
-                    alt="Prime Auto Deals"
-                    width={140}
-                    height={35}
-                    className="h-12 w-auto brightness-0 invert"
-                  />
-                </SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col p-3">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
-                      isActive(link.href)
-                        ? "bg-amber/10 text-amber"
-                        : "text-foreground/70 hover:bg-muted hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="my-1 h-px bg-border" />
-                <p className="px-4 pt-2 pb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Policies
-                </p>
-                {policyLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
-                      isActive(link.href)
-                        ? "bg-amber/10 text-amber"
-                        : "text-foreground/70 hover:bg-muted hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="my-2 h-px bg-border" />
-                <div className="px-4 py-3">
-                  <Button
-                    asChild
-                    className="w-full rounded-full bg-amber text-navy font-semibold hover:bg-amber-light"
-                  >
-                    <Link href="tel:+18883968739" title="Call (888) 396-8739">
-                      <PhoneIcon className="size-4" />
-                      Call (888) 396-8739
+                {link.label}
+                <span className={cn(
+                  "absolute bottom-0 left-4 right-4 h-0.5 scale-x-0 bg-amber transition-transform duration-300 group-hover:scale-x-100",
+                  isActive(link.href) && "scale-x-100"
+                )} />
+              </Link>
+            ))}
+
+            {/* Policies Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setPolicyOpen(!policyOpen)}
+                className={cn(
+                  "group flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  pathname.startsWith("/policies")
+                    ? "text-amber"
+                    : scrolled
+                      ? "text-foreground/60 hover:text-amber"
+                      : "text-white/70 hover:text-white"
+                )}
+              >
+                Policies
+                <ChevronDownIcon
+                  className={cn(
+                    "size-4 transition-transform duration-300",
+                    policyOpen && "rotate-180"
+                  )}
+                />
+              </button>
+              {policyOpen && (
+                <div className="absolute right-0 top-[calc(100%+12px)] w-56 rounded-3xl border border-white/10 bg-navy/95 backdrop-blur-2xl p-2 shadow-2xl animate-scale-in origin-top-right">
+                  {policyLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setPolicyOpen(false)}
+                      className={cn(
+                        "block rounded-2xl px-4 py-3 text-sm transition-all duration-200",
+                        isActive(link.href)
+                          ? "bg-amber text-navy font-bold"
+                          : "text-white/60 hover:bg-white/5 hover:text-white"
+                      )}
+                    >
+                      {link.label}
                     </Link>
-                  </Button>
+                  ))}
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </nav>
+              )}
+            </div>
+          </div>
+
+          {/* Right Actions */}
+          <div className="flex items-center gap-2">
+            <Link
+              href="tel:+18883968739"
+              className={cn(
+                "hidden xl:flex items-center gap-2 mr-4 text-xs font-bold uppercase tracking-widest transition-all",
+                scrolled ? "text-foreground/40 hover:text-amber" : "text-white/40 hover:text-white"
+              )}
+            >
+              <PhoneIcon className="size-3.5" />
+              Support
+            </Link>
+
+            <Button
+              asChild
+              className={cn(
+                "hidden sm:inline-flex rounded-full font-black uppercase tracking-tighter transition-all duration-500",
+                scrolled
+                  ? "bg-navy text-white hover:bg-navy-light px-8"
+                  : "bg-amber text-navy hover:bg-amber-light px-10 shadow-xl shadow-amber/20"
+              )}
+            >
+              <Link href="/contact">Book Now</Link>
+            </Button>
+
+            {/* Mobile Menu Trigger */}
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    "lg:hidden rounded-full transition-all",
+                    scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+                  )}
+                >
+                  <MenuIcon className="size-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-[400px] p-0 border-none bg-navy">
+                <div className="flex flex-col h-full">
+                  <SheetHeader className="p-8 border-b border-white/5">
+                    <SheetTitle>
+                      <Image
+                        src="/logo.png"
+                        alt="Logo"
+                        width={180}
+                        height={50}
+                        className="h-10 w-auto brightness-0 invert"
+                      />
+                    </SheetTitle>
+                  </SheetHeader>
+
+                  <div className="flex-1 overflow-y-auto p-8 space-y-2">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={cn(
+                          "block py-4 text-3xl font-black tracking-tighter transition-all",
+                          isActive(link.href) ? "text-amber translate-x-2" : "text-white/40 hover:text-white hover:translate-x-2"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+
+                    <div className="pt-8 mt-8 border-t border-white/5">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/20 mb-4">Policies</p>
+                      {policyLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={cn(
+                            "block py-2 text-lg font-bold",
+                            isActive(link.href) ? "text-amber" : "text-white/40 hover:text-white"
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="p-8 bg-white/5">
+                    <Button asChild size="lg" className="w-full bg-amber text-navy font-bold rounded-2xl h-16 text-lg">
+                      <Link href="tel:+18883968739">
+                        <PhoneIcon className="mr-2 size-5" />
+                        (888) 396-8739
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }

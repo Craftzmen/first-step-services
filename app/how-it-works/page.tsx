@@ -7,7 +7,7 @@ import { CtaHowItWorks } from "@/components/how-it-works/cta-section"
 export const metadata: Metadata = {
   title: 'How It Works | Our Seamless Auto Care Process',
   description:
-    'Discover our simple 5-step process for expert auto care. From online consultation to doorstep repair, Prime Auto Deals makes vehicle maintenance hassle-free.',
+    'Discover our simple 5-step process for expert auto care. From online consultation to doorstep repair, First Step Services makes vehicle maintenance hassle-free.',
   keywords: [
     'auto repair process',
     'how car maintenance works',
@@ -40,6 +40,7 @@ export default function HowItWorksPage() {
     <>
       <PageHeader
         title="How It Works"
+        description="A streamlined, transparent journey from diagnosis to doorstep delivery."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "How It Works" },

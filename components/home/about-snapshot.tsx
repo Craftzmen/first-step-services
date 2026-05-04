@@ -8,59 +8,74 @@ import { StatCounter } from "@/components/stat-counter"
 
 export function AboutSnapshot() {
   return (
-    <SectionWrapper background="muted">
-      <div className="grid items-center gap-16 lg:grid-cols-2">
-        <ScrollReveal direction="left">
-          <div className="relative h-[600px] w-full border border-border">
+    <SectionWrapper background="muted" className="overflow-hidden">
+      <div className="grid items-center gap-20 lg:grid-cols-2">
+        <ScrollReveal direction="left" className="relative">
+          {/* Creative Image Layout */}
+          <div className="relative z-10 aspect-[4/5] w-full overflow-hidden rounded-[3rem] shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Mechanic Team"
+              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=80&w=774&auto=format&fit=crop"
+              alt="Master Technician"
               fill
               className="object-cover"
             />
-            <div className="absolute -bottom-6 -right-6 h-48 w-48 bg-amber -z-10" />
+            <div className="absolute inset-0 bg-navy/10" />
           </div>
+          
+          {/* Floating Element */}
+          <div className="absolute -right-6 -top-6 z-20 md:-right-12 md:-top-12 animate-bounce-slow">
+            <div className="glass rounded-[2rem] p-6 md:p-8 shadow-2xl border border-white/20">
+              <div className="mb-2 text-3xl md:text-4xl font-black text-amber">100%</div>
+              <div className="text-[10px] md:text-xs font-black uppercase tracking-widest text-navy/60 dark:text-white/60">Quality Assurance</div>
+            </div>
+          </div>
+
+          {/* Background Decorative */}
+          <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-amber/20 blur-3xl" />
         </ScrollReveal>
 
         <ScrollReveal direction="right">
-          <div className="pl-0 lg:pl-10">
-            <div className="mb-4 inline-flex items-center gap-2 border border-border bg-white px-3 py-1 text-xs font-semibold tracking-widest text-foreground uppercase dark:bg-black">
-              <UsersIcon className="size-3.5 text-amber" />
-              About Us
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/50 dark:bg-white/5 border border-amber/20 px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-amber">
+              <UsersIcon className="size-3" />
+              The Standard
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-navy dark:text-white mb-6">
-              Engineered for <span className="text-amber">Perfection.</span>
+            <h2 className="text-5xl font-black tracking-tighter md:text-7xl text-navy dark:text-white leading-[0.95]">
+              Engineered for <br />
+              <span className="text-amber">Absolute Perfection.</span>
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-              At Prime Auto Deals, we approach every vehicle with engineering precision. Our state-of-the-art facility is equipped to handle complex diagnostics and complete rebuilds—ensuring your investment is protected and performing at its peak.
+            <p className="text-xl leading-relaxed text-muted-foreground font-medium">
+              At First Step Services, we approach every vehicle with engineering precision. Our state-of-the-art facility is equipped to handle complex diagnostics and complete rebuilds.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 mb-10">
+            <div className="grid grid-cols-2 gap-8">
               {[
-                { value: 15, suffix: "+", label: "Years Expr", icon: ClockIcon },
-                { value: 50, suffix: "+", label: "Master Techs", icon: WrenchIcon },
+                { value: 20, suffix: "y+", label: "Combined Exp.", icon: ClockIcon },
+                { value: 15, suffix: "+", label: "Master Techs", icon: WrenchIcon },
               ].map((stat) => (
-                <div key={stat.label} className="border-l-4 border-amber pl-4">
-                  <div className="text-3xl font-extrabold text-navy dark:text-white">
+                <div key={stat.label} className="group flex flex-col items-start gap-2">
+                  <div className="text-5xl font-black tracking-tighter text-navy dark:text-white group-hover:text-amber transition-colors">
                     <StatCounter end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="mt-1 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <Button
-              asChild
-              size="lg"
-              className="rounded-none bg-navy text-white px-8 py-6 font-bold hover:bg-navy-light dark:bg-white dark:text-navy"
-            >
-              <Link href="/about">
-                Discover Our Story
-                <ArrowRightIcon className="ml-2 size-5" />
-              </Link>
-            </Button>
+            <div className="pt-6">
+              <Button
+                asChild
+                size="lg"
+                className="h-16 rounded-full bg-navy text-white px-10 font-black uppercase tracking-widest hover:bg-amber hover:text-navy transition-all duration-500 shadow-2xl"
+              >
+                <Link href="/about">
+                  Discover Our Story
+                  <ArrowRightIcon className="ml-3 size-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
       </div>

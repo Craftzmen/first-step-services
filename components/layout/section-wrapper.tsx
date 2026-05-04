@@ -12,16 +12,16 @@ interface SectionWrapperProps {
 
 const bgMap = {
   default: "",
-  muted: "bg-muted/50",
+  muted: "bg-muted/40",
   navy: "bg-navy text-white",
-  amber: "bg-gradient-to-r from-amber to-amber-light text-navy",
+  amber: "bg-gradient-to-br from-amber via-amber-light to-amber text-navy",
   white: "bg-white dark:bg-card",
 }
 
 const paddingMap = {
-  default: "py-20 md:py-24",
+  default: "py-20 md:py-28",
   sm: "py-12 md:py-16",
-  lg: "py-24 md:py-32",
+  lg: "py-28 md:py-36",
   none: "",
 }
 

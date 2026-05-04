@@ -5,7 +5,7 @@ import { ServicesBooking } from "@/components/services/services-booking"
 import { ServicesEmergencyCta } from "@/components/services/services-emergency-cta"
 
 export const metadata: Metadata = {
-  title: 'Auto Repair & Maintenance Services in Brooklyn | Prime Auto Deals',
+  title: 'Auto Repair & Maintenance Services in Stevens Point | First Step Services',
   description:
     'Professional automotive repair services. Performance upgrades, computer diagnostics, brake repairs, and air conditioning service. Keeping your car reliable and efficient.',
   keywords: [
@@ -13,15 +13,15 @@ export const metadata: Metadata = {
     'car maintenance specialists',
     'performance car upgrades',
     'advanced engine diagnostics',
-    'brake service Specialists',
-    'AC repair Brooklyn',
+    'brake service specialists',
+    'AC repair Stevens Point',
     'lube and oil changes',
-    'expert auto mechanic Service',
+    'expert auto mechanic service',
   ],
   openGraph: {
     title: 'Professional Auto Repair & Maintenance Services',
     description:
-      'Step into quality. Our expert technicians in Brooklyn provide comprehensive care for your vehicle.',
+      'Step into quality. Our expert technicians in Stevens Point provide comprehensive care for your vehicle.',
     url: '/services',
     type: 'website',
   },
@@ -40,6 +40,7 @@ export default function ServicesPage() {
     <>
       <PageHeader
         title="Our Services"
+        description="Comprehensive automotive solutions powered by advanced technology and elite craftsmanship."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },

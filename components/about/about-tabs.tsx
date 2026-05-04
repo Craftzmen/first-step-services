@@ -5,79 +5,75 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 export function AboutTabs() {
   return (
-    <SectionWrapper background="muted" padding="default">
+    <SectionWrapper background="muted" padding="default" className="relative overflow-hidden">
       <ScrollReveal>
         <Tabs defaultValue="history" className="mx-auto max-w-5xl">
-          <TabsList className="mx-auto mb-10 flex w-full flex-wrap justify-center gap-2 bg-transparent">
-            <TabsTrigger value="history" className="gap-2 rounded-none border border-border data-[state=active]:border-amber data-[state=active]:text-amber px-6 py-3 font-semibold uppercase tracking-wider">
+          <TabsList className="mx-auto mb-16 flex h-20 w-fit items-center gap-2 rounded-full bg-white dark:bg-navy-light p-2 shadow-2xl">
+            <TabsTrigger value="history" className="h-full gap-2 rounded-full px-8 font-black uppercase tracking-widest transition-all data-[state=active]:bg-amber data-[state=active]:text-navy">
               <HistoryIcon className="size-4" />
               History
             </TabsTrigger>
-            <TabsTrigger value="mission" className="gap-2 rounded-none border border-border data-[state=active]:border-amber data-[state=active]:text-amber px-6 py-3 font-semibold uppercase tracking-wider">
+            <TabsTrigger value="mission" className="h-full gap-2 rounded-full px-8 font-black uppercase tracking-widest transition-all data-[state=active]:bg-amber data-[state=active]:text-navy">
               <TargetIcon className="size-4" />
-              Our Mission
+              Mission
             </TabsTrigger>
-            <TabsTrigger value="vision" className="gap-2 rounded-none border border-border data-[state=active]:border-amber data-[state=active]:text-amber px-6 py-3 font-semibold uppercase tracking-wider">
+            <TabsTrigger value="vision" className="h-full gap-2 rounded-full px-8 font-black uppercase tracking-widest transition-all data-[state=active]:bg-amber data-[state=active]:text-navy">
               <EyeIcon className="size-4" />
-              Our Vision
+              Vision
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="history">
-            <div className="border border-border bg-white p-10 dark:bg-card md:p-14">
-              <h3 className="mb-6 text-3xl font-bold text-navy dark:text-white">
-                Founded in 2009, Brooklyn, NY
+          <TabsContent value="history" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="relative overflow-hidden rounded-[3rem] bg-navy p-12 text-white md:p-20 shadow-2xl">
+              <div className="absolute -right-10 -top-10 opacity-10 pointer-events-none">
+                <HistoryIcon className="size-64" />
+              </div>
+              <h3 className="relative z-10 mb-8 text-4xl font-black tracking-tighter md:text-6xl">
+                Established 2026, <br /><span className="text-amber">Stevens Point Facility.</span>
               </h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Prime Auto Deals Limited has been serving customers with quality
-                vehicles and reliable automotive solutions for over a decade.
-                Starting as a small auto dealership, the company quickly grew by
-                focusing on trust, transparency, and exceptional customer
-                service. Over the years, Prime Auto Deals Limited has expanded
-                its offerings, building a strong reputation for delivering
-                dependable cars and a seamless buying experience.
+              <p className="relative z-10 text-xl leading-relaxed text-white/60 font-medium max-w-2xl">
+                First Step Services was established as an engineering-first workshop to disrupt the standard auto-repair model through telemetry-driven diagnostics and uncompromising transparency.
               </p>
             </div>
           </TabsContent>
 
-          <TabsContent value="mission">
-            <div className="border border-border bg-white p-10 dark:bg-card md:p-14">
-              <h3 className="mb-6 text-3xl font-bold text-navy dark:text-white">
-                Our Mission for Over 15 Years
+          <TabsContent value="mission" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="relative overflow-hidden rounded-[3rem] bg-navy p-12 text-white md:p-20 shadow-2xl">
+              <div className="absolute -right-10 -top-10 opacity-10 pointer-events-none">
+                <TargetIcon className="size-64" />
+              </div>
+              <h3 className="relative z-10 mb-8 text-4xl font-black tracking-tighter md:text-6xl text-amber">
+                Absolute Performance.
               </h3>
-              <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
-                Our mission is to provide the highest quality automotive
-                solutions while building lasting relationships with every
-                customer. We believe that every vehicle deserves expert care,
-                and every customer deserves transparent, honest service.
+              <p className="relative z-10 mb-12 text-xl leading-relaxed text-white/60 font-medium max-w-2xl">
+                To elevate the technical integrity of every vehicle we touch, ensuring absolute reliability and peak performance safety.
               </p>
-              <ul className="grid gap-4 sm:grid-cols-2">
+              <ul className="relative z-10 grid gap-4 sm:grid-cols-2">
                 {[
-                  "Share best practices and cutting-edge product knowledge",
-                  "Collaborate with the latest technology innovations",
-                  "Lead in technology, information security, and business partnerships",
-                  "Deliver uncompromising quality and mechanical precision"
+                  "Cutting-edge product knowledge",
+                  "Latest technology innovations",
+                  "Information security leadership",
+                  "Mechanical precision"
                 ].map((item) => (
-                  <li key={item} className="flex gap-4 border border-border p-4">
-                    <CheckCircle2Icon className="mt-0.5 size-5 shrink-0 text-amber" />
-                    <span className="font-medium">{item}</span>
+                  <li key={item} className="flex gap-4 rounded-2xl border border-white/5 bg-white/5 p-5 backdrop-blur-sm transition-all hover:bg-white/10">
+                    <CheckCircle2Icon className="size-5 shrink-0 text-amber" />
+                    <span className="font-black uppercase tracking-widest text-[10px]">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </TabsContent>
 
-          <TabsContent value="vision">
-            <div className="border border-border bg-white p-10 dark:bg-card md:p-14">
-              <h3 className="mb-6 text-3xl font-bold text-navy dark:text-white">
-                Leading the Future of Auto Care
+          <TabsContent value="vision" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="relative overflow-hidden rounded-[3rem] bg-navy p-12 text-white md:p-20 shadow-2xl">
+              <div className="absolute -right-10 -top-10 opacity-10 pointer-events-none">
+                <EyeIcon className="size-64" />
+              </div>
+              <h3 className="relative z-10 mb-8 text-4xl font-black tracking-tighter md:text-6xl text-white">
+                The Future of <br /><span className="text-amber">Auto Care.</span>
               </h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Our vision is to be recognized as a leading automotive solutions
-                provider, known for quality vehicles, exceptional service, and
-                customer trust. We aspire to continuously innovate and expand,
-                setting new standards in the car buying experience while
-                building long-lasting relationships with our clients.
+              <p className="relative z-10 text-xl leading-relaxed text-white/60 font-medium max-w-2xl">
+                To define the future of automotive care through the integration of aerospace-grade diagnostic protocols and artisan craftsmanship.
               </p>
             </div>
           </TabsContent>

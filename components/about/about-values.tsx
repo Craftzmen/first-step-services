@@ -5,23 +5,23 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 const values = [
   {
     icon: ShieldCheckIcon,
-    title: "Trust & Integrity",
-    desc: "We operate with full transparency. Every diagnosis, every quote, every repair — done with honesty.",
+    title: "Structural Integrity",
+    desc: "Absolute transparency in every diagnostic protocol and engineering quote. No hidden parameters.",
   },
   {
     icon: HeartIcon,
-    title: "Customer First",
-    desc: "Your satisfaction drives us. We listen, we understand, and we deliver solutions tailored to your needs.",
+    title: "Precision Tuning",
+    desc: "Tailoring technical interventions to the specific telemetry and stress profiles of each vehicle.",
   },
   {
     icon: TrophyIcon,
-    title: "Excellence",
-    desc: "We hold ourselves to the highest standards. Quality workmanship is not optional — it's our promise.",
+    title: "Technical Superiority",
+    desc: "Maintaining the highest standards of propulsion analysis and artisan component calibration.",
   },
   {
     icon: UsersIcon,
-    title: "Community",
-    desc: "We're proud to serve Brooklyn and beyond. Supporting our community is part of who we are.",
+    title: "Regional Commitment",
+    desc: "Providing the elite automotive standard for the Stevens Point landscape and beyond.",
   },
 ]
 
@@ -29,30 +29,31 @@ export function AboutValues() {
   return (
     <SectionWrapper background="muted">
       <ScrollReveal>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="mb-4 inline-flex items-center gap-2 border border-border bg-white px-3 py-1 text-xs font-semibold tracking-widest text-foreground uppercase dark:bg-black">
-              <TargetIcon className="size-3.5 text-amber" />
-              Our Core Values
-            </div>
-            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-navy dark:text-white">
-              What Drives Us <span className="text-amber">Every Day</span>
-            </h2>
+        <div className="text-center mb-24">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber/10 px-5 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+            The Philosophy
           </div>
+          <h2 className="text-5xl font-black tracking-tighter md:text-7xl text-navy dark:text-white">
+            What Drives Us <br /><span className="text-amber">Every Day.</span>
+          </h2>
         </div>
       </ScrollReveal>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {values.map((v, i) => (
-          <ScrollReveal key={v.title} delay={i * 100}>
-            <div className="h-full border border-border bg-white p-8 text-left transition-colors hover:border-amber dark:bg-card">
-              <div className="mb-6 flex size-14 items-center justify-center bg-navy text-amber">
-                <v.icon className="size-6" />
+          <ScrollReveal key={v.title} delay={i * 100} direction="up">
+            <div className="group relative h-full rounded-[2.5rem] bg-white p-10 dark:bg-navy-light shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+              <div className="mb-8 flex size-16 items-center justify-center rounded-3xl bg-navy text-white transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:-rotate-6">
+                <v.icon className="size-8" />
               </div>
-              <h3 className="mb-3 text-xl font-bold">{v.title}</h3>
-              <p className="text-base leading-relaxed text-muted-foreground">
+              <h3 className="mb-4 text-2xl font-black tracking-tight text-navy dark:text-white">{v.title}</h3>
+              <p className="text-base leading-relaxed text-muted-foreground font-medium">
                 {v.desc}
               </p>
+              {/* Decorative Accent */}
+              <div className="absolute bottom-6 right-6 text-6xl font-black text-navy/[0.02] dark:text-white/[0.03] select-none pointer-events-none">
+                0{i + 1}
+              </div>
             </div>
           </ScrollReveal>
         ))}

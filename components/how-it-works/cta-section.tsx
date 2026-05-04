@@ -6,39 +6,42 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function CtaHowItWorks() {
   return (
-    <SectionWrapper background="navy" padding="sm" className="text-white border-y border-border">
+    <SectionWrapper padding="sm">
       <ScrollReveal>
-        <div className="p-12 text-center md:p-20 relative">
-          <div className="absolute inset-0 border border-white/10 m-4" />
-          <div className="relative z-10">
-            <h2 className="text-3xl font-extrabold md:text-5xl mb-6">
-              Ready to <span className="text-amber">Get Started?</span>
+        <div className="relative overflow-hidden rounded-[4rem] bg-navy p-12 text-center md:p-32 text-white shadow-2xl">
+          {/* Dynamic Accents */}
+          <div className="absolute -top-20 -right-20 size-96 rounded-full bg-amber/10 blur-[120px]" />
+          <div className="absolute -bottom-20 -left-20 size-96 rounded-full bg-amber/5 blur-[100px]" />
+
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <div className="mb-10 flex justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber backdrop-blur-sm">
+                Get Started
+              </div>
+            </div>
+            <h2 className="text-5xl font-black tracking-tighter md:text-8xl mb-10 leading-[0.85]">
+              Initiate <br /><span className="text-amber">Protocol.</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-lg text-white/70 mb-10">
-              Book your online consultation today and experience the easiest
-              way to get your car serviced.
+            <p className="mx-auto max-w-xl text-xl text-white/50 mb-12 font-medium leading-relaxed">
+              The elite standard in automotive care. Calibrated for your convenience.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-6">
               <Button
                 asChild
                 size="lg"
-                className="rounded-none bg-amber px-8 py-6 text-base text-navy font-bold hover:bg-amber-light"
+                className="h-20 rounded-[2rem] bg-amber px-12 text-xl text-navy font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl shadow-amber/20"
               >
                 <Link href="/contact">
                   Book Appointment
-                  <ArrowRightIcon className="ml-2 size-5" />
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-none border-2 border-white bg-transparent px-8 py-6 text-base text-white hover:bg-white hover:text-navy"
+                className="h-20 rounded-[2rem] border-white/20 bg-white/5 backdrop-blur-xl px-12 text-xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy transition-all duration-500"
               >
-                <Link href="tel:+18883968739" title="Call (888) 396-8739">
-                  <PhoneIcon className="mr-2 size-5" />
-                  Call Us Now
-                </Link>
+                <Link href="tel:+18883968739">Call Us Now</Link>
               </Button>
             </div>
           </div>

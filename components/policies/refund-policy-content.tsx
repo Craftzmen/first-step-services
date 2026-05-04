@@ -4,146 +4,66 @@ import Link from "next/link"
 
 export function RefundPolicyContent() {
   return (
-    <SectionWrapper>
-      <article className="mx-auto max-w-4xl">
-        <div className="border border-border bg-white p-10 dark:bg-card md:p-16">
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">Overview</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              At Prime Auto Deals, customer satisfaction is important to us.
-              This Refund Policy outlines when and how refunds or returns are
-              handled for products and services purchased through our Website.
+    <SectionWrapper className="relative overflow-hidden">
+      {/* Decorative Watermark */}
+      <div className="absolute -left-20 top-40 opacity-[0.02] dark:opacity-[0.04] pointer-events-none select-none">
+        <span className="text-[20rem] font-black tracking-tighter leading-none uppercase">Guarantee</span>
+      </div>
+
+      <article className="mx-auto max-w-5xl">
+        <div className="relative z-10 rounded-[4rem] bg-white p-12 dark:bg-navy-light md:p-24 shadow-2xl">
+          <section className="mb-20">
+            <h2 className="mb-8 text-4xl font-black tracking-tight text-navy dark:text-white">Our Commitment</h2>
+            <p className="text-xl leading-relaxed text-muted-foreground font-medium">
+              At First Step Services, we stand behind our engineering. If our solutions don't meet the gold standard of automotive excellence, we ensure a transparent path to resolution.
             </p>
           </section>
 
-          <Separator className="my-10" />
+          <div className="space-y-24">
+            <section>
+              <h2 className="mb-10 text-4xl font-black tracking-tight text-navy dark:text-white">
+                Refund Architecture
+              </h2>
+              <div className="grid gap-12 md:grid-cols-2">
+                {[
+                  { title: "Service Satisfaction", desc: "If you are not satisfied with our technical labor, we will re-evaluate and rectify at no additional cost." },
+                  { title: "Part Replacement", desc: "Refunds on parts are subject to manufacturer warranty protocols and must be within the 30-day window." },
+                  { title: "Appointment Cancellation", desc: "Cancel 24 hours prior to your slot for a full refund of any deposit paid." },
+                  { title: "Expert Consultations", desc: "Online sessions are final unless technical failure occurs on our end." },
+                ].map((item, i) => (
+                  <div key={i} className="group rounded-[2.5rem] bg-navy/5 p-10 dark:bg-white/5 transition-all duration-500 hover:bg-amber hover:shadow-2xl">
+                    <h3 className="mb-4 text-2xl font-black tracking-tight text-navy dark:text-white group-hover:text-navy">{item.title}</h3>
+                    <p className="text-lg font-medium text-muted-foreground group-hover:text-navy/70">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Eligibility for Refunds
-            </h2>
-            <ul className="space-y-3 text-lg leading-relaxed text-muted-foreground">
-              {[
-                "Requests must be made within 7 days of purchase/vehicle delivery.",
-                "To be eligible, items or services must be unused, in original condition, and accompanied by proof of purchase.",
-                "Refunds are issued only after review and approval by our team.",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Non-Refundable Items & Services
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              The following are typically non-refundable:
-            </p>
-            <ul className="space-y-3 text-lg leading-relaxed text-muted-foreground">
-              {[
-                "Vehicle deposits once processing or inspection has begun",
-                'Custom or special-order services after work has started',
-                "Administration, documentation, or inspection fees",
-                '"As-is" vehicles unless otherwise required by law',
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Defective or Damaged Goods
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              If items or services are defective or incorrectly provided:
-            </p>
-            <ol className="space-y-3 text-lg leading-relaxed text-muted-foreground list-decimal ml-6 font-semibold text-foreground/80">
-              <li>
-                Contact us within 7 days of receipt or service completion.
-              </li>
-              <li>Provide photos and order details.</li>
-              <li>
-                We may offer a repair, replacement, or refund based on the
-                review.
-              </li>
-            </ol>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">Refund Processing</h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              Once approved:
-            </p>
-            <ul className="space-y-3 text-lg leading-relaxed text-muted-foreground">
-              {[
-                "Refunds are issued to the original payment method.",
-                "Processing times may vary, typically 5–10 business days depending on payment provider.",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Exceptions & Special Cases
-            </h2>
-            <ul className="space-y-3 text-lg leading-relaxed text-muted-foreground">
-              {[
-                '"As-Is" sales: No refunds unless required by applicable law.',
-                "Digital products, downloads, or informational services: Non-refundable after delivery or instant access.",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section>
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Contact for Refund Requests
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              To request a refund, please contact us:
-            </p>
-            <ul className="space-y-4 text-base text-muted-foreground">
-              <li>
-                <span className="font-bold text-foreground">Email:</span>{" "}
-                <Link
-                  href="mailto:query@primeautodeals.tech"
-                  className="text-amber font-semibold hover:text-amber-dark transition-colors"
-                >
-                  query@primeautodeals.tech
-                </Link>
-              </li>
-              <li>
-                <span className="font-bold text-foreground">Subject:</span> Refund Request
-              </li>
-            </ul>
-          </section>
+            <section>
+              <h2 className="mb-8 text-4xl font-black tracking-tight text-navy dark:text-white">
+                Contact Information
+              </h2>
+              <div className="rounded-[3rem] bg-navy p-12 text-white">
+                <div className="grid gap-12 md:grid-cols-2">
+                  <div>
+                    <h3 className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Direct Inquiry</h3>
+                    <Link
+                      href="mailto:info@firststepservices.tech"
+                      className="text-2xl font-black hover:text-amber transition-colors"
+                    >
+                      info@firststepservices.tech
+                    </Link>
+                  </div>
+                  <div>
+                    <h3 className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Headquarters</h3>
+                    <p className="text-xl font-bold text-white/70">
+                      2733 Stanley St, Stevens Point, WI 54481, United States of America
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </article>
     </SectionWrapper>

@@ -4,208 +4,117 @@ import Link from "next/link"
 
 export function PrivacyPolicyContent() {
   return (
-    <SectionWrapper>
-      <article className="mx-auto max-w-4xl">
-        <div className="border border-border bg-white p-10 dark:bg-card md:p-16">
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">Introduction</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Prime Auto Deals (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+    <SectionWrapper className="relative overflow-hidden">
+      {/* Decorative Watermark */}
+      <div className="absolute -left-20 top-40 opacity-[0.02] dark:opacity-[0.04] pointer-events-none select-none">
+        <span className="text-[20rem] font-black tracking-tighter leading-none uppercase">Legal</span>
+      </div>
+
+      <article className="mx-auto max-w-5xl">
+        <div className="relative z-10 rounded-[4rem] bg-white p-12 dark:bg-navy-light md:p-24 shadow-2xl">
+          <section className="mb-20">
+            <h2 className="mb-8 text-4xl font-black tracking-tight text-navy dark:text-white">Introduction</h2>
+            <p className="text-xl leading-relaxed text-muted-foreground font-medium">
+              First Step Services (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
               &ldquo;our&rdquo;) operates{" "}
               <Link
-                href="https://primeautodeals.tech/"
-                className="font-bold text-amber hover:text-amber-dark transition-colors"
+                href="https://firststepservices.tech/"
+                className="font-black text-amber hover:underline transition-all"
               >
-                https://primeautodeals.tech/
+                https://firststepservices.tech/
               </Link>{" "}
               (the &ldquo;Website&rdquo;). This Privacy Policy describes how
               we collect, use, disclose, and protect the personal information
-              of visitors and customers. Your privacy is important to us, and
-              we are committed to protecting your personal information.
+              of visitors and customers. Your privacy is absolute, and
+              we are committed to protecting your digital footprint.
             </p>
           </section>
 
-          <Separator className="my-10" />
+          <div className="space-y-24">
+            <section>
+              <h2 className="mb-10 text-4xl font-black tracking-tight text-navy dark:text-white">
+                Information We Collect
+              </h2>
+              <div className="grid gap-12 md:grid-cols-2">
+                <div>
+                  <h3 className="mb-6 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Personal Data</h3>
+                  <ul className="space-y-4">
+                    {[
+                      "Identity Credentials",
+                      "Digital Communication Paths",
+                      "Operational Contact Metrics",
+                      "Secured Transaction Logs",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-4 items-center text-lg font-bold text-navy/70 dark:text-white/70">
+                        <div className="size-2 rounded-full bg-amber" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="mb-6 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Automated Metadata</h3>
+                  <ul className="space-y-4">
+                    {[
+                      "IP Architecture Details",
+                      "Browser Environment Metrics",
+                      "Behavioral Navigation Logs",
+                      "Session Persistence Tools",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-4 items-center text-lg font-bold text-navy/70 dark:text-white/70">
+                        <div className="size-2 rounded-full bg-amber" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Information We Collect
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              We collect personal and non-personal information when you use
-              our Website:
-            </p>
+            <section>
+              <h2 className="mb-8 text-4xl font-black tracking-tight text-navy dark:text-white">
+                How We Use Your Information
+              </h2>
+              <ul className="grid gap-6 md:grid-cols-2">
+                {[
+                  "Service Optimization",
+                  "Secure Transactional Workflows",
+                  "Strategic Communication",
+                  "Fraud Mitigation Protocols",
+                ].map((item) => (
+                  <li key={item} className="flex gap-6 items-center rounded-3xl bg-navy/5 p-8 dark:bg-white/5">
+                    <div className="size-3 rounded-full bg-amber" />
+                    <span className="text-xl font-black text-navy dark:text-white">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-            <h3 className="mb-4 text-xl font-bold uppercase tracking-wide text-foreground/80">Personal Information</h3>
-            <ul className="mb-8 space-y-3 text-base text-muted-foreground">
-              {[
-                "Name",
-                "Email address",
-                "Phone number",
-                "Mailing address",
-                "Billing and shipping information",
-                "Payment details (processed securely by third-party payment providers)",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="mb-4 text-xl font-bold uppercase tracking-wide text-foreground/80">
-              Automatically Collected Information
-            </h3>
-            <ul className="space-y-3 text-base text-muted-foreground">
-              {[
-                "IP address",
-                "Browser type and version",
-                "Pages viewed, dates and times of visits",
-                "Cookies and tracking technologies used to improve site experience and analytics",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              How We Use Your Information
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              We use the information we collect to:
-            </p>
-            <ul className="space-y-3 text-base text-muted-foreground">
-              {[
-                "Provide, operate, and improve our services and Website",
-                "Process orders and payments",
-                "Communicate with you about your purchase, account, and updates",
-                "Personalize your experience and tailor content",
-                "Detect and prevent fraud and comply with legal obligations",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">
-              Cookies and Tracking
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              We use cookies and similar tracking technologies to monitor
-              website usage, remember preferences, and enhance user
-              experience. You can disable cookies in your browser settings,
-              but some features of the Website may not work properly.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Sharing Your Information
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              We may share your data with:
-            </p>
-            <ul className="mb-8 space-y-3 text-base text-muted-foreground">
-              {[
-                "Service providers (payment processors, analytics services)",
-                "Legal authorities when required by law",
-                "Businesses involved in order fulfillment (e.g., shipping partners)",
-              ].map((item) => (
-                <li key={item} className="flex gap-4 items-center">
-                  <span className="size-2 shrink-0 bg-amber" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-base font-bold uppercase tracking-wider text-navy dark:text-amber">
-              We do not sell personal information to third parties.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">Third-Party Links</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Our Website may contain links to third-party websites with
-              separate privacy practices. We are not responsible for their
-              content or policies.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">Data Retention</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              We retain your information only as long as necessary to fulfill
-              the purposes outlined in this policy or as required by law.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">Your Rights</h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              You have the right to access, correct, or request deletion of
-              your personal data. To exercise these rights, contact us as
-              listed below.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-extrabold text-navy dark:text-white">
-              Changes to This Policy
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              We may update this Privacy Policy from time to time. The
-              &ldquo;Last Updated&rdquo; date at the top reflects the most
-              recent version.
-            </p>
-          </section>
-
-          <Separator className="my-10" />
-
-          <section>
-            <h2 className="mb-6 text-2xl font-extrabold text-navy dark:text-white">
-              Contact Information
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
-              If you have questions or concerns about this policy, contact us
-              at:
-            </p>
-            <ul className="space-y-4 text-base text-muted-foreground">
-              <li>
-                <span className="font-bold text-foreground">Email:</span>{" "}
-                <Link
-                  href="mailto:query@primeautodeals.tech"
-                  className="text-amber font-semibold hover:text-amber-dark transition-colors"
-                >
-                  query@primeautodeals.tech
-                </Link>
-              </li>
-              <li>
-                <span className="font-bold text-foreground">Address:</span> 1916 E 51ST Street 2FL, Brooklyn, NY 11234
-              </li>
-            </ul>
-          </section>
+            <section>
+              <h2 className="mb-8 text-4xl font-black tracking-tight text-navy dark:text-white">
+                Contact Information
+              </h2>
+              <div className="rounded-[3rem] bg-navy p-12 text-white">
+                <div className="grid gap-12 md:grid-cols-2">
+                  <div>
+                    <h3 className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Direct Inquiry</h3>
+                    <Link
+                      href="mailto:info@firststepservices.tech"
+                      className="text-2xl font-black hover:text-amber transition-colors"
+                    >
+                      info@firststepservices.tech
+                    </Link>
+                  </div>
+                  <div>
+                    <h3 className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Headquarters</h3>
+                    <p className="text-xl font-bold text-white/70">
+                      2733 Stanley St, Stevens Point, WI 54481, United States of America
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </article>
     </SectionWrapper>

@@ -3,16 +3,16 @@ import { PageHeader } from "@/components/layout/page-header"
 import { RefundPolicyContent } from "@/components/policies/refund-policy-content"
 
 export const metadata: Metadata = {
-  title: 'Refund Policy | Quality Service Guarantee',
+  title: 'Refund Policy | First Step Services',
   description:
-    'Read about our refund and return policies at Prime Auto Deals. We are committed to providing top-quality automotive services and customer satisfaction.',
+    'Read about our refund and return policies at First Step Services. We are committed to providing top-quality automotive services and customer satisfaction.',
   keywords: [
     'refund policy car care',
     'service cancellation terms',
     'car repair guarantee',
     'refund process auto repair',
     'automotive service refund',
-    'prime auto deals refund',
+    'first step services refund',
   ],
   openGraph: {
     title: 'Refund Policy - Satisfaction Guarantee',
@@ -36,6 +36,7 @@ export default function RefundPolicyPage() {
     <>
       <PageHeader
         title="Refund Policy"
+        description="Transparent terms and a satisfaction guarantee designed to keep your journey worry-free."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Policies" },

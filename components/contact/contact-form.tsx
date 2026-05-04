@@ -15,79 +15,85 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 export function ContactForm() {
   return (
     <ScrollReveal direction="left">
-      <div className="border border-border bg-white p-10 dark:bg-card md:p-14">
-        <div className="mb-4 inline-flex items-center gap-2 border border-border bg-muted px-3 py-1 text-xs font-semibold tracking-widest text-foreground uppercase dark:bg-black">
-          <MailIcon className="size-3.5 text-amber" />
-          Send a Message
-        </div>
-        <h2 className="mb-8 text-4xl font-extrabold text-navy dark:text-white">Get in Touch</h2>
+      <div className="relative overflow-hidden rounded-[3.5rem] bg-navy p-12 md:p-20 text-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+        {/* Decorative pattern */}
+        <div className="absolute -right-20 -top-20 size-96 rounded-full bg-amber/5 blur-[100px]" />
+        
+        <div className="relative z-10">
+          <div className="mb-10">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+              Communications Protocol
+            </div>
+            <h2 className="text-4xl font-black tracking-tight md:text-5xl text-white">
+              Initialize <br /><span className="text-amber">Uplink.</span>
+            </h2>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-              Full Name
-            </label>
-            <Input
-              placeholder="John Doe"
-              className="h-12 rounded-none border-border focus-visible:ring-0 focus-visible:border-amber bg-white dark:bg-black"
-            />
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Technical Point of Contact
+              </label>
+              <Input
+                placeholder="Full Name"
+                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Communication Uplink
+              </label>
+              <Input
+                type="email"
+                placeholder="Email Address"
+                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Direct Response Line
+              </label>
+              <Input
+                type="tel"
+                placeholder="(888) 000-0000"
+                className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Intervention Protocol
+              </label>
+              <Select>
+                <SelectTrigger className="h-16 rounded-2xl border-white/10 bg-white/5 text-lg font-bold text-white focus:ring-0 focus:border-amber">
+                  <SelectValue placeholder="Select Service" />
+                </SelectTrigger>
+                <SelectContent className="rounded-2xl border-white/10 bg-navy text-white">
+                  <SelectGroup>
+                    <SelectItem value="diagnostics">Expert Diagnostics</SelectItem>
+                    <SelectItem value="oil">Lube & Filters</SelectItem>
+                    <SelectItem value="ac">Climate Control</SelectItem>
+                    <SelectItem value="brakes">Brake Systems</SelectItem>
+                    <SelectItem value="performance">Performance Tuning</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="sm:col-span-2 space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+                Briefing
+              </label>
+              <Textarea
+                placeholder="Details of your vehicle requirements..."
+                className="min-h-[180px] rounded-3xl border-white/10 bg-white/5 text-lg font-bold text-white focus-visible:ring-0 focus-visible:border-amber transition-all resize-none p-6"
+              />
+            </div>
           </div>
-          <div>
-            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-              Email Address
-            </label>
-            <Input
-              type="email"
-              placeholder="john@example.com"
-              className="h-12 rounded-none border-border focus-visible:ring-0 focus-visible:border-amber bg-white dark:bg-black"
-            />
-          </div>
-          <div>
-            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-              Phone Number
-            </label>
-            <Input
-              type="tel"
-              placeholder="(888) 000-0000"
-              className="h-12 rounded-none border-border focus-visible:ring-0 focus-visible:border-amber bg-white dark:bg-black"
-            />
-          </div>
-          <div>
-            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-              Service Needed
-            </label>
-            <Select>
-              <SelectTrigger className="w-full h-12! rounded-none border border-border focus:ring-0 focus:border-amber bg-white dark:bg-black">
-                <SelectValue placeholder="Select service" />
-              </SelectTrigger>
-              <SelectContent className="rounded-none border-border">
-                <SelectGroup>
-                  <SelectItem value="diagnostics">Engine Diagnostics ($150 - $400)</SelectItem>
-                  <SelectItem value="oil">Lube, Oil & Filters ($60 - $120)</SelectItem>
-                  <SelectItem value="ac">Air Conditioning ($120 - $350)</SelectItem>
-                  <SelectItem value="brakes">Brake Service ($150 - $450)</SelectItem>
-                  <SelectItem value="performance">Performance Upgrades ($500 - $5,000+)</SelectItem>
-                  <SelectItem value="computer">Computer Diagnostics ($100 - $250)</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="sm:col-span-2">
-            <label className="mb-2 block text-sm font-bold uppercase tracking-wider text-foreground/80">
-              Message
-            </label>
-            <Textarea
-              placeholder="Tell us about your vehicle issue..."
-              className="min-h-[150px] rounded-none border-border focus-visible:ring-0 focus-visible:border-amber bg-white dark:bg-black resize-none"
-            />
-          </div>
-        </div>
 
-        <Button className="mt-8 h-14 w-full rounded-none bg-amber text-lg text-navy font-bold hover:bg-amber-light sm:w-auto sm:px-12">
-          <SendIcon className="mr-3 size-5" />
-          Send Message
-        </Button>
+          <Button className="mt-12 h-20 w-full rounded-[2rem] bg-amber text-xl font-black uppercase tracking-tighter text-navy hover:bg-white hover:text-navy transition-all duration-500 shadow-2xl shadow-amber/20 group">
+            <SendIcon className="mr-3 size-6 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2" />
+            Send Message
+          </Button>
+        </div>
       </div>
     </ScrollReveal>
   )

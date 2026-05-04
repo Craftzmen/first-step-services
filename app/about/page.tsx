@@ -7,30 +7,30 @@ import { AboutValues } from "@/components/about/about-values"
 import { AboutCta } from "@/components/about/about-cta"
 
 export const metadata: Metadata = {
-  title: 'About Prime Auto Deals | Our Story & Values',
+  title: 'About First Step Services | Our Story & Values',
   description:
-    'Since 2009, Prime Auto Deals has been serving Brooklyn with high-quality automotive solutions. Learn more about our mission to provide transparent and expert auto care.',
+    'Since March 2026, First Step Services has been serving Stevens Point with high-quality automotive solutions. Learn more about our mission to provide transparent and expert auto care.',
   keywords: [
-    'about Prime Auto Deals',
+    'about First Step Services',
     'car maintenance history',
     'mechanic team',
     'automotive solution and service',
-    'trusted car dealer Brooklyn',
+    'trusted car service Stevens Point',
     'automotive expert team',
     'customer service auto care',
-    'Brooklyn car specialists',
+    'Stevens Point car specialists',
   ],
   openGraph: {
-    title: 'About Prime Auto Deals - Our Commitment to Quality',
+    title: 'About First Step Services - Our Commitment to Quality',
     description:
-      'Step into the story of Prime Auto Deals. From high-quality vehicles to expert automotive services.',
+      'Step into the story of First Step Services. From expert vehicles to expert automotive services.',
     url: '/about',
     type: 'website',
   },
   twitter: {
-    title: 'About Prime Auto Deals - Our Commitment',
+    title: 'About First Step Services - Our Commitment',
     description:
-      'Step into the story of Prime Auto Deals and our commitment to quality auto care.',
+      'Step into the story of First Step Services and our commitment to quality auto care.',
   },
   alternates: {
     canonical: '/about',
@@ -42,6 +42,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="About Us"
+        description="A new standard of excellence in automotive care, built on transparency and technical mastery."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About Us" },

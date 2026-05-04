@@ -9,14 +9,15 @@ import {
   MessageCircleIcon,
   LinkIcon,
 } from "lucide-react"
+import Logo from '@/app/assets/images/logo.svg'
 
 const serviceLinks = [
-  { label: "Performance Upgrades ($500+)", href: "/services" },
-  { label: "Computer Diagnostics ($100+)", href: "/services" },
-  { label: "Brake Service ($150+)", href: "/services" },
-  { label: "AC Service ($120+)", href: "/services" },
-  { label: "Lube, Oil & Filters ($60+)", href: "/services" },
-  { label: "Engine Diagnostics ($150+)", href: "/services" },
+  { label: "Engine Optimization", href: "/services" },
+  { label: "Binary Diagnostics", href: "/services" },
+  { label: "Braking Dynamics", href: "/services" },
+  { label: "Climate Engineering", href: "/services" },
+  { label: "Fluid Vitality", href: "/services" },
+  { label: "Propulsion Analysis", href: "/services" },
 ]
 
 const quickLinks = [
@@ -39,152 +40,121 @@ const hours = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white/80">
-      <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="mb-5 flex items-center gap-2.5">
+    <footer className="relative bg-navy text-white overflow-hidden border-t border-white/5">
+      {/* ── Background Elements ── */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-amber/[0.02] to-transparent pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+
+          {/* ── Brand & Identity ── */}
+          <div className="lg:col-span-5 space-y-8">
+            <Link href="/" className="inline-block transition-transform hover:scale-105 duration-300">
               <Image
-                src="/logo.png"
-                alt="Prime Auto Deals"
-                width={160}
-                height={45}
-                className="h-14 w-auto"
+                src={Logo}
+                alt="First Step Services"
+                width={200}
+                height={50}
+                className="h-28 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="mb-6 text-sm leading-relaxed text-white/60">
-              At Prime Auto Deals, we help prevent vehicle damage caused by
-              neglected maintenance. Our skilled technicians provide reliable,
-              affordable, and convenient services to keep your car running
-              smoothly.
+            <p className="text-xl text-white/40 leading-relaxed max-w-md font-medium">
+              Redefining automotive care through transparency, technology, and a commitment to absolute precision.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {[
-                { icon: GlobeIcon, label: "Facebook" },
-                { icon: MessageCircleIcon, label: "Twitter" },
-                { icon: LinkIcon, label: "LinkedIn" },
-              ].map(({ icon: Icon, label }) => (
+                { icon: GlobeIcon, label: "Web" },
+                { icon: MessageCircleIcon, label: "Contact" },
+                { icon: LinkIcon, label: "Links" }
+              ].map((social, i) => (
                 <Link
-                  key={label}
+                  key={i}
                   href="#"
-                  aria-label={label}
-                  className="flex size-9 items-center justify-center rounded-full bg-white/5 text-white/50 transition-all hover:bg-amber hover:text-navy"
+                  aria-label={social.label}
+                  className="group relative flex size-12 items-center justify-center rounded-2xl bg-white/5 transition-all duration-300 hover:bg-amber hover:-translate-y-1"
                 >
-                  <Icon className="size-4" />
+                  <social.icon className="size-5 text-white/40 group-hover:text-navy transition-colors" />
                 </Link>
               ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-amber"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              {policyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-amber"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
-              Our Services
-            </h3>
-            <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-amber"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
-              Contact Info
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex gap-3">
-                <MapPinIcon className="mt-0.5 size-4 shrink-0 text-amber" />
-                <span className="text-sm text-white/50">
-                  1916 E 51ST Street 2FL, Brooklyn, NY 11234
-                </span>
-              </li>
-              <li>
-                <Link
-                  href="tel:+18883968739"
-                  title="Call (888) 396-8739"
-                  className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-amber"
-                >
-                  <PhoneIcon className="size-4 shrink-0 text-amber" />
-                  Call (888) 396-8739
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="mailto:query@primeautodeals.tech"
-                  className="flex items-center gap-3 text-sm text-white/50 transition-colors hover:text-amber"
-                >
-                  <MailIcon className="size-4 shrink-0 text-amber" />
-                  query@primeautodeals.tech
-                </Link>
-              </li>
-            </ul>
-
-            <div className="mt-6">
-              <div className="flex items-center gap-2 text-sm font-medium text-white/70">
-                <ClockIcon className="size-4 text-amber" />
-                Service Hours
-              </div>
-              <ul className="mt-3 space-y-2">
-                {hours.map((h) => (
-                  <li
-                    key={h.day}
-                    className="flex justify-between text-xs text-white/40"
-                  >
-                    <span>{h.day}</span>
-                    <span>{h.time}</span>
+          {/* ── Navigation Grid ── */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-8">
+            {/* Exploration Links */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-amber mb-8">Explore</h4>
+              <ul className="space-y-4">
+                {quickLinks.map(link => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/* Expertise Links */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-amber mb-8">Expertise</h4>
+              <ul className="space-y-4">
+                {serviceLinks.slice(0, 5).map(link => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Support Column */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-amber mb-8">Support</h4>
+              <div className="space-y-8">
+                <div className="space-y-3">
+                  <p className="text-xs font-black text-white/90 uppercase tracking-widest">Workshop</p>
+                  <p className="text-sm text-white/40 leading-relaxed font-medium">
+                    2733 Stanley St,<br />Stevens Point, WI 54481, USA
+                  </p>
+                </div>
+                <div className="pt-6 border-t border-white/10 space-y-4">
+                  <Link
+                    href="tel:+18883968739"
+                    className="group flex flex-col gap-1"
+                  >
+                    <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] group-hover:text-amber transition-colors">Direct Line</span>
+                    <span className="text-xl font-black text-white group-hover:text-amber transition-colors">(888) 396-8739</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 px-5 py-5 text-xs text-white/40 sm:flex-row md:px-8">
-          <p>&copy; {new Date().getFullYear()} Prime Auto Deals. All rights reserved.</p>
-          <div className="flex gap-5">
-            <Link href="/policies/privacy-policy" className="transition-colors hover:text-amber">
-              Privacy Policy
-            </Link>
-            <Link href="/policies/refund-policy" className="transition-colors hover:text-amber">
-              Refund Policy
-            </Link>
+        {/* ── Bottom Bar ── */}
+        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">
+            &copy; {new Date().getFullYear()} First Step Services — Precision Automotive Solutions
+          </p>
+          <div className="flex gap-10">
+            {policyLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

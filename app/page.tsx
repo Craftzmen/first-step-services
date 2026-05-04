@@ -7,28 +7,28 @@ import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CtaBanner } from "@/components/home/cta-banner"
 
 export const metadata: Metadata = {
-  title: 'Prime Auto Deals | Premium Auto Care in Brooklyn, NY',
+  title: 'First Step Services | Premium Auto Care in Stevens Point, WI',
   description:
-    'Experience the best in auto repair and maintenance. At Prime Auto Deals, we combine expertise with transparency. From engine diagnostics to brake repair, we keep your car running at its peak.',
+    'Experience the best in auto repair and maintenance. At First Step Services, we combine expertise with transparency. From engine diagnostics to brake repair, we keep your car running at its peak.',
   keywords: [
-    'Brooklyn car care',
+    'Stevens Point car care',
     'expert auto repair',
     'mechanic service',
     'engine diagnostic',
-    'brake repair Brooklyn',
+    'brake repair Stevens Point',
     'oil change service',
     'car maintenance specialists',
-    'reliable car deals',
+    'reliable auto service',
   ],
   openGraph: {
-    title: 'Prime Auto Deals - Your Trusted Auto Care Partner',
+    title: 'First Step Services - Your Trusted Auto Care Partner',
     description:
-      'Step into the future of automotive care. Our experts in Brooklyn provide top-tier repair and maintenance.',
+      'Step into the future of automotive care. Our experts in Stevens Point provide top-tier repair and maintenance.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'Prime Auto Deals - Premium Auto Care',
+    title: 'First Step Services - Premium Auto Care',
     description:
       'Where technology meets expertise in automotive repair.',
   },

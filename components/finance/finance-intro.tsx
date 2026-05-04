@@ -5,33 +5,41 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function FinanceIntro() {
   return (
-    <SectionWrapper>
-      <div className="grid items-center gap-16 lg:grid-cols-2">
+    <SectionWrapper className="relative overflow-hidden">
+      {/* Decorative Watermark */}
+      <div className="absolute -right-10 top-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none select-none">
+        <span className="text-[15rem] font-black tracking-tighter leading-none uppercase">CAPITAL</span>
+      </div>
+
+      <div className="grid items-center gap-24 lg:grid-cols-2">
         <ScrollReveal direction="left">
-          <div>
-            <div className="mb-4 inline-flex items-center gap-2 border border-border bg-muted px-3 py-1 text-xs font-semibold tracking-widest text-foreground uppercase">
-              <DollarSignIcon className="size-3.5 text-amber" />
-              Financing Solutions
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber/10 px-5 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+              Financial Liberty
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-navy dark:text-white mb-6">
-              Drive Now, <span className="text-amber">Pay Later</span>
+            <h2 className="text-5xl font-black tracking-tighter md:text-7xl text-navy dark:text-white leading-[0.9]">
+              Strategic <br />
+              <span className="text-amber">Capital Deployment.</span>
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-              Whether you're buying new, used, or looking to refinance, we offer
-              flexible financing options to get you on the road with confidence. Our partnerships with top lenders ensure competitive rates.
+            <p className="text-xl leading-relaxed text-muted-foreground font-medium max-w-xl">
+              Acquire elite performance through our optimized liquidity strategies. We specialize in engineered financial pathways for Kia and Hyundai performance units, ensuring your capital remains efficient.
             </p>
           </div>
         </ScrollReveal>
-        
-        <ScrollReveal direction="right">
-          <div className="relative h-[400px] w-full border border-border">
-            <Image 
-              src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200"
-              alt="Finance Consultation"
+
+        <ScrollReveal direction="right" className="relative group">
+          <div className="relative z-10 aspect-video w-full overflow-hidden rounded-[3rem] shadow-2xl transition-all duration-700 group-hover:-translate-y-4">
+            <Image
+              src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=80&w=2531&auto=format&fit=crop"
+              alt="Kia EV6 Performance"
               fill
-              className="object-cover grayscale-[0.2]"
+              className="object-cover"
             />
-            <div className="absolute -bottom-6 -right-6 h-32 w-32 bg-navy -z-10 dark:bg-amber" />
+          </div>
+          {/* Floating Stats */}
+          <div className="absolute -bottom-6 -left-6 z-20 md:-bottom-10 md:-left-10 bg-white rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20 animate-bounce-slow">
+            <div className="text-2xl md:text-3xl font-black text-amber leading-none">2.9%</div>
+            <div className="text-[10px] font-black uppercase tracking-widest text-navy/40 dark:text-white/40 mt-1">Starting APR</div>
           </div>
         </ScrollReveal>
       </div>

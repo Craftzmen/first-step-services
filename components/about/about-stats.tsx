@@ -4,20 +4,22 @@ import { StatCounter } from "@/components/stat-counter"
 
 export function AboutStats() {
   return (
-    <SectionWrapper>
-      <div className="grid grid-cols-2 gap-0 md:grid-cols-4 border-y border-border divide-y md:divide-y-0 md:divide-x divide-border">
+    <SectionWrapper className="relative overflow-hidden">
+      <div className="grid grid-cols-2 gap-12 md:grid-cols-4">
         {[
-          { value: 2009, label: "Year Founded", suffix: "" },
-          { value: 15, label: "Years Experience", suffix: "+" },
-          { value: 5000, label: "Cars Serviced", suffix: "+" },
-          { value: 98, label: "Satisfaction Rate", suffix: "%" },
+          { value: 2026, label: "Operational Baseline", suffix: "" },
+          { value: 20, label: "Aggregated Team Expertise", suffix: "y+" },
+          { value: 500, label: "Calibration Points", suffix: "+" },
+          { value: 100, label: "Engineering Accuracy", suffix: "%" },
         ].map((stat, i) => (
-          <ScrollReveal key={stat.label} delay={i * 100} className="p-10 text-center bg-card hover:bg-muted/50 transition-colors">
-             <div className="text-5xl font-extrabold text-navy dark:text-white mb-2">
-              <StatCounter end={stat.value} suffix={stat.suffix} />
-            </div>
-            <div className="mt-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              {stat.label}
+          <ScrollReveal key={stat.label} delay={i * 100} direction="up">
+            <div className="group flex flex-col items-center text-center">
+              <div className="text-6xl font-black tracking-tighter text-navy dark:text-white md:text-7xl lg:text-8xl group-hover:text-amber transition-colors duration-500">
+                <StatCounter end={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="mt-4 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground group-hover:text-navy dark:group-hover:text-white transition-colors">
+                {stat.label}
+              </div>
             </div>
           </ScrollReveal>
         ))}

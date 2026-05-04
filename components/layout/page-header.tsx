@@ -3,64 +3,81 @@ import { cn } from "@/lib/utils"
 
 interface PageHeaderProps {
   title: string
+  description?: string
   breadcrumbs: { label: string; href?: string }[]
   className?: string
 }
 
-export function PageHeader({ title, breadcrumbs, className }: PageHeaderProps) {
+export function PageHeader({ title, description, breadcrumbs, className }: PageHeaderProps) {
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-navy pt-32 pb-16 md:pt-40 md:pb-20",
+        "relative flex min-h-[45vh] items-center overflow-hidden bg-navy pt-32 pb-20 md:pt-48 md:pb-28",
         className
       )}
     >
-      {/* Decorative background pattern */}
-      <div className="absolute inset-0 opacity-[0.04]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
+      {/* ── Background Design Elements (No Images) ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Deep Gradient Overlay */}
+        <div className="absolute inset-0 bg-radial-at-t from-navy-light/40 via-navy to-navy" />
+        
+        {/* Animated Orbs for Depth */}
+        <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-amber/5 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute -bottom-[20%] -left-[5%] w-[500px] h-[500px] bg-amber/3 rounded-full blur-[100px]" />
+
+        {/* Typographic Watermark */}
+        <div className="absolute -bottom-12 -right-12 select-none opacity-[0.02] transition-transform duration-1000 group-hover:scale-110">
+          <span className="text-[12rem] font-black uppercase tracking-tighter text-white whitespace-nowrap md:text-[20rem]">
+            {title.split(" ")[0]}
+          </span>
+        </div>
+
+        {/* Geometric Accents */}
+        <div className="absolute right-[10%] top-1/2 -translate-y-1/2 hidden lg:block opacity-10">
+          <svg width="400" height="400" viewBox="0 0 400 400" fill="none" className="animate-spin-slow">
+            <circle cx="200" cy="200" r="180" stroke="currentColor" strokeWidth="0.5" strokeDasharray="12 12" className="text-white" />
+            <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1" className="text-amber" />
+            <path d="M200 20L200 60M200 340L200 380M20 200L60 200M340 200L380 200" stroke="currentColor" strokeWidth="2" className="text-amber" />
+          </svg>
+        </div>
       </div>
-      <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-amber/10 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
-        {/* Breadcrumbs */}
-        <nav className="mb-4 flex items-center gap-2 text-sm text-white/60">
-          {breadcrumbs.map((crumb, i) => (
-            <span key={i} className="flex items-center gap-2">
-              {i > 0 && (
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white/30">
-                  <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              )}
-              {crumb.href ? (
-                <Link
-                  href={crumb.href}
-                  className="transition-colors hover:text-amber"
-                >
-                  {crumb.label}
-                </Link>
-              ) : (
-                <span className="text-amber">{crumb.label}</span>
-              )}
-            </span>
-          ))}
-        </nav>
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 md:px-8">
+        <div className="max-w-4xl">
+          {/* ── Breadcrumbs ── */}
+          <nav className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white/50 backdrop-blur-md mb-8 animate-fade-in">
+            {breadcrumbs.map((crumb, i) => (
+              <span key={i} className="flex items-center gap-2">
+                {i > 0 && <span className="text-white/20">/</span>}
+                {crumb.href ? (
+                  <Link
+                    href={crumb.href}
+                    className="transition-colors hover:text-amber"
+                  >
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span className="text-amber">{crumb.label}</span>
+                )}
+              </span>
+            ))}
+          </nav>
 
-        {/* Title */}
-        <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-
-        {/* Accent line */}
-        <div className="mt-5 flex items-center gap-2">
-          <div className="h-1 w-12 rounded-full bg-amber" />
-          <div className="h-1 w-4 rounded-full bg-amber/40" />
+          {/* ── Title & Description ── */}
+          <div className="space-y-6">
+            <h1 className="text-5xl font-black tracking-tighter text-white md:text-7xl lg:text-8xl animate-fade-in-up">
+              {title}
+              <span className="text-amber">.</span>
+            </h1>
+            
+            {description ? (
+              <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed animate-fade-in-up delay-100">
+                {description}
+              </p>
+            ) : (
+              <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-amber to-amber-light animate-fade-in-up delay-100" />
+            )}
+          </div>
         </div>
       </div>
     </section>

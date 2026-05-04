@@ -3,13 +3,13 @@ import { PageHeader } from "@/components/layout/page-header"
 import { PrivacyPolicyContent } from "@/components/policies/privacy-policy-content"
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Prime Auto Deals',
+  title: 'Privacy Policy | First Step Services',
   description:
-    'Learn how Prime Auto Deals collects, uses, and protects your personal information. Your privacy is our priority.',
+    'Learn how First Step Services collects, uses, and protects your personal information. Your privacy is our priority.',
   keywords: [
     'privacy policy',
     'data protection',
-    'prime auto deals privacy',
+    'first step services privacy',
     'customer information security',
     'cookie policy auto care',
     'legal automotive compliance',
@@ -36,6 +36,7 @@ export default function PrivacyPolicyPage() {
     <>
       <PageHeader
         title="Privacy Policy"
+        description="Your security is our priority. Explore how we protect and respect your digital footprint."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Policies" },

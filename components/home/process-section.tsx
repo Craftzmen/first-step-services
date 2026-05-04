@@ -6,56 +6,70 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 const steps = [
   {
     num: "01",
-    title: "Request a Quote",
-    desc: "Give us a call or fill out our form. We'll discuss your needs and set up an appointment.",
+    title: "Strategic Discovery",
+    desc: "A comprehensive audit of your vehicle's telemetry data to establish a precise performance baseline.",
   },
   {
     num: "02",
-    title: "Bring Your Vehicle",
-    desc: "Drive in or schedule our doorstep pickup. We'll perform a thorough inspection and provide a clear estimate.",
+    title: "System Diagnostics",
+    desc: "Advanced deep-level analysis to isolate micro-anomalies that impede peak mechanical output.",
   },
   {
     num: "03",
-    title: "Get It Repaired",
-    desc: "Our certified technicians handle the work with precision. We keep you informed every step of the way.",
+    title: "Precision Execution",
+    desc: "Targeted technical intervention using aerospace-grade calibration and rigorous engineering standards.",
   },
 ]
 
 export function ProcessSection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper className="relative overflow-hidden">
+      {/* Decorative Line */}
+      <div className="absolute left-1/2 top-1/2 -z-10 hidden h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-amber/20 to-transparent lg:block" />
+
       <ScrollReveal>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl text-navy dark:text-white">
-            The Prime <span className="text-amber">Process</span>
+        <div className="text-center mb-24">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber/10 px-5 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber">
+            The Methodology
+          </div>
+          <h2 className="text-5xl font-black tracking-tighter md:text-7xl lg:text-8xl mb-8 leading-[0.9] text-navy dark:text-white">
+            Initiate Peak <span className="text-amber">Performance.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            A frictionless journey from diagnosis to delivery. We engineered our process to save you time without compromising on quality.
-          </p>
         </div>
       </ScrollReveal>
 
-      <div className="grid gap-0 md:grid-cols-3 border-y border-border divide-y md:divide-y-0 md:divide-x divide-border">
+      <div className="grid gap-12 lg:grid-cols-3">
         {steps.map((step, i) => (
-          <ScrollReveal key={step.num} delay={i * 150} className="p-10 text-center md:text-left bg-card hover:bg-muted/50 transition-colors">
-            <div className="text-5xl font-extrabold text-amber/20 mb-6 font-mono">
-              {step.num}
+          <ScrollReveal key={step.num} delay={i * 150} direction="up">
+            <div className="relative group">
+              {/* Massive Background Number */}
+              <div className="absolute -top-12 -left-4 text-9xl font-black text-navy/[0.03] dark:text-white/[0.05] pointer-events-none transition-all duration-500 group-hover:-translate-y-4 group-hover:text-amber/[0.08]">
+                {step.num}
+              </div>
+              
+              <div className="relative space-y-6 pt-12">
+                <div className="flex size-20 items-center justify-center rounded-3xl bg-navy text-white shadow-xl transition-all duration-500 group-hover:bg-amber group-hover:text-navy group-hover:-rotate-6 group-hover:scale-110">
+                  <span className="text-2xl font-black">{step.num}</span>
+                </div>
+                <h3 className="text-3xl font-black tracking-tight text-foreground">{step.title}</h3>
+                <p className="text-lg leading-relaxed text-muted-foreground font-medium max-w-xs">
+                  {step.desc}
+                </p>
+              </div>
             </div>
-            <h3 className="mb-4 text-2xl font-bold text-foreground">{step.title}</h3>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              {step.desc}
-            </p>
           </ScrollReveal>
         ))}
       </div>
 
-      <ScrollReveal className="mt-12 text-center">
+      <ScrollReveal className="mt-20 text-center">
         <Link
           href="/how-it-works"
-          className="inline-flex items-center gap-2 text-base font-bold text-navy border-b-2 border-amber pb-1 dark:text-white hover:text-amber transition-colors uppercase tracking-wider"
+          className="group inline-flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] text-navy dark:text-white hover:text-amber dark:hover:text-amber transition-all"
         >
           View Full Methodology
-          <ArrowRightIcon className="size-5" />
+          <div className="flex size-10 items-center justify-center rounded-full border border-navy/10 dark:border-white/10 group-hover:border-amber transition-all group-hover:translate-x-2">
+            <ArrowRightIcon className="size-4" />
+          </div>
         </Link>
       </ScrollReveal>
     </SectionWrapper>

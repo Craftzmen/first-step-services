@@ -6,30 +6,30 @@ import { ContactForm } from "@/components/contact/contact-form"
 import { ContactSidebar } from "@/components/contact/contact-sidebar"
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Prime Auto Deals in Brooklyn, NY',
+  title: 'Contact Us | First Step Services in Stevens Point, WI',
   description:
-    'Get in touch with the automotive experts at Prime Auto Deals. Visit our Brooklyn location, call us, or book an appointment online for reliable car repair and care.',
+    'Get in touch with the automotive experts at First Step Services. Visit our Stevens Point location, call us, or book an appointment online for reliable car repair and care.',
   keywords: [
-    'contact Prime Auto Deals',
-    'mechanic in Brooklyn',
+    'contact First Step Services',
+    'mechanic in Stevens Point',
     'car repair location',
     'book car appointment',
     'auto repair number',
     'emergency car repair',
     'automotive service contact',
-    'customer Support auto care',
+    'customer support auto care',
   ],
   openGraph: {
     title: 'Contact Us - Get in Touch with Auto Care Experts',
     description:
-      'Step into the solution. Visit our Brooklyn office for quality car care and repairs.',
+      'Step into the solution. Visit our Stevens Point office for quality car care and repairs.',
     url: '/contact',
     type: 'website',
   },
   twitter: {
-    title: 'Contact Us - Auto care at Your Fingertips',
+    title: 'Contact Us - Auto Care at Your Fingertips',
     description:
-      'Reach out to Prime Auto Deals for all your automotive needs. We are here to help.',
+      'Reach out to First Step Services for all your automotive needs. We are here to help.',
   },
   alternates: {
     canonical: '/contact',
@@ -41,6 +41,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact Us"
+        description="Connect with our specialists and experience the gold standard of client-centric automotive care."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
