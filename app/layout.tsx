@@ -1,7 +1,6 @@
 import { Outfit } from "next/font/google"
 import type { Metadata } from "next"
 
-// @ts-expect-error Next.js treats global CSS imports as a runtime side effect.
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/layout/navbar"
