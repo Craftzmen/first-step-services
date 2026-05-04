@@ -9,42 +9,42 @@ const services = [
     icon: ActivityIcon,
     title: "Engine Optimization",
     desc: "Maximize thermal efficiency and power output through precision performance tuning protocols.",
-    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=75&w=480",
     price: "From $500",
   },
   {
     icon: CpuIcon,
     title: "Binary Diagnostics",
     desc: "Low-level system analysis and telemetry interpretation to identify complex electrical anomalies.",
-    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=75&w=480",
     price: "From $150",
   },
   {
     icon: ShieldCheckIcon,
     title: "Braking Dynamics",
     desc: "Evaluation and calibration of kinetic restraint systems to ensure absolute stopping performance.",
-    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=75&w=480",
     price: "From $200",
   },
   {
     icon: WindIcon,
     title: "Climate Engineering",
     desc: "Complete environmental control restoration using advanced evacuation and recharge techniques.",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=75&w=480",
     price: "From $180",
   },
   {
     icon: DropletIcon,
     title: "Fluid Vitality",
     desc: "Strategic lubrication management and high-purity filtration to preserve internal engine integrity.",
-    image: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&q=75&w=480",
     price: "From $90",
   },
   {
     icon: WrenchIcon,
     title: "Propulsion Analysis",
     desc: "Comprehensive deep-dive into internal combustion health and component stress levels.",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=75&w=480",
     price: "From $250",
   },
 ]
@@ -54,7 +54,7 @@ export function HomeServices() {
     <SectionWrapper id="services" className="relative overflow-hidden">
       {/* Decorative Background Watermark */}
       <div className="absolute -right-20 top-20 select-none pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
-        <span className="text-[15rem] font-black tracking-tighter leading-none">SERVICE</span>
+        <span className="text-[8rem] font-black leading-none tracking-tighter sm:text-[12rem] md:text-[15rem]">SERVICE</span>
       </div>
 
       <ScrollReveal>
@@ -76,21 +76,21 @@ export function HomeServices() {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((svc, i) => (
           <ScrollReveal key={svc.title} delay={i * 80} direction="up">
-            <div className="group relative h-[500px] overflow-hidden rounded-[2.5rem] bg-navy transition-all duration-700 hover:shadow-2xl hover:shadow-amber/10">
+            <div className="group relative h-[360px] overflow-hidden rounded-[2.5rem] bg-navy sm:h-[420px] lg:h-[500px] lg:transition-shadow lg:duration-700 lg:hover:shadow-2xl lg:hover:shadow-amber/10">
               {/* Background Image with Overlay */}
               <Image
                 src={svc.image}
                 alt={svc.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={55}
-                className="object-cover opacity-60 transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1 group-hover:opacity-40"
+                quality={48}
+                className="object-cover opacity-60 md:transition-all md:duration-700 md:group-hover:scale-110 md:group-hover:rotate-1 md:group-hover:opacity-40"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-10">
-                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-amber text-navy transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-amber text-navy md:transition-transform md:duration-500 md:group-hover:scale-110 md:group-hover:rotate-6">
                   <svc.icon className="size-6" />
                 </div>
                 <h3 className="mb-3 text-3xl font-black tracking-tight text-white">{svc.title}</h3>

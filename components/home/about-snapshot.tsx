@@ -1,10 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRightIcon, UsersIcon, ClockIcon, WrenchIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { StatCounter } from "@/components/stat-counter"
 
 export function AboutSnapshot() {
   return (
@@ -14,18 +12,18 @@ export function AboutSnapshot() {
           {/* Creative Image Layout */}
           <div className="relative z-10 aspect-[4/5] w-full overflow-hidden rounded-[3rem] shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=80&w=774&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=75&w=640&auto=format&fit=crop"
               alt="Master Technician"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={60}
+              quality={50}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-navy/10" />
           </div>
           
           {/* Floating Element */}
-          <div className="absolute -right-6 -top-6 z-20 md:-right-12 md:-top-12 animate-bounce-slow">
+          <div className="absolute -right-6 -top-6 z-20 md:-right-12 md:-top-12 md:animate-bounce-slow">
             <div className="glass rounded-[2rem] p-6 md:p-8 shadow-2xl border border-white/20">
               <div className="mb-2 text-3xl md:text-4xl font-black text-amber">100%</div>
               <div className="text-[10px] md:text-xs font-black uppercase tracking-widest text-navy/60 dark:text-white/60">Quality Assurance</div>
@@ -56,8 +54,9 @@ export function AboutSnapshot() {
                 { value: 15, suffix: "+", label: "Master Techs", icon: WrenchIcon },
               ].map((stat) => (
                 <div key={stat.label} className="group flex flex-col items-start gap-2">
-                  <div className="text-5xl font-black tracking-tighter text-navy dark:text-white group-hover:text-amber transition-colors">
-                    <StatCounter end={stat.value} suffix={stat.suffix} />
+                  <div className="text-5xl font-black tracking-tighter text-navy transition-colors group-hover:text-amber dark:text-white">
+                    {stat.value}
+                    {stat.suffix}
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
                     {stat.label}
@@ -67,16 +66,14 @@ export function AboutSnapshot() {
             </div>
 
             <div className="pt-6">
-              <Button
-                asChild
-                size="lg"
-                className="h-16 rounded-full bg-navy text-white px-10 font-black uppercase tracking-widest hover:bg-amber hover:text-navy transition-all duration-500 shadow-2xl"
+              <Link
+                href="/about"
+                prefetch={false}
+                className="inline-flex h-16 items-center rounded-full bg-navy px-10 font-black uppercase tracking-widest text-white shadow-2xl transition-colors duration-500 hover:bg-amber hover:text-navy motion-reduce:transition-none"
               >
-                <Link href="/about" prefetch={false}>
-                  Discover Our Story
-                  <ArrowRightIcon className="ml-3 size-5" />
-                </Link>
-              </Button>
+                Discover Our Story
+                <ArrowRightIcon className="ml-3 size-5" aria-hidden />
+              </Link>
             </div>
           </div>
         </ScrollReveal>

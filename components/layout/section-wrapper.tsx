@@ -36,7 +36,12 @@ export function SectionWrapper({
   return (
     <section
       id={id}
-      className={cn(bgMap[background], paddingMap[padding], className)}
+      className={cn(
+        bgMap[background],
+        paddingMap[padding],
+        "[content-visibility:auto] supports-[content-visibility:auto]:[contain-intrinsic-size:auto_520px]",
+        className
+      )}
     >
       <div className={cn("mx-auto max-w-[1200px] px-5 md:px-8", containerClassName)}>
         {children}

@@ -56,7 +56,7 @@ export function Footer() {
                 alt="First Step Services"
                 width={200}
                 height={50}
-                className="h-28 w-auto brightness-0 invert"
+                className="h-20 w-auto brightness-0 invert md:h-28"
               />
             </Link>
             <p className="text-xl text-white/40 leading-relaxed max-w-md font-medium">

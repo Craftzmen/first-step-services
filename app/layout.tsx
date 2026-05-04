@@ -1,16 +1,15 @@
 import { Outfit } from "next/font/google"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 
 import "./globals.css"
 import { Navbar } from "@/components/layout/navbar"
-import { Footer } from "@/components/layout/footer"
 import { cn } from "@/lib/utils"
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
   adjustFontFallback: true,
 })
 
@@ -48,7 +47,12 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-};
+}
+
+async function SiteFooter() {
+  const { Footer } = await import("@/components/layout/footer")
+  return <Footer />
+}
 
 export default function RootLayout({
   children,
@@ -60,7 +64,9 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main className="min-h-screen">{children}</main>
-        <Footer />
+        <Suspense fallback={<footer className="min-h-40 bg-navy" aria-hidden />}>
+          <SiteFooter />
+        </Suspense>
       </body>
     </html>
   )

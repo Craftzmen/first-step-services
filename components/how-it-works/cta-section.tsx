@@ -10,12 +10,12 @@ export function CtaHowItWorks() {
       <ScrollReveal>
         <div className="relative overflow-hidden rounded-[4rem] bg-navy p-12 text-center md:p-32 text-white shadow-2xl">
           {/* Dynamic Accents */}
-          <div className="absolute -top-20 -right-20 size-96 rounded-full bg-amber/10 blur-[120px]" />
-          <div className="absolute -bottom-20 -left-20 size-96 rounded-full bg-amber/5 blur-[100px]" />
+          <div className="absolute -top-20 -right-20 hidden size-96 rounded-full bg-amber/10 blur-[120px] md:block" />
+          <div className="absolute -bottom-20 -left-20 hidden size-96 rounded-full bg-amber/5 blur-[100px] md:block" />
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <div className="mb-10 flex justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-6 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-amber backdrop-blur-none md:bg-white/5 md:backdrop-blur-sm">
                 Get Started
               </div>
             </div>

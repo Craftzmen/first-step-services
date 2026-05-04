@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { cn } from "@/lib/utils"
 
 interface ScrollRevealProps {
   children: ReactNode
@@ -13,7 +14,6 @@ export function ScrollReveal({
   direction = "up",
   delay = 0,
   className = "",
-  threshold: _threshold = 0.15,
 }: ScrollRevealProps) {
   const animationClass = {
     up: "animate-fade-in-up",
@@ -25,7 +25,11 @@ export function ScrollReveal({
 
   return (
     <div
-      className={`${className} ${animationClass}`}
+      className={cn(
+        className,
+        animationClass,
+        "motion-reduce:animate-none motion-reduce:opacity-100 max-md:animate-none max-md:opacity-100"
+      )}
       style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
     >
       {children}

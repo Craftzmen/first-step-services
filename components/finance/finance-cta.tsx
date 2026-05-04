@@ -10,12 +10,12 @@ export function FinanceCta() {
       <ScrollReveal>
         <div className="relative overflow-hidden rounded-[4rem] bg-navy p-12 text-center md:p-32 text-white shadow-2xl">
           {/* Dynamic Accents */}
-          <div className="absolute -top-20 -right-20 size-96 rounded-full bg-amber/10 blur-[120px]" />
-          <div className="absolute -bottom-20 -left-20 size-96 rounded-full bg-amber/5 blur-[100px]" />
+          <div className="absolute -top-20 -right-20 hidden size-96 rounded-full bg-amber/10 blur-[120px] md:block" />
+          <div className="absolute -bottom-20 -left-20 hidden size-96 rounded-full bg-amber/5 blur-[100px] md:block" />
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <div className="mb-10 flex justify-center">
-              <div className="size-20 rounded-3xl bg-amber text-navy flex items-center justify-center shadow-2xl shadow-amber/20 animate-bounce-slow">
+              <div className="flex size-20 items-center justify-center rounded-3xl bg-amber text-navy shadow-2xl shadow-amber/20 md:animate-bounce-slow">
                 <DollarSignIcon className="size-10" />
               </div>
             </div>

@@ -30,16 +30,16 @@ export function FinanceIntro() {
         <ScrollReveal direction="right" className="relative group">
           <div className="relative z-10 aspect-video w-full overflow-hidden rounded-[3rem] shadow-2xl transition-all duration-700 group-hover:-translate-y-4">
             <Image
-              src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=80&w=2531&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=75&w=960&auto=format&fit=crop"
               alt="Kia EV6 Performance"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={60}
+              quality={50}
               className="object-cover"
             />
           </div>
           {/* Floating Stats */}
-          <div className="absolute -bottom-6 -left-6 z-20 md:-bottom-10 md:-left-10 bg-white rounded-3xl p-6 md:p-8 shadow-2xl border border-white/20 animate-bounce-slow">
+          <div className="absolute -bottom-6 -left-6 z-20 rounded-3xl border border-white/20 bg-white p-6 shadow-2xl md:-bottom-10 md:-left-10 md:animate-bounce-slow md:p-8">
             <div className="text-2xl md:text-3xl font-black text-amber leading-none">2.9%</div>
             <div className="text-[10px] font-black uppercase tracking-widest text-navy/40 dark:text-white/40 mt-1">Starting APR</div>
           </div>

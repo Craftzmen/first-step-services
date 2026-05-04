@@ -4,21 +4,9 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import Logo from '@/app/assets/images/logo.svg'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import Logo from "@/app/assets/images/logo.svg"
 import Image from "next/image"
-import {
-  MenuIcon,
-  PhoneIcon,
-  ChevronDownIcon,
-} from "lucide-react"
+import { MenuIcon, PhoneIcon, ChevronDownIcon, XIcon } from "lucide-react"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -40,6 +28,7 @@ export function Navbar() {
   const [policyOpen, setPolicyOpen] = React.useState(false)
   const [mobileOpen, setMobileOpen] = React.useState(false)
   const dropdownRef = React.useRef<HTMLDivElement>(null)
+  const closeMobile = React.useCallback(() => setMobileOpen(false), [])
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -57,6 +46,20 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  React.useEffect(() => {
+    if (!mobileOpen) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false)
+    }
+    document.addEventListener("keydown", onKey)
+    return () => {
+      document.body.style.overflow = prev
+      document.removeEventListener("keydown", onKey)
+    }
+  }, [mobileOpen])
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
     return pathname.startsWith(href)
@@ -65,34 +68,34 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 transition-all duration-500 flex justify-center",
+        "fixed left-0 right-0 top-0 z-50 flex justify-center transition-[padding] duration-300 motion-reduce:transition-none",
         scrolled ? "pt-4" : "pt-0"
       )}
     >
       <div
         className={cn(
-          "transition-all duration-500 mx-auto w-full max-w-[1400px]",
+          "mx-auto w-full max-w-[1400px] transition-[padding] duration-300 motion-reduce:transition-none",
           scrolled ? "px-5 md:px-8" : "px-0"
         )}
       >
         <nav
           className={cn(
-            "flex items-center justify-between transition-all duration-500 px-6",
+            "flex items-center justify-between px-6 transition-[background,box-shadow,border-radius] duration-300 motion-reduce:transition-none",
             scrolled
-              ? "bg-white rounded-full border border-white/10 shadow-2xl shadow-navy/20"
+              ? "rounded-full border border-white/10 bg-white shadow-xl shadow-navy/20"
               : "bg-transparent"
           )}
         >
           {/* Logo Area */}
-          <Link href="/" className="relative z-10 flex items-center gap-2 group">
-            <div className="absolute -inset-2 rounded-full bg-amber/0 transition-all group-hover:bg-amber/5" />
+          <Link href="/" className="group relative z-10 flex items-center gap-2">
+            <div className="absolute -inset-2 rounded-full bg-amber/0 transition-colors duration-300 group-hover:bg-amber/5 motion-reduce:transition-none" />
             <Image
               src={Logo}
               alt="First Step Services"
               width={160}
               height={45}
               className={cn(
-                "h-28 w-auto transition-all duration-300",
+                "h-16 w-auto transition-[filter] duration-300 motion-reduce:transition-none md:h-28",
                 !scrolled && "brightness-0 invert"
               )}
             />
@@ -106,7 +109,7 @@ export function Navbar() {
                 href={link.href}
                 prefetch={false}
                 className={cn(
-                  "relative group px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  "group relative px-4 py-2 text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none",
                   isActive(link.href)
                     ? "text-amber"
                     : scrolled
@@ -115,19 +118,22 @@ export function Navbar() {
                 )}
               >
                 {link.label}
-                <span className={cn(
-                  "absolute bottom-0 left-4 right-4 h-0.5 scale-x-0 bg-amber transition-transform duration-300 group-hover:scale-x-100",
-                  isActive(link.href) && "scale-x-100"
-                )} />
+                <span
+                  className={cn(
+                    "absolute bottom-0 left-4 right-4 h-0.5 origin-left scale-x-0 bg-amber transition-transform duration-300 motion-reduce:transition-none group-hover:scale-x-100",
+                    isActive(link.href) && "scale-x-100"
+                  )}
+                />
               </Link>
             ))}
 
             {/* Policies Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
+                type="button"
                 onClick={() => setPolicyOpen(!policyOpen)}
                 className={cn(
-                  "group flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-all duration-300",
+                  "group flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors duration-300 motion-reduce:transition-none",
                   pathname.startsWith("/policies")
                     ? "text-amber"
                     : scrolled
@@ -138,13 +144,13 @@ export function Navbar() {
                 Policies
                 <ChevronDownIcon
                   className={cn(
-                    "size-4 transition-transform duration-300",
+                    "size-4 transition-transform duration-300 motion-reduce:transition-none",
                     policyOpen && "rotate-180"
                   )}
                 />
               </button>
               {policyOpen && (
-                <div className="absolute right-0 top-[calc(100%+12px)] w-56 rounded-3xl border border-white/10 bg-navy p-2 shadow-2xl animate-scale-in origin-top-right backdrop-blur-none md:bg-navy/95 md:backdrop-blur-2xl">
+                <div className="absolute right-0 top-[calc(100%+12px)] z-10 w-56 origin-top-right rounded-3xl border border-white/10 bg-navy p-2 shadow-2xl md:bg-navy/95 md:backdrop-blur-2xl">
                   {policyLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -152,9 +158,9 @@ export function Navbar() {
                       prefetch={false}
                       onClick={() => setPolicyOpen(false)}
                       className={cn(
-                        "block rounded-2xl px-4 py-3 text-sm transition-all duration-200",
+                        "block rounded-2xl px-4 py-3 text-sm transition-colors duration-200 motion-reduce:transition-none",
                         isActive(link.href)
-                          ? "bg-amber text-navy font-bold"
+                          ? "bg-amber font-bold text-navy"
                           : "text-white/60 hover:bg-white/5 hover:text-white"
                       )}
                     >
@@ -171,7 +177,7 @@ export function Navbar() {
             <Link
               href="tel:+18883968739"
               className={cn(
-                "hidden xl:flex items-center gap-2 mr-4 text-xs font-bold uppercase tracking-widest transition-all",
+                "mr-4 hidden items-center gap-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 motion-reduce:transition-none xl:flex",
                 scrolled ? "text-foreground/40 hover:text-amber" : "text-white/40 hover:text-white"
               )}
             >
@@ -179,95 +185,118 @@ export function Navbar() {
               Support
             </Link>
 
-            <Button
-              asChild
+            <Link
+              href="/contact"
+              prefetch={false}
               className={cn(
-                "hidden sm:inline-flex rounded-full font-black uppercase tracking-tighter transition-all duration-500",
+                "hidden rounded-full px-8 py-2.5 text-sm font-black uppercase tracking-tighter transition-colors duration-300 motion-reduce:transition-none sm:inline-flex sm:items-center sm:justify-center",
                 scrolled
-                  ? "bg-navy text-white hover:bg-navy-light px-8"
-                  : "bg-amber text-navy hover:bg-amber-light px-10 shadow-xl shadow-amber/20"
+                  ? "bg-navy text-white hover:bg-navy-light"
+                  : "bg-amber text-navy shadow-xl shadow-amber/20 hover:bg-amber-light px-10 py-3"
               )}
             >
-              <Link href="/contact">Book Now</Link>
-            </Button>
+              Book Now
+            </Link>
 
-            {/* Mobile Menu Trigger */}
-            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    "lg:hidden rounded-full transition-all",
-                    scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
-                  )}
-                >
-                  <MenuIcon className="size-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-[400px] p-0 border-none bg-navy">
-                <div className="flex flex-col h-full">
-                  <SheetHeader className="p-6 border-b border-white/5">
-                    <SheetTitle>
-                      <Image
-                        src={Logo}
-                        alt="First Step Services"
-                        width={160}
-                        height={45}
-                        className="h-16 w-auto"
-                      />
-                    </SheetTitle>
-                  </SheetHeader>
-
-                  <div className="flex-1 overflow-y-auto p-6 space-y-1">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        prefetch={false}
-                        onClick={() => setMobileOpen(false)}
-                        className={cn(
-                          "block py-3 text-lg font-bold tracking-tighter transition-all",
-                          isActive(link.href) ? "text-amber translate-x-2" : "text-white/40 hover:text-white hover:translate-x-2"
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-
-                    <div className="pt-4 mt-4 border-t border-white/5">
-                      <p className="text-xs font-bold uppercase tracking-widest text-white/20 mb-2">Policies</p>
-                      {policyLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          prefetch={false}
-                          onClick={() => setMobileOpen(false)}
-                          className={cn(
-                            "block py-2 text-lg font-bold",
-                            isActive(link.href) ? "text-amber" : "text-white/40 hover:text-white"
-                          )}
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="p-6 bg-white/5">
-                    <Button asChild size="lg" className="w-full bg-amber text-navy font-bold rounded-2xl h-16 text-lg">
-                      <Link href="tel:+18883968739">
-                        <PhoneIcon className="mr-2 size-5" />
-                        (888) 396-8739
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            {/* Mobile menu — lightweight panel (no Radix / Dialog / Portal) */}
+            <button
+              type="button"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileOpen((o) => !o)}
+              className={cn(
+                "inline-flex size-10 items-center justify-center rounded-full transition-colors duration-300 motion-reduce:transition-none lg:hidden",
+                scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+              )}
+            >
+              {mobileOpen ? <XIcon className="size-6" /> : <MenuIcon className="size-6" />}
+            </button>
           </div>
         </nav>
       </div>
+
+      {mobileOpen ? (
+        <div
+          className="fixed inset-0 z-[100] lg:hidden"
+          aria-hidden={!mobileOpen}
+        >
+          <button
+            type="button"
+            tabIndex={-1}
+            className="absolute inset-0 bg-black/55"
+            onClick={closeMobile}
+            aria-label="Close menu"
+          />
+          <div
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
+            className="absolute right-0 top-0 flex h-full w-full max-w-[400px] flex-col bg-navy shadow-2xl"
+          >
+            <div className="flex items-center justify-between border-b border-white/5 p-6">
+              <Image src={Logo} alt="First Step Services" width={160} height={45} className="h-14 w-auto" />
+              <button
+                type="button"
+                className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
+                onClick={closeMobile}
+                aria-label="Close menu"
+              >
+                <XIcon className="size-6" />
+              </button>
+            </div>
+
+            <div className="flex-1 space-y-1 overflow-y-auto overscroll-contain p-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  prefetch={false}
+                  onClick={closeMobile}
+                  className={cn(
+                    "block py-3 text-lg font-bold tracking-tighter transition-transform motion-reduce:transition-none",
+                    isActive(link.href)
+                      ? "translate-x-2 text-amber"
+                      : "text-white/40 hover:translate-x-2 hover:text-white"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+
+              <div className="mt-4 border-t border-white/5 pt-4">
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-white/20">Policies</p>
+                {policyLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    prefetch={false}
+                    onClick={closeMobile}
+                    className={cn(
+                      "block py-2 text-lg font-bold",
+                      isActive(link.href) ? "text-amber" : "text-white/40 hover:text-white"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-6 bg-white/5">
+              <Link
+                href="tel:+18883968739"
+                onClick={closeMobile}
+                className="flex h-16 w-full items-center justify-center rounded-2xl bg-amber text-lg font-bold text-navy"
+              >
+                <PhoneIcon className="mr-2 size-5" />
+                (888) 396-8739
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </header>
   )
 }
