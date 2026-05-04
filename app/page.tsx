@@ -1,10 +1,6 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { Hero } from "@/components/home/hero"
-import { HomeServices } from "@/components/home/services-section"
-import { AboutSnapshot } from "@/components/home/about-snapshot"
-import { ProcessSection } from "@/components/home/process-section"
-import { TestimonialsSection } from "@/components/home/testimonials-section"
-import { CtaBanner } from "@/components/home/cta-banner"
 
 export const metadata: Metadata = {
   title: 'First Step Services | Premium Auto Care in Stevens Point, WI',
@@ -35,17 +31,52 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-};
+}
+
+async function DeferredHomeServices() {
+  const { HomeServices } = await import("@/components/home/services-section")
+  return <HomeServices />
+}
+
+async function DeferredAboutSnapshot() {
+  const { AboutSnapshot } = await import("@/components/home/about-snapshot")
+  return <AboutSnapshot />
+}
+
+async function DeferredProcessSection() {
+  const { ProcessSection } = await import("@/components/home/process-section")
+  return <ProcessSection />
+}
+
+async function DeferredTestimonialsSection() {
+  const { TestimonialsSection } = await import("@/components/home/testimonials-section")
+  return <TestimonialsSection />
+}
+
+async function DeferredCtaBanner() {
+  const { CtaBanner } = await import("@/components/home/cta-banner")
+  return <CtaBanner />
+}
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <HomeServices />
-      <AboutSnapshot />
-      <ProcessSection />
-      <TestimonialsSection />
-      <CtaBanner />
+      <Suspense fallback={null}>
+        <DeferredHomeServices />
+      </Suspense>
+      <Suspense fallback={null}>
+        <DeferredAboutSnapshot />
+      </Suspense>
+      <Suspense fallback={null}>
+        <DeferredProcessSection />
+      </Suspense>
+      <Suspense fallback={null}>
+        <DeferredTestimonialsSection />
+      </Suspense>
+      <Suspense fallback={null}>
+        <DeferredCtaBanner />
+      </Suspense>
     </>
   )
 }

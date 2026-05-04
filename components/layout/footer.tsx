@@ -43,7 +43,7 @@ export function Footer() {
     <footer className="relative bg-navy text-white overflow-hidden border-t border-white/5">
       {/* ── Background Elements ── */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-amber/[0.02] to-transparent pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 hidden size-96 rounded-full bg-amber/5 blur-3xl md:block md:blur-[120px]" />
 
       <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
@@ -125,7 +125,7 @@ export function Footer() {
                 <div className="space-y-3">
                   <p className="text-xs font-black text-white/90 uppercase tracking-widest">Workshop</p>
                   <p className="text-sm text-white/40 leading-relaxed font-medium">
-                    2733 Stanley St,<br />Stevens Point, WI 54481, USA
+                    4525 South 23rd St Apt 5,<br />Milwaukee, WI 53221, USA
                   </p>
                 </div>
                 <div className="pt-6 border-t border-white/10 space-y-4">

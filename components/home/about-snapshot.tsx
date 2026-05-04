@@ -33,7 +33,7 @@ export function AboutSnapshot() {
           </div>
 
           {/* Background Decorative */}
-          <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-amber/20 blur-3xl" />
+          <div className="absolute -bottom-10 -left-10 hidden h-64 w-64 rounded-full bg-amber/20 blur-2xl md:block md:blur-3xl" />
         </ScrollReveal>
 
         <ScrollReveal direction="right">

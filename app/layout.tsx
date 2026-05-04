@@ -10,6 +10,8 @@ const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {

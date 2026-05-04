@@ -144,7 +144,7 @@ export function Navbar() {
                 />
               </button>
               {policyOpen && (
-                <div className="absolute right-0 top-[calc(100%+12px)] w-56 rounded-3xl border border-white/10 bg-navy/95 backdrop-blur-2xl p-2 shadow-2xl animate-scale-in origin-top-right">
+                <div className="absolute right-0 top-[calc(100%+12px)] w-56 rounded-3xl border border-white/10 bg-navy p-2 shadow-2xl animate-scale-in origin-top-right backdrop-blur-none md:bg-navy/95 md:backdrop-blur-2xl">
                   {policyLinks.map((link) => (
                     <Link
                       key={link.href}

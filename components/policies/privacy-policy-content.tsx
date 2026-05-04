@@ -186,7 +186,7 @@ export function PrivacyPolicyContent() {
                   <div>
                     <h3 className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-amber">Headquarters</h3>
                     <p className="text-xl font-bold text-white/70">
-                      2733 Stanley St, Stevens Point, WI 54481, United States of America
+                      4525 South 23rd St Apt 5, Milwaukee, WI 53221, United States of America
                     </p>
                   </div>
                 </div>

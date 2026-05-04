@@ -21,15 +21,15 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy" />
       </div>
 
-      {/* Background gradient orbs */}
-      <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-amber/8 rounded-full blur-[150px] z-0" />
-      <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-amber/5 rounded-full blur-[120px] z-0" />
+      {/* Background gradient orbs — large blur filters are very costly on mobile GPUs */}
+      <div className="absolute top-1/4 -right-32 z-0 hidden h-[500px] w-[500px] rounded-full bg-amber/8 blur-3xl md:block md:blur-[150px]" />
+      <div className="absolute -bottom-24 -left-24 z-0 hidden h-[400px] w-[400px] rounded-full bg-amber/5 blur-3xl md:block md:blur-[120px]" />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] items-center justify-center px-5 pt-32 pb-20 text-center md:px-8">
         <div className="flex w-full flex-col items-center">
           {/* Centered content area */}
           <div className="max-w-5xl">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber/20 bg-amber/5 px-6 py-2.5 text-sm font-semibold text-amber backdrop-blur-sm">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber/20 bg-amber/10 px-6 py-2.5 text-sm font-semibold text-amber backdrop-blur-none md:bg-amber/5 md:backdrop-blur-sm">
               <SparklesIcon className="size-4" />
               Engineering Absolute Excellence.
             </div>
@@ -58,7 +58,7 @@ export function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-white/15 bg-white/5 backdrop-blur-sm px-8 py-6 text-base text-white hover:bg-white/10 hover:text-white hover:border-white/25 transition-all duration-300"
+                className="rounded-full border-white/15 bg-white/10 px-8 py-6 text-base text-white backdrop-blur-none hover:bg-white/10 hover:text-white hover:border-white/25 transition-all duration-300 md:bg-white/5 md:backdrop-blur-sm"
               >
                 <Link href="/services" prefetch={false}>Our Services</Link>
               </Button>

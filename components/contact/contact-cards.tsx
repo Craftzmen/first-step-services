@@ -7,8 +7,8 @@ const contactCards = [
   {
     icon: MapPinIcon,
     title: "Physical Node",
-    primary: "2733 Stanley St",
-    secondary: "Stevens Point, WI 54481, USA",
+    primary: "4525 South 23rd St Apt 5",
+    secondary: "Milwaukee, WI 53221, USA",
   },
   {
     icon: PhoneIcon,

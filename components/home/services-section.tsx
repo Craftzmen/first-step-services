@@ -101,7 +101,7 @@ export function HomeServices() {
                   <span className="text-lg font-black text-amber">{svc.price}</span>
                   <Link
                     href="/services"
-                    className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white backdrop-blur-sm transition-all hover:bg-amber hover:text-navy hover:border-amber"
+                    className="flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-none transition-all hover:bg-amber hover:text-navy hover:border-amber md:bg-white/5 md:backdrop-blur-sm"
                   >
                     <ArrowRightIcon className="size-5" />
                   </Link>

@@ -20,9 +20,9 @@ export function CtaBanner() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/60 to-navy" />
       </div>
 
-      {/* Decorative Orbs */}
-      <div className="absolute -top-24 -left-24 size-[500px] rounded-full bg-amber/10 blur-[150px]" />
-      <div className="absolute -bottom-24 -right-24 size-[500px] rounded-full bg-amber/5 blur-[150px]" />
+      {/* Decorative orbs — skip huge blur radius on mobile */}
+      <div className="absolute -top-24 -left-24 hidden size-[500px] rounded-full bg-amber/10 blur-3xl md:block md:blur-[150px]" />
+      <div className="absolute -bottom-24 -right-24 hidden size-[500px] rounded-full bg-amber/5 blur-3xl md:block md:blur-[150px]" />
 
       <div className="relative mx-auto max-w-[1000px] px-5 text-center md:px-8">
         <ScrollReveal>
@@ -51,7 +51,7 @@ export function CtaBanner() {
               asChild
               variant="outline"
               size="lg"
-              className="h-20 rounded-3xl border-white/20 bg-white/5 backdrop-blur-xl px-12 text-xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy hover:-translate-y-2 transition-all duration-500 w-full sm:w-auto"
+              className="h-20 rounded-3xl border-white/20 bg-white/10 px-12 text-xl text-white font-black uppercase tracking-tighter backdrop-blur-none hover:bg-white hover:text-navy hover:-translate-y-2 transition-all duration-500 w-full sm:w-auto md:bg-white/5 md:backdrop-blur-xl"
             >
               <Link href="/contact" prefetch={false}>Send Message</Link>
             </Button>
