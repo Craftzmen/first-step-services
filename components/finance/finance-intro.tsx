@@ -33,6 +33,8 @@ export function FinanceIntro() {
               src="https://images.unsplash.com/photo-1718780138801-d93ebf484827?q=80&w=2531&auto=format&fit=crop"
               alt="Kia EV6 Performance"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={60}
               className="object-cover"
             />
           </div>

@@ -17,9 +17,7 @@ import Image from "next/image"
 import {
   MenuIcon,
   PhoneIcon,
-  MailIcon,
   ChevronDownIcon,
-  XIcon,
 } from "lucide-react"
 
 const navLinks = [
@@ -97,7 +95,6 @@ export function Navbar() {
                 "h-28 w-auto transition-all duration-300",
                 !scrolled && "brightness-0 invert"
               )}
-              priority
             />
           </Link>
 
@@ -107,6 +104,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 className={cn(
                   "relative group px-4 py-2 text-sm font-semibold transition-all duration-300",
                   isActive(link.href)
@@ -151,6 +149,7 @@ export function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
+                      prefetch={false}
                       onClick={() => setPolicyOpen(false)}
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-sm transition-all duration-200",
@@ -208,26 +207,27 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-[400px] p-0 border-none bg-navy">
                 <div className="flex flex-col h-full">
-                  <SheetHeader className="p-8 border-b border-white/5">
+                  <SheetHeader className="p-6 border-b border-white/5">
                     <SheetTitle>
                       <Image
-                        src="/logo.png"
-                        alt="Logo"
-                        width={180}
-                        height={50}
-                        className="h-10 w-auto brightness-0 invert"
+                        src={Logo}
+                        alt="First Step Services"
+                        width={160}
+                        height={45}
+                        className="h-16 w-auto"
                       />
                     </SheetTitle>
                   </SheetHeader>
 
-                  <div className="flex-1 overflow-y-auto p-8 space-y-2">
+                  <div className="flex-1 overflow-y-auto p-6 space-y-1">
                     {navLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
+                        prefetch={false}
                         onClick={() => setMobileOpen(false)}
                         className={cn(
-                          "block py-4 text-3xl font-black tracking-tighter transition-all",
+                          "block py-3 text-lg font-bold tracking-tighter transition-all",
                           isActive(link.href) ? "text-amber translate-x-2" : "text-white/40 hover:text-white hover:translate-x-2"
                         )}
                       >
@@ -235,12 +235,13 @@ export function Navbar() {
                       </Link>
                     ))}
 
-                    <div className="pt-8 mt-8 border-t border-white/5">
-                      <p className="text-xs font-bold uppercase tracking-widest text-white/20 mb-4">Policies</p>
+                    <div className="pt-4 mt-4 border-t border-white/5">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/20 mb-2">Policies</p>
                       {policyLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
+                          prefetch={false}
                           onClick={() => setMobileOpen(false)}
                           className={cn(
                             "block py-2 text-lg font-bold",
@@ -253,7 +254,7 @@ export function Navbar() {
                     </div>
                   </div>
 
-                  <div className="p-8 bg-white/5">
+                  <div className="p-6 bg-white/5">
                     <Button asChild size="lg" className="w-full bg-amber text-navy font-bold rounded-2xl h-16 text-lg">
                       <Link href="tel:+18883968739">
                         <PhoneIcon className="mr-2 size-5" />

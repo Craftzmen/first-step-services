@@ -1,9 +1,7 @@
-"use client"
-
-import * as React from "react"
+import type { ReactNode } from "react"
 
 interface ScrollRevealProps {
-  children: React.ReactNode
+  children: ReactNode
   direction?: "up" | "left" | "right" | "fade" | "scale"
   delay?: number
   className?: string
@@ -15,29 +13,8 @@ export function ScrollReveal({
   direction = "up",
   delay = 0,
   className = "",
-  threshold = 0.15,
+  threshold: _threshold = 0.15,
 }: ScrollRevealProps) {
-  const ref = React.useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = React.useState(false)
-
-  React.useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(el)
-        }
-      },
-      { threshold }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [threshold])
-
   const animationClass = {
     up: "animate-fade-in-up",
     left: "animate-fade-in-left",
@@ -48,8 +25,7 @@ export function ScrollReveal({
 
   return (
     <div
-      ref={ref}
-      className={`${className} ${isVisible ? animationClass : "opacity-0"}`}
+      className={`${className} ${animationClass}`}
       style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
     >
       {children}

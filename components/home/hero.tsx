@@ -13,6 +13,8 @@ export function Hero() {
           src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Premium European Car Workshop"
           fill
+          sizes="100vw"
+          quality={60}
           className="object-cover opacity-40"
           priority
         />
@@ -58,7 +60,7 @@ export function Hero() {
                 size="lg"
                 className="rounded-full border-white/15 bg-white/5 backdrop-blur-sm px-8 py-6 text-base text-white hover:bg-white/10 hover:text-white hover:border-white/25 transition-all duration-300"
               >
-                <Link href="/services">Our Services</Link>
+                <Link href="/services" prefetch={false}>Our Services</Link>
               </Button>
             </div>
 

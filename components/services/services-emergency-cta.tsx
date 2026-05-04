@@ -12,6 +12,8 @@ export function ServicesEmergencyCta() {
           src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=2000"
           alt="Technical Support"
           fill
+          sizes="100vw"
+          quality={50}
           className="object-cover opacity-10 grayscale scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />

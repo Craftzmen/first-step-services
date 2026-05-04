@@ -90,6 +90,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      prefetch={false}
                       className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
                     >
                       {link.label}
@@ -107,6 +108,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      prefetch={false}
                       className="text-sm text-white/40 hover:text-white transition-all hover:translate-x-1 inline-block font-semibold"
                     >
                       {link.label}
@@ -150,6 +152,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors"
               >
                 {link.label}

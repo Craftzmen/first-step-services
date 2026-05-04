@@ -2,7 +2,6 @@ import { Outfit } from "next/font/google"
 import type { Metadata } from "next"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { cn } from "@/lib/utils"
@@ -55,13 +54,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("antialiased", outfit.variable, "font-sans")}>
+    <html lang="en" className={cn("antialiased", outfit.variable, "font-sans")}>
       <body>
-        <ThemeProvider>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   )

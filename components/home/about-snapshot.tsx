@@ -17,6 +17,8 @@ export function AboutSnapshot() {
               src="https://images.unsplash.com/photo-1618783129985-dd97dbe4ad99?q=80&w=774&auto=format&fit=crop"
               alt="Master Technician"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={60}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-navy/10" />
@@ -70,7 +72,7 @@ export function AboutSnapshot() {
                 size="lg"
                 className="h-16 rounded-full bg-navy text-white px-10 font-black uppercase tracking-widest hover:bg-amber hover:text-navy transition-all duration-500 shadow-2xl"
               >
-                <Link href="/about">
+                <Link href="/about" prefetch={false}>
                   Discover Our Story
                   <ArrowRightIcon className="ml-3 size-5" />
                 </Link>

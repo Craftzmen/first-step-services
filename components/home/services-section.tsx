@@ -82,6 +82,8 @@ export function HomeServices() {
                 src={svc.image}
                 alt={svc.title}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={55}
                 className="object-cover opacity-60 transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1 group-hover:opacity-40"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />

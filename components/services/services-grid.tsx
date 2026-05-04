@@ -78,6 +78,8 @@ export function ServicesGrid() {
                 src={svc.image}
                 alt={svc.title}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={55}
                 className="object-cover opacity-40 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-20"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
@@ -99,6 +101,7 @@ export function ServicesGrid() {
                   <span className="text-2xl font-black text-amber">{svc.price}</span>
                   <Link
                     href="/contact"
+                    prefetch={false}
                     className="flex size-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-xl border border-white/20 transition-all hover:bg-amber hover:text-navy hover:border-amber group-hover:translate-x-2"
                   >
                     <ArrowRightIcon className="size-6" />

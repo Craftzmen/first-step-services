@@ -13,6 +13,8 @@ export function CtaBanner() {
           src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&q=80&w=2000"
           alt="Premium Garage"
           fill
+          sizes="100vw"
+          quality={55}
           className="object-cover opacity-20 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/60 to-navy" />
@@ -51,7 +53,7 @@ export function CtaBanner() {
               size="lg"
               className="h-20 rounded-3xl border-white/20 bg-white/5 backdrop-blur-xl px-12 text-xl text-white font-black uppercase tracking-tighter hover:bg-white hover:text-navy hover:-translate-y-2 transition-all duration-500 w-full sm:w-auto"
             >
-              <Link href="/contact">Send Message</Link>
+              <Link href="/contact" prefetch={false}>Send Message</Link>
             </Button>
           </div>
         </ScrollReveal>

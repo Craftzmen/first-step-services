@@ -40,6 +40,8 @@ export function AboutIntro() {
                 src="https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=80&w=1200"
                 alt="Automotive Technical Facility"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={60}
                 className="object-cover"
               />
             </div>
