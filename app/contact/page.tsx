@@ -1,35 +1,35 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { ContactHeader } from "@/components/contact/contact-header"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ContactCards } from "@/components/contact/contact-cards"
 import { ContactForm } from "@/components/contact/contact-form"
 import { ContactSidebar } from "@/components/contact/contact-sidebar"
 
 export const metadata: Metadata = {
-  title: 'Contact Us | First Step Services in Stevens Point, WI',
+  title: 'Contact First Step Services | Start Your E-commerce Project',
   description:
-    'Get in touch with the automotive experts at First Step Services. Visit our Stevens Point location, call us, or book an appointment online for reliable car repair and care.',
+    'Tell us about your store and your goals. We reply within one business day with a clear next step — a discovery call, a proposal, or a few thoughtful questions.',
   keywords: [
-    'contact First Step Services',
-    'mechanic in Stevens Point',
-    'car repair location',
-    'book car appointment',
-    'auto repair number',
-    'emergency car repair',
-    'automotive service contact',
-    'customer support auto care',
+    'contact ecommerce agency',
+    'request a proposal',
+    'shopify project quote',
+    'ecommerce strategy call',
+    'first step services contact',
+    'milwaukee ecommerce agency',
+    'shopify migration quote',
+    'cro retainer inquiry',
   ],
   openGraph: {
-    title: 'Contact Us - Get in Touch with Auto Care Experts',
+    title: 'Contact Us — Start Your E-commerce Project',
     description:
-      'Step into the solution. Visit our Stevens Point office for quality car care and repairs.',
+      'Tell us about your store, your stack, and what you want to ship. We reply within one business day.',
     url: '/contact',
     type: 'website',
   },
   twitter: {
-    title: 'Contact Us - Auto Care at Your Fingertips',
+    title: 'Contact First Step Services',
     description:
-      'Reach out to First Step Services for all your automotive needs. We are here to help.',
+      'Book a strategy call or send a project brief. We reply within one business day.',
   },
   alternates: {
     canonical: '/contact',
@@ -39,20 +39,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        title="Contact Us"
-        description="Connect with our specialists and experience the gold standard of client-centric automotive care."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Contact" },
-        ]}
-      />
+      <ContactHeader />
 
       <ContactCards />
 
       <SectionWrapper background="muted">
-        <div className="grid gap-10 lg:grid-cols-5">
-          <div className="lg:col-span-3">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-7">
             <ContactForm />
           </div>
           <ContactSidebar />

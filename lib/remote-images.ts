@@ -1,31 +1,34 @@
 /** Stable Unsplash paths (hostname allowlisted in next.config.mjs). */
 
 export const UNSPLASH = {
-  workshop:
-    "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=70",
-  /** Dealership / new car — photo above was removed from CDN (404). */
-  carExterior:
-    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=70",
-  carSide:
-    "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=70",
-  mechanic:
-    "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=70",
-  garageNight:
-    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=70",
+  studio:
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=70",
+  storefront:
+    "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&q=70",
+  product:
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=70",
+  analytics:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=70",
+  commerceDark:
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=70",
   dashboard:
-    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=70",
-  sedan:
-    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80",
-  suv:
-    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&q=70",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=70",
+  packing:
+    "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&q=70",
+  device:
+    "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&q=70",
+  team:
+    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=70",
+  shoppingBags:
+    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=70",
 } as const
 
-/** Backgrounds for service cards (order matches listing). */
+/** Backgrounds for service cards (order matches the services grid listing). */
 export const SERVICE_CARD_IMAGES = [
-  `${UNSPLASH.workshop}&w=800`,
-  `${UNSPLASH.dashboard}&w=800`,
-  `${UNSPLASH.carExterior}&w=800`,
-  `${UNSPLASH.carSide}&w=800`,
-  `${UNSPLASH.mechanic}&w=800`,
-  `${UNSPLASH.garageNight}&w=800`,
+  `${UNSPLASH.storefront}&w=800`,
+  `${UNSPLASH.commerceDark}&w=800`,
+  `${UNSPLASH.analytics}&w=800`,
+  `${UNSPLASH.device}&w=800`,
+  `${UNSPLASH.product}&w=800`,
+  `${UNSPLASH.packing}&w=800`,
 ] as const

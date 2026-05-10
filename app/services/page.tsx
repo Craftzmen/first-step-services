@@ -1,34 +1,34 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { ServicesHeader } from "@/components/services/services-header"
 import { ServicesGrid } from "@/components/services/services-grid"
 import { ServicesBooking } from "@/components/services/services-booking"
 import { ServicesEmergencyCta } from "@/components/services/services-emergency-cta"
 
 export const metadata: Metadata = {
-  title: 'Auto Repair & Maintenance Services in Stevens Point | First Step Services',
+  title: 'Services | E-commerce Design, Build, Migration & Growth',
   description:
-    'Professional automotive repair services. Performance upgrades, computer diagnostics, brake repairs, and air conditioning service. Keeping your car reliable and efficient.',
+    'Store design and build, platform migration, conversion optimization, integrations, headless commerce, and ongoing growth retainers.',
   keywords: [
-    'auto repair services',
-    'car maintenance specialists',
-    'performance car upgrades',
-    'advanced engine diagnostics',
-    'brake service specialists',
-    'AC repair Stevens Point',
-    'lube and oil changes',
-    'expert auto mechanic service',
+    'shopify store build',
+    'platform migration',
+    'magento to shopify',
+    'conversion rate optimization',
+    'shopify integrations',
+    'headless commerce',
+    'shopify hydrogen',
+    'ecommerce retainer',
   ],
   openGraph: {
-    title: 'Professional Auto Repair & Maintenance Services',
+    title: 'Services — End-to-end E-commerce Solutions',
     description:
-      'Step into quality. Our expert technicians in Stevens Point provide comprehensive care for your vehicle.',
+      'Six service tracks covering everything from new store builds to long-term growth.',
     url: '/services',
     type: 'website',
   },
   twitter: {
-    title: 'Auto Repair & Maintenance - Professional Services',
+    title: 'Services — E-commerce Solutions',
     description:
-      'Keep your car performing at its best with expert repair and care.',
+      'Builds, migrations, CRO, integrations, headless commerce, and ongoing support.',
   },
   alternates: {
     canonical: '/services',
@@ -38,15 +38,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        title="Our Services"
-        description="Comprehensive automotive solutions powered by advanced technology and elite craftsmanship."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Services" },
-        ]}
-      />
-
+      <ServicesHeader />
       <ServicesGrid />
       <ServicesBooking />
       <ServicesEmergencyCta />

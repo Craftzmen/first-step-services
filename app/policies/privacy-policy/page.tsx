@@ -1,30 +1,30 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { PolicyHeader } from "@/components/policies/policy-header"
 import { PrivacyPolicyContent } from "@/components/policies/privacy-policy-content"
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | First Step Services',
   description:
-    'Learn how First Step Services collects, uses, and protects your personal information. Your privacy is our priority.',
+    'How First Step Services collects, uses, and protects the personal information of visitors and clients of our e-commerce solutions services.',
   keywords: [
     'privacy policy',
     'data protection',
     'first step services privacy',
-    'customer information security',
-    'cookie policy auto care',
-    'legal automotive compliance',
+    'client data security',
+    'cookie policy',
+    'gdpr ecommerce agency',
   ],
   openGraph: {
-    title: 'Privacy Policy - Our Commitment to Data Protection',
+    title: 'Privacy Policy — Our Commitment to Data Protection',
     description:
-      'Step into absolute trust. Learn how we secure your data while providing the best automotive care.',
+      'How we collect, use, and protect personal information across our website and client engagements.',
     url: '/policies/privacy-policy',
     type: 'website',
   },
   twitter: {
-    title: 'Privacy Policy - Protecting Your Information',
+    title: 'Privacy Policy — First Step Services',
     description:
-      'Read about how we protect your personal data for a secure car care experience.',
+      'Our commitment to protecting visitor and client data.',
   },
   alternates: {
     canonical: '/policies/privacy-policy',
@@ -34,9 +34,11 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <PageHeader
+      <PolicyHeader
+        eyebrow="Legal"
         title="Privacy Policy"
-        description="Your security is our priority. Explore how we protect and respect your digital footprint."
+        description="How we collect, use, and protect personal information across our website and client engagements."
+        lastUpdated="May 4, 2026"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Policies" },

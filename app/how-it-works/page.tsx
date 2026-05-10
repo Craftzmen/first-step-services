@@ -1,34 +1,34 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { HowItWorksHeader } from "@/components/how-it-works/how-it-works-header"
 import { Timeline } from "@/components/how-it-works/timeline"
 import { FaqSection } from "@/components/how-it-works/faq-section"
 import { CtaHowItWorks } from "@/components/how-it-works/cta-section"
 
 export const metadata: Metadata = {
-  title: 'How It Works | Our Seamless Auto Care Process',
+  title: 'How It Works | Our E-commerce Engagement Process',
   description:
-    'Discover our simple 5-step process for expert auto care. From online consultation to doorstep repair, First Step Services makes vehicle maintenance hassle-free.',
+    'A clear five-step engagement: discovery, audit and strategy, design, build and QA, and launch and optimize. Honest scope, real outcomes.',
   keywords: [
-    'auto repair process',
-    'how car maintenance works',
-    'doorstep car repair',
-    'online auto consultation',
-    'car repair estimation',
-    'how to book car service',
-    'transparent auto care',
-    'reliable mechanic process',
+    'ecommerce engagement process',
+    'agency project process',
+    'ecommerce discovery and audit',
+    'design and prototype',
+    'ecommerce build and qa',
+    'launch and optimization',
+    'how an ecommerce agency works',
+    'fixed-fee agency process',
   ],
   openGraph: {
-    title: 'How It Works - Simple & Transparent Auto Care',
+    title: 'How It Works — A Clear Five-Step Engagement',
     description:
-      'Step into clarity. Experience a seamless automotive repair process designed for your convenience.',
+      'From discovery call to post-launch optimization. Honest scope, fixed quotes, real outcomes.',
     url: '/how-it-works',
     type: 'website',
   },
   twitter: {
-    title: 'How It Works - Simple Auto Care',
+    title: 'How It Works — Our Process',
     description:
-      'Experience absolute clarity in car repair with our simple 5-step process.',
+      'Five steps from idea to live store, with senior engineers on every engagement.',
   },
   alternates: {
     canonical: '/how-it-works',
@@ -38,15 +38,7 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <>
-      <PageHeader
-        title="How It Works"
-        description="A streamlined, transparent journey from diagnosis to doorstep delivery."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "How It Works" },
-        ]}
-      />
-
+      <HowItWorksHeader />
       <Timeline />
       <FaqSection />
       <CtaHowItWorks />

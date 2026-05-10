@@ -1,41 +1,44 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { SectionWrapper } from "@/components/layout/section-wrapper"
+import { ArrowRightIcon, PhoneIcon } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function AboutCta() {
   return (
-    <SectionWrapper>
+    <section className="relative overflow-hidden bg-navy text-white">
+      <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-amber/15 blur-[120px]" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 size-[320px] rounded-full bg-amber/10 blur-[120px]" />
+
       <ScrollReveal>
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy p-10 text-center text-white shadow-lg md:p-14">
-          <div className="relative z-10 mx-auto max-w-2xl">
-            <div className="mb-6 flex justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
-                Get Started
-              </div>
-            </div>
-            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-              Engineering <span className="text-amber">Peak Output.</span>
+        <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-16 md:grid-cols-12 md:gap-12 md:px-6 md:py-20 lg:py-24">
+          <div className="md:col-span-7">
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-amber">Get in touch</p>
+            <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
+              Let&apos;s build something <br />
+              <span className="text-amber">that converts.</span>
             </h2>
-            <p className="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
-              Step into the future of automotive care. Deploy our expertise for your vehicle today.
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+              Tell us about your store and the work ahead. We&apos;ll reply within one business day.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="h-11 rounded-xl bg-amber px-8 text-sm font-semibold uppercase tracking-wide text-navy hover:bg-white hover:text-navy">
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="h-11 rounded-xl border-white/25 bg-white/10 px-8 text-sm font-semibold uppercase tracking-wide text-white hover:bg-white hover:text-navy"
-              >
-                <Link href="tel:+18883968739">Call Us Now</Link>
-              </Button>
-            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 md:col-span-5 md:items-end">
+            <Link
+              href="/contact"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light sm:w-auto"
+            >
+              Start a Project
+              <ArrowRightIcon className="size-4" />
+            </Link>
+            <Link
+              href="tel:+18883968739"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 text-sm font-semibold uppercase tracking-wide text-white hover:bg-white/10 sm:w-auto"
+            >
+              <PhoneIcon className="size-4 text-amber" />
+              (888) 396-8739
+            </Link>
           </div>
         </div>
       </ScrollReveal>
-    </SectionWrapper>
+    </section>
   )
 }

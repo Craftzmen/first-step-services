@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react"
+import { ArrowRightIcon, FileTextIcon, MailCheckIcon, CalendarCheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Button } from "@/components/ui/button"
@@ -11,87 +11,128 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+const nextSteps = [
+  {
+    num: "01",
+    icon: FileTextIcon,
+    title: "Send us your brief",
+    desc: "A few quick fields — platform, scope, timing.",
+  },
+  {
+    num: "02",
+    icon: MailCheckIcon,
+    title: "Reply within 1 business day",
+    desc: "A real human, with a real answer or a few questions.",
+  },
+  {
+    num: "03",
+    icon: CalendarCheckIcon,
+    title: "Book a discovery call",
+    desc: "30 minutes to align on scope, timeline, and quote.",
+  },
+]
+
 export function ServicesBooking() {
   return (
-    <SectionWrapper background="muted" className="relative overflow-hidden">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <ScrollReveal direction="left">
-          <div className="space-y-6">
-            <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber/25 bg-white/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber dark:bg-white/10">
-                Next Steps
+    <SectionWrapper background="muted" className="relative">
+      <ScrollReveal>
+        <div className="mb-10 max-w-2xl md:mb-14">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+            Next Steps
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-navy dark:text-white md:text-4xl lg:text-5xl">
+            Start your <span className="text-amber">project.</span>
+          </h2>
+        </div>
+      </ScrollReveal>
+
+      <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+        {/* LEFT: what happens next */}
+        <ScrollReveal direction="left" className="lg:col-span-5">
+          <div className="space-y-4">
+            {nextSteps.map((s, i) => (
+              <div
+                key={s.num}
+                className="group relative grid grid-cols-[auto_1fr] items-start gap-5 rounded-2xl border border-navy/10 bg-card p-5 transition hover:border-amber/40 dark:border-white/10 md:p-6"
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-2xl font-bold tracking-tight text-amber/80 md:text-3xl">{s.num}</span>
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-navy text-white">
+                    <s.icon className="size-4" />
+                  </span>
+                  {i < nextSteps.length - 1 ? (
+                    <span aria-hidden className="mt-2 h-6 w-px bg-navy/15 dark:bg-white/15" />
+                  ) : null}
+                </div>
+                <div className="pt-1">
+                  <h3 className="text-base font-bold tracking-tight text-navy dark:text-white">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                </div>
               </div>
-              <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">
-                Schedule Your <span className="text-amber">Elite Session.</span>
-              </h2>
-            </div>
-
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              Precision requires planning. Select your vehicle profile and service requirements to initiate our engineering workflow.
-            </p>
-
-            <ul className="space-y-3">
-              {[
-                "Structural Telemetry Assessment",
-                "Binary Fault Extraction",
-                "Master Engineering Deployment",
-                "Absolute Structural Guarantee",
-              ].map((item, i) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-4 rounded-2xl border border-navy/10 bg-white p-4 dark:border-white/10 dark:bg-navy-light"
-                >
-                  <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-amber text-xs font-bold text-navy">0{i + 1}</div>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-navy/75 dark:text-white/75">{item}</span>
-                </li>
-              ))}
-            </ul>
+            ))}
           </div>
         </ScrollReveal>
 
-        <ScrollReveal direction="right">
-          <div className="rounded-2xl border border-white/10 bg-navy p-8 text-white shadow-lg md:p-10">
-            <h3 className="mb-8 text-lg font-bold tracking-tight md:text-xl">
-              Initialize <span className="text-amber">Workflow</span>
-            </h3>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Vehicle Brand</label>
-                <Select>
-                  <SelectTrigger className="h-12 rounded-xl border-white/15 bg-white/10 text-sm text-white focus:border-amber focus:ring-0">
-                    <SelectValue placeholder="Select Brand" />
-                  </SelectTrigger>
-                  <SelectContent className="border-white/10 bg-navy text-white">
-                    <SelectGroup>
-                      <SelectItem value="bmw">BMW</SelectItem>
-                      <SelectItem value="mercedes">Mercedes-Benz</SelectItem>
-                      <SelectItem value="audi">Audi</SelectItem>
-                      <SelectItem value="porsche">Porsche</SelectItem>
-                      <SelectItem value="other">Other Premium</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
+        {/* RIGHT: dark form card */}
+        <ScrollReveal direction="right" className="lg:col-span-7">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-navy p-8 text-white shadow-lg md:p-10">
+            <div aria-hidden className="pointer-events-none absolute -right-20 -top-20 size-60 rounded-full bg-amber/15 blur-3xl" />
+
+            <div className="relative">
+              <h3 className="mb-2 text-2xl font-bold tracking-tight md:text-3xl">
+                Tell us about <span className="text-amber">your store.</span>
+              </h3>
+              <p className="mb-8 max-w-md text-sm leading-relaxed text-white/65">
+                A 60-second brief is enough for us to write back with a real next step.
+              </p>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-2 sm:col-span-1">
+                  <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Current Platform</label>
+                  <Select>
+                    <SelectTrigger className="h-12 rounded-xl border-white/15 bg-white/10 text-sm text-white focus:border-amber focus:ring-0">
+                      <SelectValue placeholder="Select Platform" />
+                    </SelectTrigger>
+                    <SelectContent className="border-white/10 bg-navy text-white">
+                      <SelectGroup>
+                        <SelectItem value="shopify">Shopify / Shopify Plus</SelectItem>
+                        <SelectItem value="woocommerce">WooCommerce</SelectItem>
+                        <SelectItem value="magento">Magento / Adobe Commerce</SelectItem>
+                        <SelectItem value="bigcommerce">BigCommerce</SelectItem>
+                        <SelectItem value="custom">Custom / Headless</SelectItem>
+                        <SelectItem value="none">No store yet</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2 sm:col-span-1">
+                  <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">What do you need?</label>
+                  <Select>
+                    <SelectTrigger className="h-12 rounded-xl border-white/15 bg-white/10 text-sm text-white focus:border-amber focus:ring-0">
+                      <SelectValue placeholder="Select Service" />
+                    </SelectTrigger>
+                    <SelectContent className="border-white/10 bg-navy text-white">
+                      <SelectGroup>
+                        <SelectItem value="store-build">New Store Build</SelectItem>
+                        <SelectItem value="migration">Platform Migration</SelectItem>
+                        <SelectItem value="cro">Conversion Optimization</SelectItem>
+                        <SelectItem value="integrations">Integrations &amp; APIs</SelectItem>
+                        <SelectItem value="headless">Headless Commerce</SelectItem>
+                        <SelectItem value="support">Ongoing Support</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-semibold uppercase tracking-wide text-white/45">Required Service</label>
-                <Select>
-                  <SelectTrigger className="h-12 rounded-xl border-white/15 bg-white/10 text-sm text-white focus:border-amber focus:ring-0">
-                    <SelectValue placeholder="Select Service" />
-                  </SelectTrigger>
-                  <SelectContent className="border-white/10 bg-navy text-white">
-                    <SelectGroup>
-                      <SelectItem value="performance">Performance Tuning</SelectItem>
-                      <SelectItem value="diagnostics">Expert Diagnostics</SelectItem>
-                      <SelectItem value="brakes">Brake Systems</SelectItem>
-                      <SelectItem value="maintenance">Elite Maintenance</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button className="h-12 w-full rounded-xl bg-amber text-sm font-semibold uppercase tracking-wide text-navy hover:bg-white hover:text-navy">
-                Request Appointment
+
+              <Button className="mt-8 h-12 w-full rounded-xl bg-amber text-sm font-semibold uppercase tracking-wide text-white hover:bg-white hover:text-navy">
+                Request a Proposal
                 <ArrowRightIcon className="ml-2 size-5" />
               </Button>
+
+              <p className="mt-4 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-white/45">
+                For the full form, head to the contact page.
+              </p>
             </div>
           </div>
         </ScrollReveal>

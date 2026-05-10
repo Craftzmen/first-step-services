@@ -1,59 +1,59 @@
-import { MapPinIcon, PhoneIcon, MailIcon } from "lucide-react"
+import { SendIcon, MailCheckIcon, CalendarCheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Link from "next/link"
 
-const contactCards = [
+const stages = [
   {
-    icon: MapPinIcon,
-    title: "Physical Node",
-    primary: "4525 South 23rd St Apt 5",
-    secondary: "Milwaukee, WI 53221, USA",
+    num: "01",
+    icon: SendIcon,
+    title: "You send your brief",
+    desc: "Use the form below or email us directly. A few sentences about your store and the work ahead is plenty to get started.",
   },
   {
-    icon: PhoneIcon,
-    title: "Direct Line",
-    primary: "Call (888) 396-8739",
-    secondary: "24/7 Active Response",
-    href: "tel:+18883968739",
-    titleAttr: "Call (888) 396-8739",
+    num: "02",
+    icon: MailCheckIcon,
+    title: "We reply within 1 business day",
+    desc: "A real human, with either a clear next step, a proposal, or a couple of follow-up questions to sharpen the brief.",
   },
   {
-    icon: MailIcon,
-    title: "Digital Uplink",
-    primary: "info@firststepservices.tech",
-    secondary: "Low-latency response",
-    href: "mailto:info@firststepservices.tech",
-    titleAttr: "Email us at info@firststepservices.tech",
+    num: "03",
+    icon: CalendarCheckIcon,
+    title: "We schedule a discovery call",
+    desc: "30 minutes on Zoom or a phone line. We walk through scope, timeline, and quote — no decks, no commitment.",
   },
 ]
 
 export function ContactCards() {
   return (
-    <SectionWrapper id="contact-hubs" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -left-10 top-0 select-none opacity-[0.04] dark:opacity-[0.06]">
-        <span className="text-7xl font-bold uppercase leading-none tracking-tighter md:text-9xl">Direct</span>
-      </div>
+    <SectionWrapper id="next-steps" className="relative">
+      <ScrollReveal>
+        <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+              What happens next
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-navy dark:text-white md:text-4xl lg:text-5xl">
+              Three short steps. <span className="text-amber">No surprises.</span>
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Every inquiry gets the same treatment — fast, transparent, and grounded in what your team actually needs.
+          </p>
+        </div>
+      </ScrollReveal>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {contactCards.map((card, i) => (
-          <ScrollReveal key={card.title} delay={i * 100} direction="up">
-            <div className="relative h-full overflow-hidden rounded-2xl border border-navy/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-navy-light md:p-8">
-              <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-navy text-white">
-                <card.icon className="size-7" />
+      <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+        {stages.map((s, i) => (
+          <ScrollReveal key={s.num} delay={i * 100} direction="up">
+            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:p-8">
+              <div className="flex items-center justify-between">
+                <span className="text-4xl font-bold tracking-tight text-amber/70 md:text-5xl">{s.num}</span>
+                <span className="flex size-11 items-center justify-center rounded-2xl bg-navy text-white">
+                  <s.icon className="size-5" />
+                </span>
               </div>
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{card.title}</h3>
-              {card.href ? (
-                <Link href={card.href} title={card.titleAttr} className="text-lg font-bold text-navy hover:text-amber dark:text-white dark:hover:text-amber">
-                  {card.primary}
-                </Link>
-              ) : (
-                <p className="text-lg font-bold text-navy dark:text-white">{card.primary}</p>
-              )}
-              <p className="mt-3 text-sm text-muted-foreground">{card.secondary}</p>
-              <div className="pointer-events-none absolute bottom-6 right-6 select-none text-3xl font-bold text-navy/[0.04] dark:text-white/[0.06]">
-                0{i + 1}
-              </div>
+              <h3 className="mt-6 text-lg font-bold tracking-tight text-navy dark:text-white md:text-xl">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             </div>
           </ScrollReveal>
         ))}

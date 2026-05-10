@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { AboutHeader } from "@/components/about/about-header"
 import { AboutIntro } from "@/components/about/about-intro"
 import { AboutTabs } from "@/components/about/about-tabs"
 import { AboutStats } from "@/components/about/about-stats"
@@ -7,30 +7,30 @@ import { AboutValues } from "@/components/about/about-values"
 import { AboutCta } from "@/components/about/about-cta"
 
 export const metadata: Metadata = {
-  title: 'About First Step Services | Our Story & Values',
+  title: 'About First Step Services | E-commerce Solutions Agency',
   description:
-    'Since March 2026, First Step Services has been serving Stevens Point with high-quality automotive solutions. Learn more about our mission to provide transparent and expert auto care.',
+    'A small, senior team of e-commerce designers and engineers helping ambitious brands launch and scale online. Learn about our story, mission, and values.',
   keywords: [
-    'about First Step Services',
-    'car maintenance history',
-    'mechanic team',
-    'automotive solution and service',
-    'trusted car service Stevens Point',
-    'automotive expert team',
-    'customer service auto care',
-    'Stevens Point car specialists',
+    'about first step services',
+    'ecommerce agency team',
+    'shopify experts',
+    'ecommerce consultants',
+    'agency mission and values',
+    'senior ecommerce engineers',
+    'design and development agency',
+    'long-term agency partner',
   ],
   openGraph: {
-    title: 'About First Step Services - Our Commitment to Quality',
+    title: 'About First Step Services — Our Story & Values',
     description:
-      'Step into the story of First Step Services. From expert vehicles to expert automotive services.',
+      'Senior e-commerce designers and engineers helping merchants ship great commerce experiences.',
     url: '/about',
     type: 'website',
   },
   twitter: {
-    title: 'About First Step Services - Our Commitment',
+    title: 'About First Step Services',
     description:
-      'Step into the story of First Step Services and our commitment to quality auto care.',
+      'A senior agency built around honest scope, clean code, and real outcomes.',
   },
   alternates: {
     canonical: '/about',
@@ -40,15 +40,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="About Us"
-        description="A new standard of excellence in automotive care, built on transparency and technical mastery."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "About Us" },
-        ]}
-      />
-
+      <AboutHeader />
       <AboutIntro />
       <AboutTabs />
       <AboutStats />

@@ -1,124 +1,185 @@
 import {
-  VideoIcon,
-  CameraIcon,
+  MessageSquareIcon,
   SearchIcon,
-  SettingsIcon,
-  DollarSignIcon,
+  PaletteIcon,
+  CodeIcon,
+  RocketIcon,
   CheckCircle2Icon,
   HeadphonesIcon,
+  ArrowRightIcon,
 } from "lucide-react"
+import Link from "next/link"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const steps = [
+interface Step {
+  num: string
+  icon: typeof MessageSquareIcon
+  phase: string
+  duration: string
+  title: string
+  desc: string
+  subItems: string[]
+}
+
+const steps: Step[] = [
   {
     num: "01",
-    icon: VideoIcon,
-    title: "Protocol Initiation",
-    desc: "Secure your technical briefing slot via our encrypted portal for a remote system audit with a master engineer.",
+    icon: MessageSquareIcon,
+    phase: "Day 0",
+    duration: "30 minutes",
+    title: "Discovery Call",
+    desc: "A 30-minute conversation about your store, your goals, and the work ahead — no commitment, no boilerplate decks.",
+    subItems: [],
   },
   {
     num: "02",
-    icon: CameraIcon,
-    title: "Live Telemetry Feed",
-    desc: "Deploy your mobile sensor array (camera) for a live structural evaluation guided by our technical leads.",
+    icon: SearchIcon,
+    phase: "Week 1",
+    duration: "5 business days",
+    title: "Audit & Strategy",
+    desc: "We review your stack, analytics, and conversion funnel, then write a clear plan that ties scope, timeline, and outcomes.",
+    subItems: [
+      "Tech stack & data audit",
+      "Funnel & analytics review",
+      "Fixed-fee proposal",
+    ],
   },
   {
     num: "03",
-    icon: SearchIcon,
-    title: "Diagnostic Output",
-    desc: "Real-time analysis of mechanical stress markers and binary fault identification for immediate resolution strategy.",
+    icon: PaletteIcon,
+    phase: "Week 2–3",
+    duration: "2 weeks",
+    title: "Design & Prototype",
+    desc: "Wireframes and high-fidelity prototypes for every key page, reviewed in real time so feedback turns into decisions fast.",
+    subItems: [
+      "Information architecture",
+      "Component design system",
+      "High-fidelity prototype",
+    ],
   },
   {
     num: "04",
-    icon: SettingsIcon,
-    title: "Resolution Matrices",
-    desc: "Select your intervention pathway based on the diagnostic severity and operational requirements.",
+    icon: CodeIcon,
+    phase: "Week 4–7",
+    duration: "4 weeks",
+    title: "Build & QA",
+    desc: "Senior engineers ship the build with continuous code review, end-to-end testing, and weekly working demos.",
     subItems: [
-      "Guided Calibration — for low-level system adjustments",
-      "Mobile Deployment — for on-site structural repairs",
-      "Facility Integration — for critical propulsion overhauls",
+      "Custom theme & components",
+      "Third-party integrations",
+      "Performance & SEO hardening",
     ],
   },
   {
     num: "05",
-    icon: DollarSignIcon,
-    title: "Capital Transparency",
-    desc: "Receive a definitive capital breakdown before any mechanical intervention. No surcharges, no hidden parameters.",
+    icon: RocketIcon,
+    phase: "Week 8+",
+    duration: "Ongoing",
+    title: "Launch & Optimize",
+    desc: "We launch, monitor, and iterate — A/B testing, analytics tuning, and a steady backlog of improvements after go-live.",
+    subItems: [
+      "Soft launch & monitoring",
+      "A/B testing program",
+      "Quarterly business reviews",
+    ],
   },
 ]
 
 export function Timeline() {
   return (
-    <SectionWrapper id="process" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -right-10 top-32 select-none opacity-[0.04] dark:opacity-[0.06]">
-        <span className="text-7xl font-bold uppercase leading-none tracking-tighter md:text-9xl">Workflow</span>
-      </div>
-
+    <SectionWrapper id="process" className="relative">
       <ScrollReveal>
-        <div className="mb-16 text-center md:mb-20">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
-            The Blueprint
+        <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+              The Engagement
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-navy dark:text-white md:text-4xl lg:text-5xl">
+              Five steps. <span className="text-amber">No surprises.</span>
+            </h2>
           </div>
-          <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">
-            Engineered for <span className="text-amber">Efficiency.</span>
-          </h2>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Same shape every engagement, sized to fit the work — focused theme refresh, full migration, or headless build.
+          </p>
         </div>
       </ScrollReveal>
 
-      <div className="relative mx-auto max-w-5xl">
-        <div className="absolute left-[30px] top-0 h-full w-px bg-navy/15 dark:bg-white/15 md:left-1/2" />
-
-        <div className="space-y-14 md:space-y-20">
-          {steps.map((step, i) => {
-            const isEven = i % 2 === 0
-            return (
-              <ScrollReveal key={step.num} delay={i * 100} direction={isEven ? "left" : "right"}>
-                <div className={`relative flex flex-col md:flex-row md:items-center ${isEven ? "md:flex-row-reverse" : ""}`}>
-                  <div className="absolute left-0 top-0 z-10 flex size-12 items-center justify-center rounded-xl bg-navy text-sm font-bold text-white shadow-md md:left-1/2 md:top-1/2 md:-ml-6 md:-mt-6 md:size-14 md:text-base">
-                    {step.num}
-                  </div>
-
-                  <div className={`w-full md:w-1/2 ${isEven ? "md:pl-14" : "md:pr-14"} pl-16 md:pl-16`}>
-                    <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-navy-light md:p-8">
-                      <div className="mb-4 flex size-11 items-center justify-center rounded-xl bg-amber/15 text-amber">
-                        <step.icon className="size-5" />
-                      </div>
-                      <h3 className="mb-2 text-base font-bold tracking-tight text-navy dark:text-white md:text-lg">{step.title}</h3>
-                      <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{step.desc}</p>
-                      {step.subItems && (
-                        <div className="mt-6 space-y-3 border-t border-navy/10 pt-6 dark:border-white/10">
-                          {step.subItems.map((item) => (
-                            <div key={item} className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-navy/70 dark:text-white/70">
-                              <CheckCircle2Icon className="size-3.5 shrink-0 text-amber" />
-                              {item}
-                            </div>
-                          ))}
-                        </div>
-                      )}
+      <div className="space-y-5 md:space-y-6">
+        {steps.map((step, i) => {
+          const isAmber = i % 2 === 1
+          return (
+            <ScrollReveal key={step.num} delay={i * 80} direction="up">
+              <article
+                id={`step-${step.num}`}
+                className={`grid scroll-mt-28 gap-8 rounded-3xl border p-7 md:grid-cols-12 md:gap-10 md:p-10 ${
+                  isAmber
+                    ? "border-amber/25 bg-amber/5"
+                    : "border-navy/10 bg-card dark:border-white/10"
+                }`}
+              >
+                <div className="flex items-start gap-5 md:col-span-5">
+                  <span className="text-5xl font-bold tracking-tight text-amber/80 md:text-6xl">{step.num}</span>
+                  <div className="min-w-0 flex-1">
+                    <span className="flex size-12 items-center justify-center rounded-2xl bg-navy text-white">
+                      <step.icon className="size-5" />
+                    </span>
+                    <div className="mt-4 flex flex-wrap items-baseline gap-3">
+                      <span className="rounded-full border border-amber/30 bg-amber/15 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber">
+                        {step.phase}
+                      </span>
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                        {step.duration}
+                      </span>
                     </div>
+                    <h3 className="mt-3 text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">{step.title}</h3>
                   </div>
-
-                  <div className="hidden w-1/2 md:block" />
                 </div>
-              </ScrollReveal>
-            )
-          })}
-        </div>
+
+                <div className="md:col-span-7">
+                  <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{step.desc}</p>
+                  {step.subItems.length > 0 ? (
+                    <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+                      {step.subItems.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 rounded-xl border border-navy/10 bg-background p-3 dark:border-white/10"
+                        >
+                          <CheckCircle2Icon className="mt-0.5 size-4 shrink-0 text-amber" />
+                          <span className="text-xs font-medium leading-snug text-navy/80 dark:text-white/80">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              </article>
+            </ScrollReveal>
+          )
+        })}
       </div>
 
       <ScrollReveal>
-        <div className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-2xl border border-navy/10 bg-amber p-8 shadow-md md:mt-24 md:p-10">
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
-            <div className="flex size-16 items-center justify-center rounded-2xl bg-navy text-white md:size-20">
-              <HeadphonesIcon className="size-8 md:size-9" />
+        <div className="mt-12 grid gap-8 rounded-3xl bg-navy p-8 text-white md:mt-16 md:grid-cols-12 md:gap-10 md:p-12">
+          <div className="md:col-span-2">
+            <div className="flex size-16 items-center justify-center rounded-2xl bg-amber text-white shadow-lg shadow-amber/30">
+              <HeadphonesIcon className="size-7" />
             </div>
-            <div>
-              <h3 className="mb-2 text-lg font-bold tracking-tight text-navy md:text-xl">Post-Service Precision</h3>
-              <p className="text-sm leading-relaxed text-navy/80 md:text-base">
-                Our relationship doesn&apos;t end at the workshop. We follow up on every session to ensure your vehicle maintains peak performance.
-              </p>
-            </div>
+          </div>
+          <div className="md:col-span-7">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.25em] text-amber">After launch</p>
+            <h3 className="text-xl font-bold tracking-tight md:text-2xl">Most clients stay on as a long-term partner.</h3>
+            <p className="mt-3 text-sm leading-relaxed text-white/70 md:text-base">
+              Launching is the start, not the finish. Most clients keep us on a retainer for ongoing development, A/B testing, and feature work after go-live.
+            </p>
+          </div>
+          <div className="md:col-span-3 md:flex md:items-center md:justify-end">
+            <Link
+              href="/services#support"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-xs font-semibold uppercase tracking-wide text-navy hover:bg-amber hover:text-white"
+            >
+              Growth retainers
+              <ArrowRightIcon className="size-4" />
+            </Link>
           </div>
         </div>
       </ScrollReveal>

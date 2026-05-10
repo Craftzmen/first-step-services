@@ -1,30 +1,30 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/layout/page-header"
+import { PolicyHeader } from "@/components/policies/policy-header"
 import { RefundPolicyContent } from "@/components/policies/refund-policy-content"
 
 export const metadata: Metadata = {
   title: 'Refund Policy | First Step Services',
   description:
-    'Read about our refund and return policies at First Step Services. We are committed to providing top-quality automotive services and customer satisfaction.',
+    'How First Step Services handles refunds, rework, and cancellations for our e-commerce design, build, migration, CRO, and retainer services.',
   keywords: [
-    'refund policy car care',
-    'service cancellation terms',
-    'car repair guarantee',
-    'refund process auto repair',
-    'automotive service refund',
+    'refund policy',
+    'agency refund policy',
+    'project cancellation terms',
+    'service refund process',
     'first step services refund',
+    'ecommerce agency refund policy',
   ],
   openGraph: {
-    title: 'Refund Policy - Satisfaction Guarantee',
+    title: 'Refund Policy — Fair, Transparent Terms',
     description:
-      'Step into quality. Learn about our clear and transparent refund policies for your peace of mind.',
+      'How we handle refunds, rework, and cancellations for our e-commerce solutions services.',
     url: '/policies/refund-policy',
     type: 'website',
   },
   twitter: {
-    title: 'Refund Policy - Quality Commitment',
+    title: 'Refund Policy — First Step Services',
     description:
-      'Learn more about our transparent refund and satisfaction policies.',
+      'Fair, transparent terms for refunds, rework, and project cancellation.',
   },
   alternates: {
     canonical: '/policies/refund-policy',
@@ -34,9 +34,11 @@ export const metadata: Metadata = {
 export default function RefundPolicyPage() {
   return (
     <>
-      <PageHeader
+      <PolicyHeader
+        eyebrow="Legal"
         title="Refund Policy"
-        description="Transparent terms and a satisfaction guarantee designed to keep your journey worry-free."
+        description="Fair, transparent terms for refunds, rework, and project cancellation across our e-commerce solutions services."
+        lastUpdated="May 4, 2026"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Policies" },

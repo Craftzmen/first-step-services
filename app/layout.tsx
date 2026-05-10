@@ -14,30 +14,30 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'First Step Services | Expert Auto Repair & Financing in Stevens Point, WI',
+  title: 'First Step Services | E-commerce Solutions Agency',
   description:
-    'Quality auto repair, maintenance, and financing services in Stevens Point, WI. Expert mechanics, transparent pricing, and convenient doorstep service. Trusted by 500+ car owners.',
+    'A senior e-commerce solutions agency. We design, build, migrate, and grow online stores on Shopify, WooCommerce, BigCommerce, and headless stacks.',
   keywords: [
-    'auto repair Stevens Point',
-    'car maintenance WI',
-    'car financing Stevens Point',
-    'expert mechanics',
-    'auto diagnostic tools',
-    'car repair service',
-    'affordable auto deals',
-    'professional car care',
+    'ecommerce agency',
+    'shopify agency',
+    'shopify plus partner',
+    'woocommerce development',
+    'platform migration',
+    'headless commerce',
+    'conversion optimization',
+    'ecommerce design and build',
   ],
   openGraph: {
-    title: 'First Step Services - Expert Auto Repair & Financing in Stevens Point',
+    title: 'First Step Services — E-commerce Solutions Agency',
     description:
-      'Quality auto repair, maintenance, and financing. Step into the future of automotive care where technology meets expertise.',
+      'Store builds, replatforming, conversion optimization, integrations, and ongoing growth — end to end.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'First Step Services - Expert Auto Care',
+    title: 'First Step Services — E-commerce Solutions',
     description:
-      'Step into the future of automotive care with expert repair and financing technology.',
+      'We design and build the stores that grow brands.',
   },
   alternates: {
     canonical: '/',

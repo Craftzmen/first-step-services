@@ -1,65 +1,55 @@
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion"
 
 const faqs = [
   {
-    q: "What is the typical duration of a remote audit?",
-    a: "Typically 15–30 cycles. Our master engineers are optimized for diagnostic efficiency, ensuring a definitive output without latency.",
+    q: "Which platforms do you support?",
+    a: "Shopify and Shopify Plus, WooCommerce, BigCommerce, Adobe Commerce / Magento, and headless setups on Next.js with Shopify Hydrogen, Sanity, or contentful. If your store runs on something else, we will tell you honestly whether we are the right fit.",
   },
   {
-    q: "Are specialized sensors required for protocol initiation?",
-    a: "Only your primary mobile device. A stable uplink and adequate environmental lighting around the vehicle are the only prerequisites.",
+    q: "How long does a typical build take?",
+    a: "A focused Shopify build is typically four to eight weeks. A full migration or a headless project usually runs eight to twelve. We share a fixed timeline as part of every proposal so you can plan around it.",
   },
   {
-    q: "What if a remote diagnosis is inconclusive?",
-    a: "We deploy a mobile engineering unit or facilitate workshop integration for a physical deep-dive. Your vehicle's integrity is our priority.",
+    q: "Will you migrate my existing data?",
+    a: "Yes. We migrate products, customers, orders, content, and SEO redirects from your current platform with a documented data plan and a staging environment you can review before launch.",
   },
   {
-    q: "Is the capital breakdown definitive?",
-    a: "Yes, our estimates are based on rigorous structural data. Any auxiliary interventions discovered during the process require explicit protocol approval.",
+    q: "What does ongoing support cover?",
+    a: "Retainers cover whatever moves the business — feature releases, content updates, third-party integrations, performance work, A/B testing, and quick fixes. You get a dedicated lead and weekly check-ins.",
   },
 ]
 
 export function FaqSection() {
   return (
-    <SectionWrapper background="muted" className="relative overflow-hidden">
+    <SectionWrapper background="muted" className="relative">
       <ScrollReveal>
-        <div className="mb-12 text-center md:mb-14">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
-            The Knowledge Base
+        <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-6">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+              FAQ
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-navy dark:text-white md:text-4xl lg:text-5xl">
+              Common <span className="text-amber">questions.</span>
+            </h2>
           </div>
-          <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">
-            Common <span className="text-amber">Queries.</span>
-          </h2>
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:col-span-6 md:self-end md:text-base">
+            The questions we hear most before a project kicks off — and short, honest answers. If yours isn&apos;t here, send us a message and we&apos;ll get back to you within one business day.
+          </p>
         </div>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <div className="mx-auto max-w-3xl space-y-3">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                className="mb-3 rounded-2xl border border-navy/10 bg-white px-5 py-1 dark:border-white/10 dark:bg-navy-light md:px-6"
-              >
-                <AccordionTrigger className="py-5 text-left text-sm font-semibold tracking-tight text-navy hover:text-amber hover:no-underline dark:text-white md:text-base">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-5">
-                  <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">{faq.a}</p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </ScrollReveal>
+      <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+        {faqs.map((faq, i) => (
+          <ScrollReveal key={faq.q} delay={i * 80} direction="up">
+            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-6 transition hover:border-amber/40 dark:border-white/10 md:p-8">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber">Q.0{i + 1}</span>
+              <h3 className="mt-3 text-lg font-bold tracking-tight text-navy dark:text-white md:text-xl">{faq.q}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{faq.a}</p>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
     </SectionWrapper>
   )
 }

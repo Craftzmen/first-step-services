@@ -1,50 +1,85 @@
 import Link from "next/link"
-import Image from "next/image"
-import { PhoneIcon } from "lucide-react"
+import { PhoneIcon, MailIcon, ArrowRightIcon, ClockIcon } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { UNSPLASH } from "@/lib/remote-images"
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-navy py-20 text-white md:py-28">
-      <div className="absolute inset-0">
-        <Image
-          src={`${UNSPLASH.garageNight}&w=1200`}
-          alt="Premium Garage"
-          fill
-          sizes="100vw"
-          quality={40}
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-navy/70" />
-      </div>
-
-      <div className="relative mx-auto max-w-[900px] px-4 text-center md:px-6">
+    <section className="relative bg-background py-16 md:py-24">
+      <div className="relative mx-auto max-w-[1200px] px-4 md:px-6">
         <ScrollReveal>
-          <div className="mb-8 flex justify-center">
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-amber text-navy shadow-md">
-              <PhoneIcon className="size-7" aria-hidden />
+          <div className="overflow-hidden rounded-3xl border border-navy/10 shadow-2xl shadow-navy/10 dark:border-white/10">
+            <div className="grid lg:grid-cols-5">
+              {/* Primary message side */}
+              <div className="relative overflow-hidden bg-navy p-8 text-white md:p-12 lg:col-span-3 lg:p-14">
+                <div className="pointer-events-none absolute -left-32 -top-32 size-80 rounded-full bg-amber/15 blur-3xl" aria-hidden />
+                <div className="pointer-events-none absolute -bottom-20 -right-20 size-72 rounded-full bg-amber/10 blur-3xl" aria-hidden />
+
+                <div className="relative">
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+                    Ready when you are
+                  </div>
+                  <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
+                    Ready to take the <span className="text-amber">first step?</span>
+                  </h2>
+                  <p className="mb-8 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+                    Tell us about your store, your stack, and what you want to ship. We&apos;ll come back with a clear plan and a fixed quote.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex h-12 items-center gap-2 rounded-full bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light"
+                  >
+                    Send Message
+                    <ArrowRightIcon className="size-4" />
+                  </Link>
+
+                  <div className="mt-8 flex items-center gap-2 text-xs text-white/60">
+                    <ClockIcon className="size-4 text-amber" aria-hidden />
+                    Reply within 1 business day.
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct contact side */}
+              <div className="relative bg-amber p-8 text-white md:p-12 lg:col-span-2 lg:p-14">
+                <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.25em] text-white/80">
+                  Or reach us directly
+                </p>
+
+                <Link
+                  href="tel:+18883968739"
+                  className="group mb-4 flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 transition hover:bg-white/20"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-navy text-white">
+                      <PhoneIcon className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-white/70">Direct Line</div>
+                      <div className="text-base font-bold text-white">(888) 396-8739</div>
+                    </div>
+                  </div>
+                  <ArrowRightIcon className="size-5 text-white/70 transition group-hover:translate-x-1 group-hover:text-white" />
+                </Link>
+
+                <Link
+                  href="mailto:info@firststepservices.tech"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 transition hover:bg-white/20"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-navy text-white">
+                      <MailIcon className="size-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-white/70">Email</div>
+                      <div className="truncate text-sm font-bold text-white">info@firststepservices.tech</div>
+                    </div>
+                  </div>
+                  <ArrowRightIcon className="size-5 shrink-0 text-white/70 transition group-hover:translate-x-1 group-hover:text-white" />
+                </Link>
+
+                <p className="mt-6 text-xs font-medium text-white/80">Mon–Sat, 8am–6pm CT.</p>
+              </div>
             </div>
-          </div>
-          <h2 className="mb-4 text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
-            Initiate Peak <span className="text-amber">Performance.</span>
-          </h2>
-          <p className="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
-            Ready to transcend standard maintenance? Deploy our engineering team to ensure your vehicle operates at its absolute apex.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="tel:+18883968739"
-              className="inline-flex h-12 w-full items-center justify-center rounded-2xl bg-amber px-8 text-sm font-semibold uppercase tracking-wide text-navy shadow-sm hover:bg-amber-light sm:w-auto"
-            >
-              Call (888) 396-8739
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex h-12 w-full items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-8 text-sm font-semibold uppercase tracking-wide text-white hover:bg-white/15 sm:w-auto"
-            >
-              Send Message
-            </Link>
           </div>
         </ScrollReveal>
       </div>

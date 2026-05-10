@@ -3,30 +3,30 @@ import { Suspense } from "react"
 import { Hero } from "@/components/home/hero"
 
 export const metadata: Metadata = {
-  title: 'First Step Services | Premium Auto Care in Stevens Point, WI',
+  title: 'First Step Services | E-commerce Solutions for Modern Brands',
   description:
-    'Experience the best in auto repair and maintenance. At First Step Services, we combine expertise with transparency. From engine diagnostics to brake repair, we keep your car running at its peak.',
+    'Full-service e-commerce solutions — store builds, replatforming, conversion optimization, integrations, and growth retainers for ambitious brands.',
   keywords: [
-    'Stevens Point car care',
-    'expert auto repair',
-    'mechanic service',
-    'engine diagnostic',
-    'brake repair Stevens Point',
-    'oil change service',
-    'car maintenance specialists',
-    'reliable auto service',
+    'ecommerce solutions',
+    'shopify development',
+    'shopify plus',
+    'woocommerce experts',
+    'magento migration',
+    'headless commerce nextjs',
+    'cro agency',
+    'ecommerce integrations',
   ],
   openGraph: {
-    title: 'First Step Services - Your Trusted Auto Care Partner',
+    title: 'First Step Services — E-commerce Solutions Agency',
     description:
-      'Step into the future of automotive care. Our experts in Stevens Point provide top-tier repair and maintenance.',
+      'We design and build the stores that grow brands. Shopify, WooCommerce, BigCommerce, and headless commerce — done right.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'First Step Services - Premium Auto Care',
+    title: 'First Step Services — E-commerce Solutions',
     description:
-      'Where technology meets expertise in automotive repair.',
+      'Store builds, replatforming, CRO, integrations, and growth retainers.',
   },
   alternates: {
     canonical: '/',

@@ -1,52 +1,80 @@
-import Image from "next/image"
-import { PhoneIcon } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { UNSPLASH } from "@/lib/remote-images"
+import { PhoneIcon, ZapIcon, ClockIcon, ShieldCheckIcon } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
+
+const metrics = [
+  {
+    icon: ClockIcon,
+    label: "Avg. response",
+    value: "<30 min",
+  },
+  {
+    icon: ZapIcon,
+    label: "Support hours",
+    value: "8am–6pm CT",
+  },
+  {
+    icon: ShieldCheckIcon,
+    label: "Recovery target",
+    value: "Same day",
+  },
+]
 
 export function ServicesEmergencyCta() {
   return (
     <section className="relative overflow-hidden bg-navy py-16 text-white md:py-24">
-      <div className="absolute inset-0">
-        <Image
-          src={`${UNSPLASH.dashboard}&w=1600`}
-          alt="Technical Support"
-          fill
-          sizes="100vw"
-          quality={35}
-          className="object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-navy/80" />
-      </div>
+      <div aria-hidden className="pointer-events-none absolute -left-32 -top-32 size-[420px] rounded-full bg-amber/15 blur-[120px]" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -right-24 size-[320px] rounded-full bg-amber/10 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-[1200px] px-4 md:px-6">
-        <div className="overflow-hidden rounded-2xl border border-navy/20 bg-amber p-8 shadow-lg md:p-12">
-          <ScrollReveal>
-            <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
-              <div className="text-left">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-navy/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-navy">
-                  Rapid Response
-                </div>
-                <h2 className="mb-4 text-2xl font-bold tracking-tight text-navy md:text-3xl">
-                  Critical System <span className="text-white">Failure?</span>
-                </h2>
-                <p className="max-w-md text-sm leading-relaxed text-navy/80 md:text-base">
-                  Our rapid response engineering unit is active. If your vehicle has suffered a propulsion or electrical collapse, we are ready to deploy immediately.
-                </p>
-              </div>
-              <div className="flex justify-center lg:justify-end">
-                <Button asChild size="lg" className="h-14 rounded-xl bg-navy px-8 text-sm font-semibold uppercase tracking-wide text-white hover:bg-white hover:text-navy">
-                  <Link href="tel:+18883968739">
-                    <PhoneIcon className="mr-2 size-5" />
-                    (888) 396-8739
-                  </Link>
-                </Button>
-              </div>
+      <ScrollReveal>
+        <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-4 md:grid-cols-12 md:gap-12 md:px-6">
+          <div className="md:col-span-5">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-amber" />
+              </span>
+              Rapid response
             </div>
-          </ScrollReveal>
+            <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
+              Site down or <br />
+              <span className="text-amber">critical issue?</span>
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+              Checkout broken, traffic spiking, integration failing — call us directly. We&apos;ll triage on the line and get someone shipping a fix.
+            </p>
+
+            <Link
+              href="tel:+18883968739"
+              className="mt-7 inline-flex h-12 items-center gap-3 rounded-full bg-amber px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light"
+            >
+              <PhoneIcon className="size-4" />
+              (888) 396-8739
+            </Link>
+          </div>
+
+          <div className="md:col-span-7">
+            <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+              {metrics.map((m) => (
+                <div
+                  key={m.label}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm md:p-6"
+                >
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-amber/15 text-amber">
+                    <m.icon className="size-4" />
+                  </span>
+                  <div className="mt-4 text-2xl font-bold leading-none tracking-tight text-white md:text-3xl">
+                    {m.value}
+                  </div>
+                  <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   )
 }

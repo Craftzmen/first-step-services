@@ -4,76 +4,76 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    /* ── Core Brand Colors (Forest Dark & Lime Green) ── */
-    --navy: 160 20% 6%;
-    --navy-light: 160 15% 14%;
-    --amber: 76 100% 40%;
-    --amber-light: 76 80% 50%;
-    --amber-dark: 76 100% 30%;
+    /* ── Core Brand Colors (Deep Indigo & Vivid Violet) ── */
+    --navy: 222 30% 9%;
+    --navy-light: 222 22% 16%;
+    --amber: 262 88% 62%;
+    --amber-light: 262 90% 72%;
+    --amber-dark: 262 80% 52%;
 
     /* ── Shadcn Design Tokens ── */
     --background: hsl(0 0% 100%);
-    --foreground: hsl(160 20% 6%);
+    --foreground: hsl(222 30% 9%);
     --card: hsl(0 0% 100%);
-    --card-foreground: hsl(160 20% 6%);
+    --card-foreground: hsl(222 30% 9%);
     --popover: hsl(0 0% 100%);
-    --popover-foreground: hsl(160 20% 6%);
+    --popover-foreground: hsl(222 30% 9%);
     --primary: hsl(var(--amber));
-    --primary-foreground: hsl(160 20% 6%);
-    --secondary: hsl(80 30% 95%);
-    --secondary-foreground: hsl(160 20% 6%);
-    --muted: hsl(80 20% 95%);
-    --muted-foreground: hsl(160 10% 44%);
-    --accent: hsl(80 30% 95%);
-    --accent-foreground: hsl(160 20% 6%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(220 25% 96%);
+    --secondary-foreground: hsl(222 30% 9%);
+    --muted: hsl(220 20% 96%);
+    --muted-foreground: hsl(220 10% 46%);
+    --accent: hsl(220 25% 96%);
+    --accent-foreground: hsl(222 30% 9%);
     --destructive: hsl(0 84.2% 60.2%);
-    --base-border: hsl(80 15% 88%);
-    --input: hsl(80 15% 88%);
+    --base-border: hsl(220 15% 88%);
+    --input: hsl(220 15% 88%);
     --ring: hsl(var(--amber));
     --radius: 0.875rem;
 
     --chart-1: hsl(var(--navy));
     --chart-2: hsl(var(--amber));
-    --chart-3: hsl(160 10% 46%);
-    --chart-4: hsl(76 80% 50%);
-    --chart-5: hsl(160 15% 14%);
+    --chart-3: hsl(220 10% 48%);
+    --chart-4: hsl(262 90% 72%);
+    --chart-5: hsl(222 22% 16%);
 
     --sidebar: hsl(0 0% 100%);
-    --sidebar-foreground: hsl(160 20% 6%);
+    --sidebar-foreground: hsl(222 30% 9%);
     --sidebar-primary: hsl(var(--navy));
     --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(80 30% 95%);
-    --sidebar-accent-foreground: hsl(160 20% 6%);
-    --sidebar-border: hsl(80 15% 88%);
+    --sidebar-accent: hsl(220 25% 96%);
+    --sidebar-accent-foreground: hsl(222 30% 9%);
+    --sidebar-border: hsl(220 15% 88%);
     --sidebar-ring: hsl(var(--amber));
 }
 
 .dark {
-    --background: hsl(160 20% 6%);
-    --foreground: hsl(80 20% 96%);
-    --card: hsl(160 18% 9%);
-    --card-foreground: hsl(80 20% 96%);
-    --popover: hsl(160 18% 9%);
-    --popover-foreground: hsl(80 20% 96%);
+    --background: hsl(222 30% 9%);
+    --foreground: hsl(220 20% 96%);
+    --card: hsl(222 26% 12%);
+    --card-foreground: hsl(220 20% 96%);
+    --popover: hsl(222 26% 12%);
+    --popover-foreground: hsl(220 20% 96%);
     --primary: hsl(var(--amber));
-    --primary-foreground: hsl(160 20% 6%);
-    --secondary: hsl(160 15% 15%);
-    --secondary-foreground: hsl(80 20% 96%);
-    --muted: hsl(160 15% 15%);
-    --muted-foreground: hsl(160 10% 60%);
-    --accent: hsl(160 15% 15%);
-    --accent-foreground: hsl(80 20% 96%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(222 22% 16%);
+    --secondary-foreground: hsl(220 20% 96%);
+    --muted: hsl(222 22% 16%);
+    --muted-foreground: hsl(220 10% 62%);
+    --accent: hsl(222 22% 16%);
+    --accent-foreground: hsl(220 20% 96%);
     --destructive: hsl(0 62.8% 30.6%);
-    --base-border: hsl(160 15% 18%);
-    --input: hsl(160 15% 18%);
+    --base-border: hsl(222 18% 20%);
+    --input: hsl(222 18% 20%);
     --ring: hsl(var(--amber));
-    --sidebar: hsl(160 20% 6%);
-    --sidebar-foreground: hsl(80 20% 96%);
+    --sidebar: hsl(222 30% 9%);
+    --sidebar-foreground: hsl(220 20% 96%);
     --sidebar-primary: hsl(var(--amber));
-    --sidebar-primary-foreground: hsl(160 20% 6%);
-    --sidebar-accent: hsl(160 15% 15%);
-    --sidebar-accent-foreground: hsl(80 20% 96%);
-    --sidebar-border: hsl(160 15% 18%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(222 22% 16%);
+    --sidebar-accent-foreground: hsl(220 20% 96%);
+    --sidebar-border: hsl(222 18% 20%);
     --sidebar-ring: hsl(var(--amber));
 }
 
@@ -160,8 +160,8 @@
 }
 
 .dark .glass {
-    background: hsl(160 18% 11%);
-    border-color: hsl(160 15% 20%);
+    background: hsl(222 26% 14%);
+    border-color: hsl(222 18% 22%);
 }
 
 .gradient-text {

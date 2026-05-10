@@ -1,105 +1,182 @@
 import Link from "next/link"
-import Image from "next/image"
-import { ArrowRightIcon, WrenchIcon, ActivityIcon, CpuIcon, ShieldCheckIcon, WindIcon, DropletIcon } from "lucide-react"
+import { ArrowRightIcon, StoreIcon, ArrowRightLeftIcon, LineChartIcon, PlugIcon, LayersIcon, RocketIcon, CheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { SERVICE_CARD_IMAGES } from "@/lib/remote-images"
 
-const services = [
+interface Service {
+  num: string
+  icon: typeof StoreIcon
+  title: string
+  desc: string
+  engagement: string
+  slug: string
+  platforms: string[]
+  includes: string[]
+}
+
+const services: Service[] = [
   {
-    icon: ActivityIcon,
-    title: "Engine Optimization",
-    desc: "Maximize thermal efficiency and power output through precision performance tuning protocols and advanced ECU remapping for high-performance units.",
-    price: "From $500",
+    num: "01",
+    icon: StoreIcon,
+    title: "Store Design & Build",
+    desc: "Custom Shopify, WooCommerce, and BigCommerce storefronts with a design system tuned to your brand and built around the patterns that convert.",
+    engagement: "From 4 weeks",
+    slug: "store-build",
+    platforms: ["Shopify Plus", "WooCommerce", "BigCommerce"],
+    includes: [
+      "Brand-led design system",
+      "Performance-first build",
+      "SEO & analytics from day one",
+      "Launch QA on real devices",
+    ],
   },
   {
-    icon: CpuIcon,
-    title: "Binary Diagnostics",
-    desc: "Low-level system analysis and telemetry interpretation to identify complex electrical anomalies within your vehicle's integrated circuitry.",
-    price: "From $150",
+    num: "02",
+    icon: ArrowRightLeftIcon,
+    title: "Platform Migration",
+    desc: "Move from Magento, Wix, BigCartel, or any legacy stack with zero downtime, preserved SEO, and clean catalog, customer, and order data.",
+    engagement: "Project-based",
+    slug: "migration",
+    platforms: ["Magento", "Wix", "BigCartel", "Custom"],
+    includes: [
+      "Documented data plan",
+      "Catalog & order migration",
+      "Redirect map for SEO",
+      "Staging environment review",
+    ],
   },
   {
-    icon: ShieldCheckIcon,
-    title: "Braking Dynamics",
-    desc: "Evaluation and calibration of kinetic restraint systems to ensure absolute stopping performance under high-stress operational conditions.",
-    price: "From $200",
+    num: "03",
+    icon: LineChartIcon,
+    title: "Conversion Optimization",
+    desc: "An ongoing CRO program — analytics audits, structured A/B testing, checkout improvements, and a steady backlog of revenue experiments.",
+    engagement: "Retainer",
+    slug: "cro",
+    platforms: ["GA4", "Hotjar", "Optimizely", "VWO"],
+    includes: [
+      "Analytics & funnel audit",
+      "Hypothesis-led test backlog",
+      "Checkout & PDP experiments",
+      "Quarterly business review",
+    ],
   },
   {
-    icon: WindIcon,
-    title: "Climate Engineering",
-    desc: "Complete environmental control restoration using advanced molecular evacuation and high-purity refrigerant recharge techniques.",
-    price: "From $180",
+    num: "04",
+    icon: PlugIcon,
+    title: "Integrations & APIs",
+    desc: "Connect your store to ERPs, 3PLs, marketing platforms, payment gateways, and custom internal tools with reliable, well-tested middleware.",
+    engagement: "From 2 weeks",
+    slug: "integrations",
+    platforms: ["NetSuite", "ShipStation", "Klaviyo", "Stripe"],
+    includes: [
+      "API & webhook design",
+      "Idempotent middleware",
+      "Monitoring & alerting",
+      "Documentation handoff",
+    ],
   },
   {
-    icon: DropletIcon,
-    title: "Fluid Vitality",
-    desc: "Strategic lubrication management and high-purity filtration to preserve the long-term internal integrity of your propulsion components.",
-    price: "From $90",
+    num: "05",
+    icon: LayersIcon,
+    title: "Headless Commerce",
+    desc: "Composable storefronts on Next.js with Shopify Hydrogen, Sanity, or contentful — built for performance, flexibility, and editorial freedom.",
+    engagement: "From 6 weeks",
+    slug: "headless",
+    platforms: ["Next.js", "Hydrogen", "Sanity", "Contentful"],
+    includes: [
+      "Composable architecture",
+      "Editorial CMS integration",
+      "Cart & checkout layer",
+      "Edge-cached performance",
+    ],
   },
   {
-    icon: WrenchIcon,
-    title: "Propulsion Analysis",
-    desc: "Comprehensive deep-dive into internal combustion health, utilizing structural compression metrics and timing synchronization analysis.",
-    price: "From $250",
+    num: "06",
+    icon: RocketIcon,
+    title: "Growth & Support",
+    desc: "An embedded squad for ongoing development, performance tuning, content updates, and feature releases — week after week, on a fixed retainer.",
+    engagement: "Retainer",
+    slug: "support",
+    platforms: ["Slack", "Linear", "GitHub", "Sentry"],
+    includes: [
+      "Dedicated senior lead",
+      "Weekly working demos",
+      "Backlog grooming",
+      "Performance & uptime work",
+    ],
   },
-] as const
+]
 
 export function ServicesGrid() {
   return (
-    <SectionWrapper id="services" className="relative overflow-hidden">
-      <div className="absolute -left-16 top-16 select-none pointer-events-none opacity-[0.04] dark:opacity-[0.06]">
-        <span className="text-6xl font-bold tracking-tighter uppercase leading-none md:text-8xl">Expertise</span>
-      </div>
-
+    <SectionWrapper id="services" className="relative">
       <ScrollReveal>
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 max-w-2xl md:mb-14">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
-            The Catalog
+            What We Offer
           </div>
-          <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">
-            Professional <span className="text-amber">Auto Solutions.</span>
+          <h2 className="text-3xl font-bold tracking-tight text-navy dark:text-white md:text-4xl lg:text-5xl">
+            Pick a track. <span className="text-amber">Or stitch a few together.</span>
           </h2>
         </div>
       </ScrollReveal>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-6 md:space-y-8">
         {services.map((svc, i) => (
-          <ScrollReveal key={svc.title} delay={i * 80} direction="up">
-            <div className="relative flex min-h-[420px] flex-col overflow-hidden rounded-2xl bg-navy md:min-h-[460px]">
-              <Image
-                src={SERVICE_CARD_IMAGES[i]}
-                alt={svc.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={45}
-                className="object-cover opacity-40"
-              />
-              <div className="absolute inset-0 bg-navy/50" />
-
-              <div className="absolute top-6 left-6 z-10">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-amber text-navy shadow-md">
-                  <svc.icon className="size-6" />
+          <ScrollReveal key={svc.slug} delay={i * 80} direction="up">
+            <article
+              id={svc.slug}
+              className="group grid scroll-mt-28 gap-8 rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10"
+            >
+              <div className="flex items-start gap-5 md:col-span-5">
+                <span className="text-5xl font-bold tracking-tight text-amber/70 md:text-6xl">{svc.num}</span>
+                <div className="min-w-0 flex-1">
+                  <span className="flex size-12 items-center justify-center rounded-2xl bg-navy text-white">
+                    <svc.icon className="size-5" />
+                  </span>
+                  <h3 className="mt-4 text-2xl font-bold tracking-tight text-navy dark:text-white md:text-3xl">{svc.title}</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {svc.platforms.map((p) => (
+                      <span
+                        key={p}
+                        className="rounded-full border border-navy/10 bg-background px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-navy/70 dark:border-white/10 dark:text-white/70"
+                      >
+                        {p}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="relative z-10 mt-auto flex flex-1 flex-col justify-end p-6 md:p-8">
-                <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">{svc.title}</h3>
-                <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-white/65">{svc.desc}</p>
-                <div className="flex items-center justify-between border-t border-white/10 pt-5">
-                  <span className="text-base font-bold text-amber">{svc.price}</span>
+              <div className="md:col-span-7">
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{svc.desc}</p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {svc.includes.map((inc) => (
+                    <div
+                      key={inc}
+                      className="flex items-start gap-3 rounded-xl border border-navy/10 bg-background p-3 dark:border-white/10"
+                    >
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-amber/15 text-amber">
+                        <CheckIcon className="size-3" />
+                      </span>
+                      <span className="text-xs font-medium leading-snug text-navy/80 dark:text-white/80">{inc}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex items-center justify-between border-t border-navy/10 pt-5 dark:border-white/10">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber">{svc.engagement}</span>
                   <Link
-                    href="/contact"
-                    className="flex size-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white hover:bg-amber hover:text-navy"
+                    href={`/contact?service=${svc.slug}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-amber dark:bg-white dark:text-navy dark:hover:bg-amber dark:hover:text-white"
                   >
-                    <ArrowRightIcon className="size-5" />
+                    Talk to us
+                    <ArrowRightIcon className="size-3.5" />
                   </Link>
                 </div>
               </div>
-
-              <div className="pointer-events-none absolute top-8 right-6 z-10 select-none text-xl font-bold text-white/[0.06]">
-                0{i + 1}
-              </div>
-            </div>
+            </article>
           </ScrollReveal>
         ))}
       </div>
