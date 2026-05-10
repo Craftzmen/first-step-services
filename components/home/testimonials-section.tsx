@@ -1,6 +1,5 @@
 import { QuoteIcon, StarIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const featured = {
   text: "Replatformed us from Magento to Shopify in eight weeks with zero lost SEO and a 28% lift in conversion in the first quarter. Genuinely the best agency partner we have worked with.",
@@ -21,7 +20,6 @@ const trustLogos = ["Northbound Co.", "Cypress & Birch", "Halo Studios", "Forge 
 export function TestimonialsSection() {
   return (
     <SectionWrapper background="muted" className="relative overflow-hidden">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col items-start justify-between gap-4 md:mb-14 md:flex-row md:items-end">
           <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -38,11 +36,10 @@ export function TestimonialsSection() {
             <span className="ml-2 text-xs font-bold uppercase tracking-wider text-navy/60 dark:text-white/60">5.0 average</span>
           </div>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
         {/* Featured (left, large) */}
-        <ScrollReveal direction="left" className="lg:col-span-7">
+        <div className="lg:col-span-7">
           <div className="relative h-full overflow-hidden rounded-3xl bg-navy p-8 text-white md:p-12">
             <QuoteIcon aria-hidden className="pointer-events-none absolute -right-6 -top-6 size-44 opacity-10" />
 
@@ -68,12 +65,11 @@ export function TestimonialsSection() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* Secondary column (right) */}
         <div className="flex flex-col gap-6 lg:col-span-5">
-          <ScrollReveal direction="right">
-            <div className="relative rounded-3xl border border-navy/10 bg-card p-6 shadow-sm dark:border-white/10 md:p-8">
+            <div className="relative rounded-3xl border border-navy/10 bg-card p-6 dark:border-white/10 md:p-8">
               <QuoteIcon aria-hidden className="absolute -left-2 -top-2 size-7 text-amber opacity-30" />
 
               <div className="mb-4 flex items-center gap-1.5 text-amber">
@@ -96,9 +92,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
 
-          <ScrollReveal direction="right" delay={120}>
             <div className="rounded-3xl border border-amber/30 bg-amber/5 p-6 md:p-8">
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-amber">Trusted by</p>
               <div className="flex flex-wrap gap-x-5 gap-y-3">
@@ -109,7 +103,6 @@ export function TestimonialsSection() {
                 ))}
               </div>
             </div>
-          </ScrollReveal>
         </div>
       </div>
     </SectionWrapper>

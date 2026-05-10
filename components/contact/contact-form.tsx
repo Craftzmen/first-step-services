@@ -10,12 +10,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function ContactForm() {
   return (
-    <ScrollReveal direction="left">
-      <div className="rounded-3xl border border-navy/10 bg-card p-7 shadow-sm dark:border-white/10 md:p-10">
+      <div className="rounded-3xl border border-navy/10 bg-card p-7 dark:border-white/10 md:p-10">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -115,6 +113,5 @@ export function ContactForm() {
           We&apos;ll reply within 1 business day.
         </p>
       </div>
-    </ScrollReveal>
   )
 }

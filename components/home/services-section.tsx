@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon, StoreIcon, ArrowRightLeftIcon, LineChartIcon, PlugIcon, LayersIcon, RocketIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const featured = {
   icon: StoreIcon,
@@ -51,7 +50,6 @@ const services = [
 export function HomeServices() {
   return (
     <SectionWrapper id="services" className="relative">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -73,16 +71,13 @@ export function HomeServices() {
             <ArrowRightIcon className="size-4" />
           </Link>
         </div>
-      </ScrollReveal>
 
       {/* Bento grid: 3 cols × 3 rows on lg, with the flagship card spanning 2×2 */}
       <div className="grid gap-4 md:gap-5 lg:grid-cols-3 lg:grid-rows-3">
-        <ScrollReveal direction="up" className="lg:col-span-2 lg:row-span-2">
+        <div className="lg:col-span-2 lg:row-span-2">
           <div className="group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-3xl bg-navy p-7 text-white md:p-9">
-            <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-amber/20 blur-3xl" aria-hidden />
-
             <div className="relative flex items-start justify-between">
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-amber text-white shadow-lg shadow-amber/30">
+              <div className="flex size-14 items-center justify-center rounded-2xl border border-amber/20 bg-amber text-white">
                 <featured.icon className="size-7" />
               </div>
               <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber">
@@ -106,18 +101,18 @@ export function HomeServices() {
               <span className="text-sm font-bold text-amber">{featured.engagement}</span>
               <Link
                 href="/services"
-                className="flex size-11 items-center justify-center rounded-full bg-amber text-white transition group-hover:translate-x-1"
+                className="flex size-11 items-center justify-center rounded-full border border-amber/20 bg-amber text-white"
                 aria-label={`Learn more about ${featured.title}`}
               >
                 <ArrowRightIcon className="size-5" />
               </Link>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
 
         {services.map((svc, i) => (
-          <ScrollReveal key={svc.title} delay={(i + 1) * 70} direction="up">
-            <div className="group relative flex h-full min-h-[200px] flex-col rounded-3xl border border-navy/10 bg-card p-6 transition hover:-translate-y-0.5 hover:border-amber/40 hover:shadow-lg dark:border-white/10 md:p-7">
+          <div key={svc.title}>
+            <div className="group relative flex h-full min-h-[200px] flex-col rounded-3xl border border-navy/10 bg-card p-6 hover:border-amber/40 dark:border-white/10 md:p-7">
               <div className="flex items-start justify-between">
                 <div className="flex size-11 items-center justify-center rounded-xl bg-amber/10 text-amber">
                   <svc.icon className="size-5" />
@@ -132,18 +127,18 @@ export function HomeServices() {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber">{svc.engagement}</span>
                 <Link
                   href="/services"
-                  className="flex size-9 items-center justify-center rounded-full border border-navy/15 text-navy/60 transition hover:bg-amber hover:text-white group-hover:border-amber dark:border-white/15 dark:text-white/60"
+                  className="flex size-9 items-center justify-center rounded-full border border-navy/15 text-navy/60 hover:bg-amber hover:text-white group-hover:border-amber dark:border-white/15 dark:text-white/60"
                   aria-label={`Learn more about ${svc.title}`}
                 >
                   <ArrowRightIcon className="size-4" />
                 </Link>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         ))}
       </div>
 
-      <ScrollReveal className="mt-8 lg:hidden">
+      <div className="mt-8 lg:hidden">
         <Link
           href="/services"
           className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-navy hover:text-amber dark:text-white"
@@ -151,7 +146,7 @@ export function HomeServices() {
           All Services
           <ArrowRightIcon className="size-4" />
         </Link>
-      </ScrollReveal>
+      </div>
     </SectionWrapper>
   )
 }

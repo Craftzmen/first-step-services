@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon, StoreIcon, ArrowRightLeftIcon, LineChartIcon, PlugIcon, LayersIcon, RocketIcon, CheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface Service {
   num: string
@@ -110,7 +109,6 @@ const services: Service[] = [
 export function ServicesGrid() {
   return (
     <SectionWrapper id="services" className="relative">
-      <ScrollReveal>
         <div className="mb-10 max-w-2xl md:mb-14">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
             What We Offer
@@ -119,14 +117,13 @@ export function ServicesGrid() {
             Pick a track. <span className="text-amber">Or stitch a few together.</span>
           </h2>
         </div>
-      </ScrollReveal>
 
       <div className="space-y-6 md:space-y-8">
-        {services.map((svc, i) => (
-          <ScrollReveal key={svc.slug} delay={i * 80} direction="up">
+        {services.map((svc) => (
             <article
+              key={svc.slug}
               id={svc.slug}
-              className="group grid scroll-mt-28 gap-8 rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10"
+              className="group grid scroll-mt-28 gap-8 rounded-3xl border border-navy/10 bg-card p-7 hover:border-amber/40 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10"
             >
               <div className="flex items-start gap-5 md:col-span-5">
                 <span className="text-5xl font-bold tracking-tight text-amber/70 md:text-6xl">{svc.num}</span>
@@ -169,7 +166,7 @@ export function ServicesGrid() {
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber">{svc.engagement}</span>
                   <Link
                     href={`/contact?service=${svc.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-amber dark:bg-white dark:text-navy dark:hover:bg-amber dark:hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-amber dark:bg-white dark:text-navy dark:hover:bg-amber dark:hover:text-white"
                   >
                     Talk to us
                     <ArrowRightIcon className="size-3.5" />
@@ -177,7 +174,6 @@ export function ServicesGrid() {
                 </div>
               </div>
             </article>
-          </ScrollReveal>
         ))}
       </div>
     </SectionWrapper>

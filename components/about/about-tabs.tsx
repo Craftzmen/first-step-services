@@ -1,6 +1,5 @@
 import { HistoryIcon, TargetIcon, EyeIcon, CheckCircle2Icon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface PhilosophySection {
   num: string
@@ -46,7 +45,6 @@ const sections: PhilosophySection[] = [
 export function AboutTabs() {
   return (
     <SectionWrapper background="muted" className="relative">
-      <ScrollReveal>
         <div className="mb-10 max-w-2xl md:mb-14">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
             Story · Mission · Vision
@@ -55,12 +53,10 @@ export function AboutTabs() {
             What <span className="text-amber">drives the work.</span>
           </h2>
         </div>
-      </ScrollReveal>
 
       <div className="space-y-6 md:space-y-8">
-        {sections.map((s, i) => (
-          <ScrollReveal key={s.num} delay={i * 100} direction="up">
-            <article className="grid gap-6 rounded-3xl border border-navy/10 bg-card p-7 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10">
+        {sections.map((s) => (
+          <article key={s.num} className="grid gap-6 rounded-3xl border border-navy/10 bg-card p-7 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10">
               <div className="flex items-start gap-4 md:col-span-3">
                 <span className="text-5xl font-bold tracking-tight text-amber/80 md:text-6xl">{s.num}</span>
                 <div className="pt-1">
@@ -85,7 +81,6 @@ export function AboutTabs() {
                 ) : null}
               </div>
             </article>
-          </ScrollReveal>
         ))}
       </div>
     </SectionWrapper>

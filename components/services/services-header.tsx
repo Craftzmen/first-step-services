@@ -13,9 +13,6 @@ const quickLinks = [
 export function ServicesHeader() {
   return (
     <section className="relative overflow-hidden bg-navy pt-28 pb-14 text-white md:pt-36 md:pb-20">
-      <div aria-hidden className="pointer-events-none absolute -left-24 -top-32 size-[520px] rounded-full bg-amber/15 blur-[140px]" />
-      <div aria-hidden className="pointer-events-none absolute -right-32 bottom-0 size-[420px] rounded-full bg-amber/10 blur-[120px]" />
-
       <div className="relative mx-auto w-full max-w-[1200px] px-4 md:px-6">
         <nav aria-label="Breadcrumb" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white/60">
           <Link href="/" className="hover:text-amber">Home</Link>
@@ -36,20 +33,20 @@ export function ServicesHeader() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-white/15 bg-white/5 p-2 backdrop-blur-sm">
+            <div className="rounded-2xl border border-white/15 bg-navy-light p-2">
               <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Jump to a service</p>
               <ul className="grid divide-y divide-white/10">
                 {quickLinks.map((q) => (
                   <li key={q.slug}>
                     <Link
                       href={`#${q.slug}`}
-                      className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-3 transition hover:bg-white/5"
+                      className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-3 hover:bg-white/5"
                     >
                       <span className="flex size-9 items-center justify-center rounded-xl bg-amber/15 text-amber">
                         <q.icon className="size-4" />
                       </span>
                       <span className="text-sm font-semibold text-white">{q.title}</span>
-                      <ArrowUpRightIcon className="size-4 text-white/35 transition group-hover:text-amber" />
+                      <ArrowUpRightIcon className="size-4 text-white/35 group-hover:text-amber" />
                     </Link>
                   </li>
                 ))}

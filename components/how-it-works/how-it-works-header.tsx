@@ -12,8 +12,6 @@ const previewSteps = [
 export function HowItWorksHeader() {
   return (
     <section className="relative overflow-hidden bg-navy pt-28 pb-16 text-white md:pt-36 md:pb-24">
-      <div aria-hidden className="pointer-events-none absolute -top-32 left-1/2 size-[640px] -translate-x-1/2 rounded-full bg-amber/15 blur-[160px]" />
-
       <div className="relative mx-auto w-full max-w-[1200px] px-4 md:px-6">
         <nav aria-label="Breadcrumb" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white/60">
           <Link href="/" className="hover:text-amber">Home</Link>
@@ -40,9 +38,9 @@ export function HowItWorksHeader() {
               <li key={s.num} className="flex flex-col items-center gap-3 text-center">
                 <Link
                   href={`#step-${s.num}`}
-                  className="group flex size-14 items-center justify-center rounded-full border border-white/15 bg-navy text-white transition hover:border-amber hover:bg-amber"
+                  className="group flex size-14 items-center justify-center rounded-full border border-white/15 bg-navy text-white hover:border-amber hover:bg-amber"
                 >
-                  <s.icon className="size-5 transition group-hover:text-white" />
+                  <s.icon className="size-5 group-hover:text-white" />
                 </Link>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-amber">{s.num} · {s.phase}</p>

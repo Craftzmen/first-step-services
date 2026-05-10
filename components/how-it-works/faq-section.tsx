@@ -1,5 +1,4 @@
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const faqs = [
   {
@@ -23,7 +22,6 @@ const faqs = [
 export function FaqSection() {
   return (
     <SectionWrapper background="muted" className="relative">
-      <ScrollReveal>
         <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-6">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -37,17 +35,16 @@ export function FaqSection() {
             The questions we hear most before a project kicks off — and short, honest answers. If yours isn&apos;t here, send us a message and we&apos;ll get back to you within one business day.
           </p>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-5 md:grid-cols-2 md:gap-6">
         {faqs.map((faq, i) => (
-          <ScrollReveal key={faq.q} delay={i * 80} direction="up">
-            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-6 transition hover:border-amber/40 dark:border-white/10 md:p-8">
+          <div key={faq.q}>
+            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-6 hover:border-amber/40 dark:border-white/10 md:p-8">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber">Q.0{i + 1}</span>
               <h3 className="mt-3 text-lg font-bold tracking-tight text-navy dark:text-white md:text-xl">{faq.q}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{faq.a}</p>
             </div>
-          </ScrollReveal>
+          </div>
         ))}
       </div>
     </SectionWrapper>

@@ -1,5 +1,4 @@
 import { ClockIcon, GlobeIcon, MessageCircleIcon, LinkIcon } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
 import Link from "next/link"
 
 const hours = [
@@ -21,13 +20,10 @@ const socials = [
 export function ContactSidebar() {
   return (
     <div className="space-y-6 lg:col-span-5">
-      <ScrollReveal direction="right">
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-navy p-7 text-white md:p-8">
-          <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-amber/15 blur-3xl" />
-
           <div className="relative">
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-amber text-white shadow-md shadow-amber/30">
+              <div className="flex size-12 items-center justify-center rounded-2xl border border-amber/20 bg-amber text-white">
                 <ClockIcon className="size-5" />
               </div>
               <div>
@@ -55,9 +51,7 @@ export function ContactSidebar() {
             </ul>
           </div>
         </div>
-      </ScrollReveal>
 
-      <ScrollReveal direction="right" delay={120}>
         <div className="rounded-3xl border border-navy/10 bg-card p-7 dark:border-white/10 md:p-8">
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.25em] text-amber">Stay connected</p>
           <h3 className="mb-6 text-lg font-bold tracking-tight text-navy dark:text-white">
@@ -70,10 +64,10 @@ export function ContactSidebar() {
                 <Link
                   href="#"
                   aria-label={s.label}
-                  className="group flex items-center justify-between gap-4 rounded-2xl border border-navy/10 bg-background p-3 transition hover:border-amber/40 dark:border-white/10"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-navy/10 bg-background p-3 hover:border-amber/40 dark:border-white/10"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="flex size-10 items-center justify-center rounded-xl bg-navy text-white transition group-hover:bg-amber">
+                    <span className="flex size-10 items-center justify-center rounded-xl bg-navy text-white group-hover:bg-amber">
                       <s.icon className="size-4" />
                     </span>
                     <div>
@@ -89,7 +83,6 @@ export function ContactSidebar() {
             ))}
           </ul>
         </div>
-      </ScrollReveal>
     </div>
   )
 }

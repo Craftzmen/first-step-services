@@ -59,7 +59,7 @@ export function PrivacyPolicyContent() {
                   <li key={s.id}>
                     <Link
                       href={`#${s.id}`}
-                      className="group -ml-px flex items-baseline gap-3 border-l-2 border-transparent py-2 pl-5 text-sm font-medium text-muted-foreground transition hover:border-amber hover:text-amber"
+                      className="group -ml-px flex items-baseline gap-3 border-l-2 border-transparent py-2 pl-5 text-sm font-medium text-muted-foreground hover:border-amber hover:text-amber"
                     >
                       <span className="text-[10px] font-bold tracking-wider text-amber/70 group-hover:text-amber">
                         {String(i + 1).padStart(2, "0")}

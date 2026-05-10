@@ -1,6 +1,5 @@
 import { SendIcon, MailCheckIcon, CalendarCheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const stages = [
   {
@@ -26,7 +25,6 @@ const stages = [
 export function ContactCards() {
   return (
     <SectionWrapper id="next-steps" className="relative">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -40,12 +38,11 @@ export function ContactCards() {
             Every inquiry gets the same treatment — fast, transparent, and grounded in what your team actually needs.
           </p>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-5 md:grid-cols-3 md:gap-6">
-        {stages.map((s, i) => (
-          <ScrollReveal key={s.num} delay={i * 100} direction="up">
-            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:p-8">
+        {stages.map((s) => (
+          <div key={s.num}>
+            <div className="group relative h-full rounded-3xl border border-navy/10 bg-card p-7 hover:border-amber/40 dark:border-white/10 md:p-8">
               <div className="flex items-center justify-between">
                 <span className="text-4xl font-bold tracking-tight text-amber/70 md:text-5xl">{s.num}</span>
                 <span className="flex size-11 items-center justify-center rounded-2xl bg-navy text-white">
@@ -55,7 +52,7 @@ export function ContactCards() {
               <h3 className="mt-6 text-lg font-bold tracking-tight text-navy dark:text-white md:text-xl">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             </div>
-          </ScrollReveal>
+          </div>
         ))}
       </div>
     </SectionWrapper>

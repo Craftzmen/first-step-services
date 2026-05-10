@@ -145,12 +145,6 @@
     body {
         @apply bg-background text-foreground;
     }
-
-    @media (min-width: 768px) {
-        html {
-            scroll-behavior: smooth;
-        }
-    }
 }
 
 /* Solid panel (no blur / glassmorphism) */

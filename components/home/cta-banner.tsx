@@ -1,19 +1,14 @@
 import Link from "next/link"
 import { PhoneIcon, MailIcon, ArrowRightIcon, ClockIcon } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function CtaBanner() {
   return (
     <section className="relative bg-background py-16 md:py-24">
       <div className="relative mx-auto max-w-[1200px] px-4 md:px-6">
-        <ScrollReveal>
-          <div className="overflow-hidden rounded-3xl border border-navy/10 shadow-2xl shadow-navy/10 dark:border-white/10">
+          <div className="overflow-hidden rounded-3xl border border-navy/10 dark:border-white/10">
             <div className="grid lg:grid-cols-5">
               {/* Primary message side */}
               <div className="relative overflow-hidden bg-navy p-8 text-white md:p-12 lg:col-span-3 lg:p-14">
-                <div className="pointer-events-none absolute -left-32 -top-32 size-80 rounded-full bg-amber/15 blur-3xl" aria-hidden />
-                <div className="pointer-events-none absolute -bottom-20 -right-20 size-72 rounded-full bg-amber/10 blur-3xl" aria-hidden />
-
                 <div className="relative">
                   <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
                     Ready when you are
@@ -26,7 +21,7 @@ export function CtaBanner() {
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex h-12 items-center gap-2 rounded-full bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light"
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-amber/20 bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white hover:bg-amber-light"
                   >
                     Send Message
                     <ArrowRightIcon className="size-4" />
@@ -47,7 +42,7 @@ export function CtaBanner() {
 
                 <Link
                   href="tel:+18883968739"
-                  className="group mb-4 flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 transition hover:bg-white/20"
+                  className="group mb-4 flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 hover:bg-white/20"
                 >
                   <div className="flex items-center gap-4">
                     <div className="flex size-11 items-center justify-center rounded-xl bg-navy text-white">
@@ -58,12 +53,12 @@ export function CtaBanner() {
                       <div className="text-base font-bold text-white">(888) 396-8739</div>
                     </div>
                   </div>
-                  <ArrowRightIcon className="size-5 text-white/70 transition group-hover:translate-x-1 group-hover:text-white" />
+                  <ArrowRightIcon className="size-5 text-white/70 group-hover:text-white" />
                 </Link>
 
                 <Link
                   href="mailto:info@firststepservices.tech"
-                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 transition hover:bg-white/20"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 hover:bg-white/20"
                 >
                   <div className="flex items-center gap-4">
                     <div className="flex size-11 items-center justify-center rounded-xl bg-navy text-white">
@@ -74,14 +69,13 @@ export function CtaBanner() {
                       <div className="truncate text-sm font-bold text-white">info@firststepservices.tech</div>
                     </div>
                   </div>
-                  <ArrowRightIcon className="size-5 shrink-0 text-white/70 transition group-hover:translate-x-1 group-hover:text-white" />
+                  <ArrowRightIcon className="size-5 shrink-0 text-white/70 group-hover:text-white" />
                 </Link>
 
                 <p className="mt-6 text-xs font-medium text-white/80">Mon–Sat, 8am–6pm CT.</p>
               </div>
             </div>
           </div>
-        </ScrollReveal>
       </div>
     </section>
   )

@@ -1,13 +1,11 @@
 import Link from "next/link"
 import { ArrowRightIcon, PhoneIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function CtaHowItWorks() {
   return (
     <SectionWrapper padding="sm">
-      <ScrollReveal>
-        <div className="relative overflow-hidden rounded-3xl bg-amber p-8 text-navy shadow-lg md:p-12">
+        <div className="relative overflow-hidden rounded-3xl border border-navy/10 bg-amber p-8 text-navy md:p-12">
           <div className="grid items-center gap-8 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-7">
               <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.3em] text-navy/60">Get started</p>
@@ -36,7 +34,6 @@ export function CtaHowItWorks() {
             </div>
           </div>
         </div>
-      </ScrollReveal>
     </SectionWrapper>
   )
 }

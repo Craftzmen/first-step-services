@@ -1,6 +1,5 @@
 import { SparklesIcon, UsersIcon, StoreIcon, RefreshCwIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const stats = [
   {
@@ -32,7 +31,6 @@ const stats = [
 export function AboutStats() {
   return (
     <SectionWrapper className="relative">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -46,12 +44,11 @@ export function AboutStats() {
             A snapshot of where we are today and the work we have shipped together with our partners.
           </p>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-        {stats.map((s, i) => (
-          <ScrollReveal key={s.label} delay={i * 100} direction="up">
-            <div className="group relative h-full overflow-hidden rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:p-9">
+        {stats.map((s) => (
+          <div key={s.label}>
+            <div className="group relative h-full overflow-hidden rounded-3xl border border-navy/10 bg-card p-7 hover:border-amber/40 dark:border-white/10 md:p-9">
               <div className="grid w-full grid-cols-[auto_1fr] gap-7">
                 <div className="flex flex-col items-start gap-3">
                   <span className="flex size-12 items-center justify-center rounded-2xl bg-amber/10 text-amber">
@@ -67,7 +64,7 @@ export function AboutStats() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         ))}
       </div>
     </SectionWrapper>

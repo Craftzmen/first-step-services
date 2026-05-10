@@ -48,9 +48,6 @@ const socials = [
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-navy text-white">
-      <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-amber/10 blur-[140px]" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-32 size-[320px] rounded-full bg-amber/10 blur-[120px]" />
-
       <div className="relative mx-auto max-w-[1200px] px-4 pt-16 md:px-6 md:pt-20">
         {/* Top tagline + CTA */}
         <div className="grid items-end gap-8 border-b border-white/10 pb-14 md:grid-cols-12 md:gap-10 md:pb-16">
@@ -66,7 +63,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 md:col-span-5 md:items-end">
             <Link
               href="/contact"
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-amber px-7 text-xs font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-amber/20 bg-amber px-7 text-xs font-semibold uppercase tracking-wide text-white hover:bg-amber-light sm:w-auto"
             >
               Book a Strategy Call
               <ArrowRightIcon className="size-4" />
@@ -102,9 +99,9 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="group flex size-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-amber"
+                  className="group flex size-10 items-center justify-center rounded-xl bg-white/5 hover:bg-amber"
                 >
-                  <s.icon className="size-4 text-white/55 transition group-hover:text-white" />
+                  <s.icon className="size-4 text-white/55 group-hover:text-white" />
                 </Link>
               ))}
             </div>
@@ -118,7 +115,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-white/55 transition hover:text-white"
+                    className="text-sm font-medium text-white/55 hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -135,9 +132,9 @@ export function Footer() {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="group flex items-center gap-2.5 text-sm font-medium text-white/55 transition hover:text-white"
+                    className="group flex items-center gap-2.5 text-sm font-medium text-white/55 hover:text-white"
                   >
-                    <s.icon className="size-3.5 text-amber/55 transition group-hover:text-amber" />
+                    <s.icon className="size-3.5 text-amber/55 group-hover:text-amber" />
                     {s.label}
                   </Link>
                 </li>
@@ -160,20 +157,20 @@ export function Footer() {
               </li>
               <li>
                 <Link href="tel:+18883968739" className="group flex items-center gap-3">
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-amber/15 text-amber transition group-hover:bg-amber group-hover:text-white">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-amber/15 text-amber group-hover:bg-amber group-hover:text-white">
                     <PhoneIcon className="size-3.5" />
                   </span>
-                  <span className="text-sm font-medium text-white/55 transition group-hover:text-white">
+                  <span className="text-sm font-medium text-white/55 group-hover:text-white">
                     (888) 396-8739
                   </span>
                 </Link>
               </li>
               <li>
                 <Link href="mailto:info@firststepservices.tech" className="group flex items-center gap-3">
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-amber/15 text-amber transition group-hover:bg-amber group-hover:text-white">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-amber/15 text-amber group-hover:bg-amber group-hover:text-white">
                     <MailIcon className="size-3.5" />
                   </span>
-                  <span className="break-all text-sm font-medium text-white/55 transition group-hover:text-white">
+                  <span className="break-all text-sm font-medium text-white/55 group-hover:text-white">
                     info@firststepservices.tech
                   </span>
                 </Link>
@@ -199,7 +196,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 transition hover:text-amber"
+                className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 hover:text-amber"
               >
                 {link.label}
               </Link>
@@ -207,8 +204,7 @@ export function Footer() {
             <span aria-hidden className="hidden h-3 w-px bg-white/15 md:inline-block" />
             <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-white/45">
               <span aria-hidden className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+                <span className="inline-flex size-2 rounded-full bg-emerald-400" />
               </span>
               All systems operational
             </span>

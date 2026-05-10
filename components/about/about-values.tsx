@@ -1,6 +1,5 @@
 import { ShieldCheckIcon, SparklesIcon, TrendingUpIcon, UsersIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const values = [
   {
@@ -52,7 +51,6 @@ const values = [
 export function AboutValues() {
   return (
     <SectionWrapper background="muted" className="relative">
-      <ScrollReveal>
         <div className="mb-10 max-w-2xl md:mb-14">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
             What We Stand For
@@ -61,12 +59,11 @@ export function AboutValues() {
             The values that <span className="text-amber">drive every project.</span>
           </h2>
         </div>
-      </ScrollReveal>
 
       <div className="space-y-5 md:space-y-6">
-        {values.map((v, i) => (
-          <ScrollReveal key={v.title} delay={i * 80} direction="up">
-            <div className="group relative grid gap-6 rounded-3xl border border-navy/10 bg-card p-7 transition hover:border-amber/40 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10">
+        {values.map((v) => (
+          <div key={v.title}>
+            <div className="group relative grid gap-6 rounded-3xl border border-navy/10 bg-card p-7 hover:border-amber/40 dark:border-white/10 md:grid-cols-12 md:gap-10 md:p-10">
               <div className="flex items-start gap-5 md:col-span-4">
                 <span className="text-4xl font-bold tracking-tight text-amber/70 md:text-5xl">{v.num}</span>
                 <div>
@@ -88,7 +85,7 @@ export function AboutValues() {
                 </ul>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         ))}
       </div>
     </SectionWrapper>

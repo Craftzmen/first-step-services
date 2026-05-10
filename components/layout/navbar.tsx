@@ -150,7 +150,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 flex justify-center max-md:transition-none",
+        "fixed left-0 right-0 top-0 z-50 flex justify-center",
         scrolled ? "pt-4" : "pt-0"
       )}
     >
@@ -165,7 +165,7 @@ export function Navbar() {
           className={cn(
             "relative flex items-center justify-between px-4 md:px-6",
             scrolled
-              ? "rounded-full border border-white/10 bg-white shadow-xl shadow-navy/20"
+              ? "rounded-full border border-white/10 bg-white"
               : "bg-transparent"
           )}
         >
@@ -210,7 +210,7 @@ export function Navbar() {
             >
               Services
               <ChevronDownIcon
-                className={cn("size-4 transition-transform", openMenu === "services" && "rotate-180")}
+                className={cn("size-4", openMenu === "services" && "rotate-180")}
               />
               {isServicesActive ? (
                 <span className="absolute bottom-0 left-3 right-7 h-0.5 bg-amber md:left-4 md:right-8" />
@@ -238,7 +238,7 @@ export function Navbar() {
               >
                 Policies
                 <ChevronDownIcon
-                  className={cn("size-4 transition-transform", openMenu === "policies" && "rotate-180")}
+                  className={cn("size-4", openMenu === "policies" && "rotate-180")}
                 />
                 {isPoliciesActive ? (
                   <span className="absolute bottom-0 left-3 right-7 h-0.5 bg-amber md:left-4 md:right-8" />
@@ -246,7 +246,7 @@ export function Navbar() {
               </button>
 
               {openMenu === "policies" ? (
-                <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-64 overflow-hidden rounded-2xl border border-white/10 bg-navy p-2 shadow-2xl shadow-black/40">
+                <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-64 overflow-hidden rounded-2xl border border-white/10 bg-navy p-2">
                   <p className="px-3 pt-2 pb-3 text-[10px] font-bold uppercase tracking-[0.25em] text-amber">
                     Legal
                   </p>
@@ -317,7 +317,7 @@ export function Navbar() {
             <div
               role="menu"
               aria-label="Services"
-              className="absolute left-1/2 top-[calc(100%+12px)] z-30 w-[640px] max-w-[calc(100vw-2rem)] -translate-x-1/2 overflow-hidden rounded-3xl border border-white/10 bg-navy p-6 shadow-2xl shadow-black/40"
+              className="absolute left-1/2 top-[calc(100%+12px)] z-30 w-[640px] max-w-[calc(100vw-2rem)] -translate-x-1/2 overflow-hidden rounded-3xl border border-white/10 bg-navy p-6"
             >
               <div className="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-amber">
@@ -339,9 +339,9 @@ export function Navbar() {
                     <Link
                       href={s.href}
                       onClick={closeMenus}
-                      className="group flex items-start gap-3 rounded-xl p-3 transition hover:bg-white/5"
+                      className="group flex items-start gap-3 rounded-xl p-3 hover:bg-white/5"
                     >
-                      <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-amber/15 text-amber transition group-hover:bg-amber group-hover:text-white">
+                      <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-amber/15 text-amber group-hover:bg-amber group-hover:text-white">
                         <s.icon className="size-4" />
                       </span>
                       <div className="min-w-0">
@@ -357,23 +357,32 @@ export function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen ? (
-        <div className="fixed inset-0 z-100 lg:hidden" aria-hidden={!mobileOpen}>
-          <button
-            type="button"
-            tabIndex={-1}
-            className="absolute inset-0 bg-black/60"
-            onClick={closeMobile}
-            aria-label="Close menu"
-          />
-          <div
-            id="mobile-navigation"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site navigation"
-            className="absolute right-0 top-0 flex h-full w-full max-w-[420px] flex-col bg-navy shadow-2xl"
-          >
+      {/* Mobile menu: always mounted under lg:hidden so the panel can slide */}
+      <div
+        className={cn(
+          "fixed inset-0 z-100 lg:hidden",
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        )}
+        aria-hidden={!mobileOpen}
+      >
+        <button
+          type="button"
+          tabIndex={-1}
+          className={cn("absolute inset-0 bg-black/60", !mobileOpen && "invisible")}
+          onClick={closeMobile}
+          aria-label="Close menu"
+        />
+        <div
+          id="mobile-navigation"
+          role="dialog"
+          aria-modal={mobileOpen ? true : undefined}
+          aria-label="Site navigation"
+          tabIndex={mobileOpen ? undefined : -1}
+          className={cn(
+            "absolute right-0 top-0 flex h-full w-full max-w-[420px] flex-col border-l border-white/10 bg-navy transition-transform duration-300 ease-out",
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
             <div className="flex items-center justify-between border-b border-white/10 p-6">
               <Link href="/" onClick={closeMobile} aria-label="First Step Services — home" className="inline-flex items-center">
                 <Image
@@ -471,7 +480,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={closeMobile}
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-amber text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25"
+                className="flex h-12 w-full items-center justify-center gap-2 rounded-full border border-amber/20 bg-amber text-sm font-semibold uppercase tracking-wide text-white"
               >
                 Book a Strategy Call
                 <ArrowRightIcon className="size-4" />
@@ -487,7 +496,6 @@ export function Navbar() {
             </div>
           </div>
         </div>
-      ) : null}
     </header>
   )
 }

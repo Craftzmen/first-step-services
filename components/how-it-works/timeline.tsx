@@ -10,7 +10,6 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 interface Step {
   num: string
@@ -89,7 +88,6 @@ const steps: Step[] = [
 export function Timeline() {
   return (
     <SectionWrapper id="process" className="relative">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
@@ -103,14 +101,13 @@ export function Timeline() {
             Same shape every engagement, sized to fit the work — focused theme refresh, full migration, or headless build.
           </p>
         </div>
-      </ScrollReveal>
 
       <div className="space-y-5 md:space-y-6">
         {steps.map((step, i) => {
           const isAmber = i % 2 === 1
           return (
-            <ScrollReveal key={step.num} delay={i * 80} direction="up">
               <article
+                key={step.num}
                 id={`step-${step.num}`}
                 className={`grid scroll-mt-28 gap-8 rounded-3xl border p-7 md:grid-cols-12 md:gap-10 md:p-10 ${
                   isAmber
@@ -153,15 +150,13 @@ export function Timeline() {
                   ) : null}
                 </div>
               </article>
-            </ScrollReveal>
           )
         })}
       </div>
 
-      <ScrollReveal>
         <div className="mt-12 grid gap-8 rounded-3xl bg-navy p-8 text-white md:mt-16 md:grid-cols-12 md:gap-10 md:p-12">
           <div className="md:col-span-2">
-            <div className="flex size-16 items-center justify-center rounded-2xl bg-amber text-white shadow-lg shadow-amber/30">
+            <div className="flex size-16 items-center justify-center rounded-2xl border border-amber/20 bg-amber text-white">
               <HeadphonesIcon className="size-7" />
             </div>
           </div>
@@ -182,7 +177,6 @@ export function Timeline() {
             </Link>
           </div>
         </div>
-      </ScrollReveal>
     </SectionWrapper>
   )
 }

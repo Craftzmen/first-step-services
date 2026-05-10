@@ -2,7 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRightIcon, UsersIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 import { UNSPLASH } from "@/lib/remote-images"
 
 const stats = [
@@ -15,7 +14,6 @@ const stats = [
 export function AboutSnapshot() {
   return (
     <SectionWrapper background="muted" className="relative overflow-hidden">
-      <ScrollReveal>
         <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber/25 bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber dark:bg-white/10">
@@ -30,10 +28,8 @@ export function AboutSnapshot() {
             A small, senior team of e-commerce designers and engineers helping merchants ship modern storefronts and stay on as a long-term technology partner.
           </p>
         </div>
-      </ScrollReveal>
 
       {/* Editorial stats strip */}
-      <ScrollReveal direction="up">
         <div className="flex flex-col overflow-hidden rounded-3xl border border-navy/10 bg-card md:flex-row dark:border-white/10">
           {stats.map((s, i) => (
             <div
@@ -51,12 +47,11 @@ export function AboutSnapshot() {
             </div>
           ))}
         </div>
-      </ScrollReveal>
 
       {/* Image + paragraph row */}
       <div className="mt-10 grid items-center gap-10 md:mt-14 md:grid-cols-12 md:gap-12">
-        <ScrollReveal direction="left" className="md:col-span-7">
-          <div className="relative aspect-16/10 w-full overflow-hidden rounded-3xl border border-navy/10 shadow-lg dark:border-white/10">
+        <div className="md:col-span-7">
+          <div className="relative aspect-16/10 w-full overflow-hidden rounded-3xl border border-navy/10 dark:border-white/10">
             <Image
               src={`${UNSPLASH.team}&w=1400`}
               alt="Our team collaborating"
@@ -67,9 +62,9 @@ export function AboutSnapshot() {
               className="object-cover"
             />
           </div>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal direction="right" className="md:col-span-5">
+        <div className="md:col-span-5">
           <div className="space-y-6">
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               First Step Services is the agency you call when you need to ship something hard — a replatform, a checkout overhaul, a headless build — and trust it will be done well, on time, with no surprises.
@@ -82,7 +77,7 @@ export function AboutSnapshot() {
               <ArrowRightIcon className="ml-2 size-4" aria-hidden />
             </Link>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </SectionWrapper>
   )

@@ -27,9 +27,6 @@ const masthead = [
 export function ContactHeader() {
   return (
     <section className="relative overflow-hidden bg-navy pt-28 pb-12 text-white md:pt-36 md:pb-16">
-      <div aria-hidden className="pointer-events-none absolute -top-40 right-0 size-[520px] rounded-full bg-amber/15 blur-[160px]" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-40 left-0 size-[420px] rounded-full bg-amber/10 blur-[140px]" />
-
       <div className="relative mx-auto w-full max-w-[1200px] px-4 md:px-6">
         <nav aria-label="Breadcrumb" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white/60">
           <Link href="/" className="hover:text-amber">Home</Link>
@@ -52,7 +49,7 @@ export function ContactHeader() {
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/10 sm:grid-cols-3 md:mt-16">
           {masthead.map((m) => {
             const inner = (
-              <div className="flex h-full flex-col gap-3 bg-navy/95 p-5 transition group-hover:bg-navy md:p-6">
+              <div className="flex h-full flex-col gap-3 bg-navy p-5 group-hover:bg-navy md:p-6">
                 <span className="flex size-10 items-center justify-center rounded-xl bg-amber/15 text-amber">
                   <m.icon className="size-4" />
                 </span>

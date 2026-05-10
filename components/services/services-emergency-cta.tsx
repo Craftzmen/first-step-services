@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { PhoneIcon, ZapIcon, ClockIcon, ShieldCheckIcon } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const metrics = [
   {
@@ -23,16 +22,11 @@ const metrics = [
 export function ServicesEmergencyCta() {
   return (
     <section className="relative overflow-hidden bg-navy py-16 text-white md:py-24">
-      <div aria-hidden className="pointer-events-none absolute -left-32 -top-32 size-[420px] rounded-full bg-amber/15 blur-[120px]" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 -right-24 size-[320px] rounded-full bg-amber/10 blur-[120px]" />
-
-      <ScrollReveal>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-4 md:grid-cols-12 md:gap-12 md:px-6">
           <div className="md:col-span-5">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
               <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-amber" />
+                <span className="inline-flex size-2 rounded-full bg-amber" />
               </span>
               Rapid response
             </div>
@@ -46,7 +40,7 @@ export function ServicesEmergencyCta() {
 
             <Link
               href="tel:+18883968739"
-              className="mt-7 inline-flex h-12 items-center gap-3 rounded-full bg-amber px-6 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light"
+              className="mt-7 inline-flex h-12 items-center gap-3 rounded-full border border-amber/20 bg-amber px-6 text-sm font-semibold uppercase tracking-wide text-white hover:bg-amber-light"
             >
               <PhoneIcon className="size-4" />
               (888) 396-8739
@@ -58,7 +52,7 @@ export function ServicesEmergencyCta() {
               {metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm md:p-6"
+                  className="rounded-2xl border border-white/10 bg-navy-light p-5 md:p-6"
                 >
                   <span className="flex size-10 items-center justify-center rounded-xl bg-amber/15 text-amber">
                     <m.icon className="size-4" />
@@ -74,7 +68,6 @@ export function ServicesEmergencyCta() {
             </div>
           </div>
         </div>
-      </ScrollReveal>
     </section>
   )
 }

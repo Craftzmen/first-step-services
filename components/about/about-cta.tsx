@@ -1,14 +1,9 @@
 import Link from "next/link"
 import { ArrowRightIcon, PhoneIcon } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function AboutCta() {
   return (
     <section className="relative overflow-hidden bg-navy text-white">
-      <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-amber/15 blur-[120px]" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 size-[320px] rounded-full bg-amber/10 blur-[120px]" />
-
-      <ScrollReveal>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-16 md:grid-cols-12 md:gap-12 md:px-6 md:py-20 lg:py-24">
           <div className="md:col-span-7">
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-amber">Get in touch</p>
@@ -24,7 +19,7 @@ export function AboutCta() {
           <div className="flex flex-col gap-3 md:col-span-5 md:items-end">
             <Link
               href="/contact"
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-amber/25 hover:bg-amber-light sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-amber/20 bg-amber px-7 text-sm font-semibold uppercase tracking-wide text-white hover:bg-amber-light sm:w-auto"
             >
               Start a Project
               <ArrowRightIcon className="size-4" />
@@ -38,7 +33,6 @@ export function AboutCta() {
             </Link>
           </div>
         </div>
-      </ScrollReveal>
     </section>
   )
 }

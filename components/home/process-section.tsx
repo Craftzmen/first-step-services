@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon, MessageSquareIcon, PaletteIcon, RocketIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 
 const steps = [
   {
@@ -34,7 +33,6 @@ export function ProcessSection() {
         {/* LEFT: sticky header */}
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <ScrollReveal>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
                 How We Work
               </div>
@@ -54,7 +52,6 @@ export function ProcessSection() {
                   <ArrowRightIcon className="size-4" />
                 </span>
               </Link>
-            </ScrollReveal>
           </div>
         </div>
 
@@ -66,13 +63,13 @@ export function ProcessSection() {
           />
 
           <div className="space-y-8 md:space-y-10">
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 120} direction="right">
+            {steps.map((step) => (
+              <div key={step.num}>
                 <div className="relative flex gap-6 md:gap-8">
-                  <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-navy text-white shadow-md dark:bg-amber md:size-16">
+                  <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-navy text-white dark:border-amber/30 dark:bg-amber md:size-16">
                     <step.icon className="size-6 md:size-7" />
                   </div>
-                  <div className="flex-1 rounded-2xl border border-navy/10 bg-card p-6 shadow-sm dark:border-white/10 md:p-8">
+                  <div className="flex-1 rounded-2xl border border-navy/10 bg-card p-6 dark:border-white/10 md:p-8">
                     <div className="flex items-baseline gap-3">
                       <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-amber">Step {step.num}</span>
                       <span aria-hidden className="h-px flex-1 bg-navy/10 dark:bg-white/10" />
@@ -89,7 +86,7 @@ export function ProcessSection() {
                     </ul>
                   </div>
                 </div>
-              </ScrollReveal>
+              </div>
             ))}
           </div>
         </div>

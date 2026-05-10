@@ -1,6 +1,5 @@
 import { ArrowRightIcon, FileTextIcon, MailCheckIcon, CalendarCheckIcon } from "lucide-react"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { ScrollReveal } from "@/components/scroll-reveal"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -35,7 +34,6 @@ const nextSteps = [
 export function ServicesBooking() {
   return (
     <SectionWrapper background="muted" className="relative">
-      <ScrollReveal>
         <div className="mb-10 max-w-2xl md:mb-14">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber">
             Next Steps
@@ -44,16 +42,15 @@ export function ServicesBooking() {
             Start your <span className="text-amber">project.</span>
           </h2>
         </div>
-      </ScrollReveal>
 
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         {/* LEFT: what happens next */}
-        <ScrollReveal direction="left" className="lg:col-span-5">
+        <div className="lg:col-span-5">
           <div className="space-y-4">
             {nextSteps.map((s, i) => (
               <div
                 key={s.num}
-                className="group relative grid grid-cols-[auto_1fr] items-start gap-5 rounded-2xl border border-navy/10 bg-card p-5 transition hover:border-amber/40 dark:border-white/10 md:p-6"
+                className="group relative grid grid-cols-[auto_1fr] items-start gap-5 rounded-2xl border border-navy/10 bg-card p-5 hover:border-amber/40 dark:border-white/10 md:p-6"
               >
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-2xl font-bold tracking-tight text-amber/80 md:text-3xl">{s.num}</span>
@@ -71,13 +68,11 @@ export function ServicesBooking() {
               </div>
             ))}
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* RIGHT: dark form card */}
-        <ScrollReveal direction="right" className="lg:col-span-7">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-navy p-8 text-white shadow-lg md:p-10">
-            <div aria-hidden className="pointer-events-none absolute -right-20 -top-20 size-60 rounded-full bg-amber/15 blur-3xl" />
-
+        <div className="lg:col-span-7">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-navy p-8 text-white md:p-10">
             <div className="relative">
               <h3 className="mb-2 text-2xl font-bold tracking-tight md:text-3xl">
                 Tell us about <span className="text-amber">your store.</span>
@@ -135,7 +130,7 @@ export function ServicesBooking() {
               </p>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </SectionWrapper>
   )
